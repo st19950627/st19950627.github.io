@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>The World Best ST</title>
+    <title>LEETCODE-查找常用字符串 · The World Best ST</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">The World Best ST.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">LEETCODE-查找常用字符串</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">The World Best ST.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/header-6.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            LEETCODE-查找常用字符串
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="leetcode">leetcode</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">303</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/12/21</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,250 +399,79 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/13/SpringBoot基础学习/">
-            
-                <span>SpringBoot学习(一)</span>
-        </a>
-        <div class="abstract-content">
-            SpringBoot基础学习(一)
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SpringBoot">SpringBoot</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="LEETCODE-查找常用字符串"><a href="#LEETCODE-查找常用字符串" class="headerlink" title="LEETCODE-查找常用字符串"></a>LEETCODE-查找常用字符串</h1><blockquote>
+<p>给定仅有小写字母组成的字符串数组 A，返回列表中的每个字符串中都显示的全部字符（包括重复字符）组成的列表。例如，如果一个字符在每个字符串中出现 3 次，但不是 4 次，则需要在最终答案中包含该字符 3 次。</p>
+</blockquote>
+<p>示例 1：</p>
+<blockquote>
+<p>输入：[“bella”,”label”,”roller”]</p>
+<p>输出：[“e”,”l”,”l”]</p>
+</blockquote>
+<p>示例 2：</p>
+<blockquote>
+<p>输入：[“cool”,”lock”,”cook”]</p>
+<p>输出：[“c”,”o”]</p>
+</blockquote>
+<p>思路：通过交集获取<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> List&lt;String&gt; <span class="title">commonChars</span><span class="params">(String[] A)</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span> (A == <span class="keyword">null</span> || A.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> resultList;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] ansArray = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i ++) &#123;</span><br><span class="line">            ansArray[i] = Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String s : A) &#123;</span><br><span class="line">            <span class="keyword">int</span>[] tmp = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i ++) &#123;</span><br><span class="line">                tmp[i] = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">char</span> c : s.toCharArray()) &#123;</span><br><span class="line">                <span class="comment">// 计算每个字符串中每个字符出现的次数</span></span><br><span class="line">                tmp[c - <span class="string">'a'</span>] ++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i ++) &#123;</span><br><span class="line">                <span class="comment">// 获取每个字符出现的最小值</span></span><br><span class="line">                ansArray[i] = Math.min(tmp[i], ansArray[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; i ++) &#123;</span><br><span class="line">            <span class="keyword">while</span> (ansArray[i] &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">// 将结果输出</span></span><br><span class="line">                resultList.add(<span class="string">""</span>+(<span class="keyword">char</span>)(i + <span class="string">'a'</span>));</span><br><span class="line">                ansArray[i] --;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> resultList;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考资料：</p>
+<p><a href="https://leetcode-cn.com/problems/find-common-characters" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-common-characters</a></p>
+
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/13/Docker/">
-            
-                <span>初入Docker</span>
-        </a>
-        <div class="abstract-content">
-            Docker安装与相关命令
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
+            </p><p>原文链接：<a href="https://st19950627.github.io/2019/12/21/查找常用字符串/">https://st19950627.github.io/2019/12/21/查找常用字符串/</a>
+            </p><p>发表日期：<a href="https://st19950627.github.io/2019/12/21/查找常用字符串/">December 21st 2019, 3:23:02 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2019/12/21/查找常用字符串/">December 21st 2019, 3:32:15 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/13</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Docker">Docker</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/12/List-Array-Map/">
-            
-                <span>List-Set-Map</span>
-        </a>
-        <div class="abstract-content">
-            List、Set、Map三者的异同
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="List">List</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Set">Set</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Map">Map</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/12/ELK日志系统/">
-            
-                <span>ELK日志系统</span>
-        </a>
-        <div class="abstract-content">
-            ELK日志系统的安装
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="ELK">ELK</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="日志系统">日志系统</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/12/SLF4J-LESSON1/">
-            
-                <span>初入SLF4J</span>
-        </a>
-        <div class="abstract-content">
-            日志门面SLF4J的介绍(一)
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="SLF4J">SLF4J</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="日志">日志</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/12/Gradle/">
-            
-                <span>Gradle简介</span>
-        </a>
-        <div class="abstract-content">
-            构建工具Gradle的简介啦~
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Gradle">Gradle</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/12/Redis_API的理解与使用/">
-            
-                <span>Redis-API的理解与使用</span>
-        </a>
-        <div class="abstract-content">
-            Redis相关命令与应用场景
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/12</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class="abstract-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Redis">Redis</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Api">Api</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/04/11/hello-world/">
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome To My World
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/11</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/12/15/hexo搬家/" title="HEXO的搬家">
+                    <div class="prevTitle">HEXO的搬家</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NDA2Ni8yMDYwMQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
     
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/2019/04/">&#60; PREV</a><a class="page-number" href="/archives/2019/04/">1</a><span class="page-number current">2</span>
-    </nav>
     
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -655,6 +545,24 @@
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LEETCODE-查找常用字符串"><span class="toc-number">1.</span> <span class="toc-text">LEETCODE-查找常用字符串</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1128,6 +1036,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
