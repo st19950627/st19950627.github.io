@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>JAVA编程规范整理 · The World Best ST</title>
+    <title>The World Best ST</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,23 +203,12 @@
 </head>
 
     
-        <body class="post-body">
-    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
-    
-    <div class="banner">
-            <div class="blog-title">
-                <a href="/">The World Best ST.</a>
-            </div>
-            <div class="post-title">
-                <a href="#" class="post-name">JAVA编程规范整理</a>
-            </div>
-    </div>
     
     <a class="home-link" href="/">The World Best ST.</a>
 </header>
@@ -231,76 +220,24 @@
 
 
 
-
-height:50vh;
 ">
     
     <!-- 主页  -->
-    
-    
-    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/header-3.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
-            
-            JAVA编程规范整理
-            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
-            
-            <!-- 404 -->
-            
         </p>
         <!-- 文章页meta -->
-        
-            <div class="post-intros">
-                <!-- 文章页标签  -->
-                
-                    <div class="post-intro-tags">
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="JAVA">JAVA</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="编程规范">编程规范</a>
-    
-</div>
-                
-                
-                    <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">2.6k</span>阅读时长: <span class="post-count reading-time">9 min</span></span>
-                    </div>
-                
-                <div class="post-intro-meta">
-                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/04/13</span>
-                    
-                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
-                        <span class="iconfont-archer">&#xe602;</span>
-                        <span id="busuanzi_value_page_pv"></span>
-                    </span>
-                    
-                    <span class="shareWrapper">
-                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
-                        <span class="shareText">Share</span>
-                        <ul class="shareList">
-                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
-                                <div class="share-qrcode"></div>
-                            </li>
-                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
-                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
-                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
-                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
         
     </div>
 </div>
@@ -401,266 +338,39 @@ height:50vh;
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main post-page">
-    <article class="article-entry">
-        <h1 id="一、编程规约"><a href="#一、编程规约" class="headerlink" title="一、编程规约"></a>一、编程规约</h1><h2 id="（一）命名风格"><a href="#（一）命名风格" class="headerlink" title="（一）命名风格"></a>（一）命名风格</h2><ol>
-<li>命名不能以下划线开头</li>
-<li>尽量使用英文进行命名，禁止使用拼音与英文结合，尽量减少纯拼音的命名</li>
-<li>类的命名为大驼峰命名法，即首字母大写以及后面每个词的首字母都大写</li>
-<li>方法名、参数名、成员变量、局部变量统一使用小驼峰命名法，即首字母小写以及后面每个词的首字母都大写</li>
-<li>常量命名全部大写，单词用下划线隔开，需明确表达出意思，命名可以很长</li>
-<li>异常类使用Exception结尾，抽象类使用Abstract或Base开头，测试类以Test结尾</li>
-<li>定义数组时，将中括号与类型紧挨相连，如：String[] array</li>
-<li>定义普通bean时，布尔值的成员变量不要加is前缀，反例：isDeleted</li>
-<li>包名统一使用小写，例：com.cmbhz.controller</li>
-<li>命名是避免忘文不生意的情况</li>
-<li>如果使用了设计模式，则在命名中体现出来有利于理解，例如：OrderFactory</li>
-<li>枚举类名建议带上Enum后缀，实现类用Impl后缀</li>
-<li><ul>
-<li>数据对象命名：xxxDO</li>
-<li>数据传输对象：xxxDTO</li>
-<li>展示对象：xxxVO</li>
-</ul>
-</li>
-</ol>
-<h2 id="（二）常量定义"><a href="#（二）常量定义" class="headerlink" title="（二）常量定义"></a>（二）常量定义</h2><ol>
-<li>不允许未经定义的常量直接出现在代码中，例如String key = “stgood” + myId;</li>
-<li>Long类型初始化时，请使用大写的L</li>
-<li>不同作用的常量类请分类定义，例如：RedisConsts，CacheConsts</li>
-</ol>
-<h2 id="（三）代码格式"><a href="#（三）代码格式" class="headerlink" title="（三）代码格式"></a>（三）代码格式</h2><ol>
-<li>如果大括号内为空，不要换行，写成{}</li>
-<li>如果大括号非空，则应当按下方格式输入</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if (a == b) &#123; //a和b与括号之间没有空格，if等保留字与括号之间有空格，运算符左右保留空格</span><br><span class="line">	//TODO</span><br><span class="line">&#125; //如果还有 else 等代码则不换行；表示终止的右大括号后必须换行</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>缩进代码时必须为4个空格，而非tab，如需使用tab键进行缩进，IDEA与Eclipse需进行相关设置</li>
-<li>注释符与注释内容之间需保留一个空格</li>
-<li>单行字符如果超过120个，则需要进行换行，规则如下：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">StringBuffer sb = new StringBuffer();</span><br><span class="line">sb.append(&quot;cmb&quot;).append(&quot;hz&quot;).....</span><br><span class="line">	.append(&quot;cmb&quot;).append(&quot;hz&quot;)....	//第二行及以后相对于第一行缩进4个空格,运算符一起换行</span><br><span class="line">	.append(&quot;good&quot;);	//括号前不允许换行</span><br><span class="line"></span><br><span class="line">method(arg1, arg2, arg3,...,	//方法调用如果需要换行，在逗号后面换行</span><br><span class="line">	argX);</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>方法参数在定义与传入时，多个参数逗号后需要保留一个空格，例如：method(a, b, c)</li>
-<li>IDE 的 text file encoding 设置为 UTF-8; IDE 中文件的换行符使用 Unix 格式，不要使用 Windows 格式</li>
-<li>不同逻辑、不同语义、不同业务的代码之间插入一个空行分隔开来以提升可读性，但不需要多个空格隔开</li>
-</ol>
-<h2 id="（四）OOP规约"><a href="#（四）OOP规约" class="headerlink" title="（四）OOP规约"></a>（四）OOP规约</h2><ol>
-<li><strong>避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成本，直接用类名来访问即可</strong></li>
-<li>所有的重写都要加@Override注解</li>
-<li><strong>外部正在调用或者二方库依赖的接口，不允许修改方法签名，避免对接口调用方产生影响。接口过时必须加@Deprecated 注解，并清晰地说明采用的新接口或者新服务是什么</strong></li>
-<li>不能使用过时的类或方法</li>
-<li>使用”test”.equals(Object)，而不是Object.equals(“test”)</li>
-<li>所有的相同类型的包装类对象之间值的比较，全部使用 equals 方法比较</li>
-<li>关于基本数据类型与包装数据类型的使用标准如下：<ul>
-<li>所有的 POJO 类属性必须使用包装数据类型</li>
-<li>RPC 方法的返回值和参数必须使用包装数据类型</li>
-</ul>
-</li>
-<li>序列化类新增属性时，请不要修改 serialVersionUID 字段，避免反序列失败；如果完全不兼容升级，避免反序列化混乱，那么请修改 serialVersionUID 值</li>
-<li>构造方法里面禁止加入任何业务逻辑，如果有初始化逻辑，请放在 init 方法中</li>
-<li>类内方法定义的顺序依次是：公有方法或保护方法 &gt; 私有方法 &gt; getter/setter方法</li>
-<li>getter与setter方法中不要增加业务逻辑</li>
-<li>循环体内，字符串的连接方式，使用 StringBuilder 的 append 方法进行扩展</li>
-<li>工具类不允许有 public 或 default 构造方法</li>
-</ol>
-<h2 id="（五）集合处理"><a href="#（五）集合处理" class="headerlink" title="（五）集合处理"></a>（五）集合处理</h2><ol>
-<li>关于 hashCode 和 equals 的处理，遵循如下规则：<ul>
-<li>只要重写 equals，就必须重写 hashCode</li>
-<li>因为 Set 存储的是不重复的对象，依据 hashCode 和 equals 进行判断，所以 Set 存储的对象必须重写这两个方法</li>
-<li>如果自定义对象作为 Map 的键，那么必须重写 hashCode 和 equals</li>
-</ul>
-</li>
-<li>不要在 foreach 循环里进行元素的 remove/add 操作。remove 元素请使用 Iterator方式，如果并发操作，需要对 Iterator 对象加锁</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Iterator&lt;String&gt; iterator = list.iterator();</span><br><span class="line">while (iterator.hasNext()) &#123;</span><br><span class="line">	String item = iterator.next();</span><br><span class="line">	if (删除元素的条件) &#123;</span><br><span class="line">		iterator.remove();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>使用 entrySet 遍历 Map 类集合 KV，而不是 keySet 方式进行遍历，因为keySet遍历了2次，二entrySet之遍历了一次</li>
-<li>高度注意 Map 类集合 K/V 能不能存储 null 值的情况</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>集合类</th>
-<th>Key</th>
-<th>Value</th>
-<th>Super</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hashtable</td>
-<td>不允许为 null</td>
-<td>不允许为 null</td>
-<td>Dictionary</td>
-<td>线程安全</td>
-</tr>
-<tr>
-<td>ConcurrentHashMap</td>
-<td>不允许为 null</td>
-<td>不允许为 null</td>
-<td>AbstractMap</td>
-<td>锁分段技术（JDK8:CAS）</td>
-</tr>
-<tr>
-<td>TreeMap</td>
-<td>不允许为 null</td>
-<td>允许为 null</td>
-<td>AbstractMap</td>
-<td>线程不安全</td>
-</tr>
-<tr>
-<td>HashMap</td>
-<td>允许为 null</td>
-<td>允许为 null</td>
-<td>AbstractMap</td>
-<td>线程不安全</td>
-</tr>
-</tbody>
-</table>
-<ol start="5">
-<li>利用 Set 元素唯一的特性，可以快速对一个集合进行去重操作，避免使用 List 的<br>contains 方法进行遍历、对比、去重操作</li>
-</ol>
-<h2 id="（六）并发处理"><a href="#（六）并发处理" class="headerlink" title="（六）并发处理"></a>（六）并发处理</h2><ol>
-<li>线程资源必须通过线程池提供，不允许在应用中自行显式创建线程</li>
-<li>高并发时，同步调用应该去考量锁的性能损耗。能用无锁数据结构，就不要用锁；能锁区块，就不要锁整个方法体；能用对象锁，就不要用类锁</li>
-<li>对多个资源、数据库表、对象同时加锁时，需要保持一致的加锁顺序，否则可能会造成死锁</li>
-<li>避免 Random 实例被多线程使用，虽然共享该实例是线程安全的，但会因竞争同一seed 导致的性能下降</li>
-</ol>
-<h2 id="（七）控制语句"><a href="#（七）控制语句" class="headerlink" title="（七）控制语句"></a>（七）控制语句</h2><ol>
-<li>在 if/else/for/while/do 语句中必须使用大括号，即使只有一行代码</li>
-<li>在高并发场景中，避免使用”等于”判断作为中断或退出的条件</li>
-<li>避免采用取反逻辑运算符，尽量采用正向逻辑，例如：if (x &lt; 123)</li>
-</ol>
-<h2 id="（八）注释规约"><a href="#（八）注释规约" class="headerlink" title="（八）注释规约"></a>（八）注释规约</h2><ol>
-<li>类、类属性、类方法的注释必须使用 Javadoc 规范，使用/*<em>内容</em>/格式</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>标签</th>
-<th>描述</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>@author</td>
-<td>表示一个类的作者</td>
-<td>@author description</td>
-</tr>
-<tr>
-<td>@version</td>
-<td>指定类的版本</td>
-<td>@version info</td>
-</tr>
-<tr>
-<td>@param</td>
-<td>说明一个方法的参数</td>
-<td>@param parameter-name explanation</td>
-</tr>
-<tr>
-<td>@return</td>
-<td>说明返回值类型</td>
-<td>@return explanation</td>
-</tr>
-</tbody>
-</table>
-<ol start="2">
-<li>所有的类都必须添加创建者和创建日期</li>
-<li>方法内部单行注释，在被注释语句上方另起一行，使用//注释</li>
-<li>与其“半吊子”英文来注释，不如用中文注释把问题说清楚</li>
-<li>所有的枚举类型字段必须要有注释，说明每个数据项的用途</li>
-<li>谨慎注释掉代码。在上方详细说明，而不是简单地注释掉</li>
-</ol>
-<h2 id="（九）异常处理"><a href="#（九）异常处理" class="headerlink" title="（九）异常处理"></a>（九）异常处理</h2><ol>
-<li>catch 时请分清稳定代码和非稳定代码，稳定代码指的是无论如何不会出错的代码。对于非稳定代码的 catch 尽可能进行区分异常类型，再做对应的异常处理</li>
-<li>捕获异常是为了处理它，不要捕获了却什么都不处理而抛弃之，如果不想处理它，请将该异常抛给它的调用者。最外层的业务使用者，必须处理异常，将其转化为用户可以理解的内容</li>
-<li>finally 块必须对资源对象、流对象进行关闭，有异常也要做 try-catch</li>
-<li>不要在 finally 块中使用 return，如果在finally中增加return则不会执行try中的return</li>
-<li>方法的返回值可以为 null，不强制返回空集合，或者空对象等，必须添加注释充分说明什么情况下会返回 null 值</li>
-</ol>
-<h2 id="（十）日志规约"><a href="#（十）日志规约" class="headerlink" title="（十）日志规约"></a>（十）日志规约</h2><ol>
-<li>应用中不可直接使用日志系统（Log4j、Logback）中的 API，而应依赖使用日志框架SLF4J 中的 API，使用门面模式的日志框架，有利于维护和各个类的日志处理方式统一</li>
-<li>对 trace/debug/info 级别的日志输出，必须使用条件输出形式或者使用占位符的方式</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">正确:</span><br><span class="line">if (logger.isDebugEnabled()) &#123;</span><br><span class="line">	logger.debug(&quot;Processing trade with id: &quot; + id + &quot; and symbol: &quot; + symbol);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">正确:</span><br><span class="line">logger.debug(&quot;Processing trade with id: &#123;&#125; and symbol : &#123;&#125; &quot;, id, symbol);</span><br><span class="line"> </span><br><span class="line">错误(将日志设置成info时还是会占用资源):</span><br><span class="line">logger.debug(&quot;Processing trade with id: &quot; + id + &quot; and symbol: &quot; + symbol);</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>避免重复打印日志，浪费磁盘空间，务必在 log4j.xml 中设置 additivity=false</li>
-<li>异常信息应该包括两类信息：案发现场信息和异常堆栈信息。如果不处理，那么通过关键字 throws 往上抛出</li>
-<li>生产环境禁止输出 debug 日志；有选择地输出 info 日志</li>
-<li>error 级别只记录系统逻辑出错、异常或者重要的错误信息</li>
-</ol>
-<h2 id="（十一）安全规约"><a href="#（十一）安全规约" class="headerlink" title="（十一）安全规约"></a>（十一）安全规约</h2><ol>
-<li>用户敏感数据禁止直接展示，必须对展示数据进行脱敏</li>
-<li>用户请求传入的任何参数必须做有效性验证</li>
-</ol>
-<h2 id="（十二）其他"><a href="#（十二）其他" class="headerlink" title="（十二）其他"></a>（十二）其他</h2><ol>
-<li>获取当前毫秒数 System.currentTimeMillis(); 而不是 new Date().getTime();</li>
-<li>及时清理不再使用的代码段或配置信息</li>
-<li>在使用平台资源，譬如短信、邮件、电话、下单、支付，必须实现正确的防重放限制，如数量限制、疲劳度控制、验证码校验，避免被滥刷导致资损</li>
-</ol>
-<p>参考资料：<br>阿里巴巴Java开发手册</p>
-
-    </article>
-    <!-- license  -->
+            <main class="main index-page">
     
-        <div class="license-wrapper">
-            <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
-            </p><p>原文链接：<a href="https://st19950627.github.io/2019/04/13/java编程规范/">https://st19950627.github.io/2019/04/13/java编程规范/</a>
-            </p><p>发表日期：<a href="https://st19950627.github.io/2019/04/13/java编程规范/">April 13th 2019, 5:58:00 pm</a>
-            </p><p>更新日期：<a href="https://st19950627.github.io/2019/04/13/java编程规范/">April 13th 2019, 6:00:19 pm</a>
-            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/12/23/JDK8之Stream/">
+            
+                <span>JDK8之Stream</span>
+        </a>
+        <div class="abstract-content">
+            从阿里巴巴Java开发手册中整理的一些开发规范
         </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class="abstract-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JDK8">JDK8</a>
+    
+</div>
+            
+        </div>
+    </article>
     
     <!-- paginator  -->
-    <ul class="post-paginator">
-        <li class="next">
-            
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/24/Apollo介绍及部署/" title="Apollo介绍及部署">
-                    <div class="nextTitle">Apollo介绍及部署</div>
-                </a>
-            
-        </li>
-        <li class="previous">
-            
-                <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/04/13/token_session_cookie/" title="Token-Session-Cookie">
-                    <div class="prevTitle">Token-Session-Cookie</div>
-                </a>
-            
-        </li>
-    </ul>
-    <!-- 评论插件 -->
-    <!-- 来必力City版安装代码 -->
-
-    <div id="lv-container" data-id="city" data-uid="MTAyMC80NDA2Ni8yMDYwMQ==">
-        <script type="text/javascript">
-            (function (d, s) {
-                var j, e = d.getElementsByTagName(s)[0];
-                if (typeof LivereTower === 'function') { return; }
-                j = d.createElement(s);
-                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-                j.async = true;
-
-                e.parentNode.insertBefore(j, e);
-            })(document, 'script');
-        </script>
-        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-    </div>
-
-<!-- City版安装代码已完成 -->
     
-    
-    <!-- partial('_partial/comment/changyan') -->
-    <!--PC版-->
-
-
-    
-    
-
-    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -734,24 +444,6 @@ height:50vh;
 </footer>
     </div>
     <!-- toc -->
-    
-    <div class="toc-wrapper" style=
-    
-
-
-
-
-
-
-
-top:50vh;
-
-    >
-        <div class="toc-catalog">
-            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
-        </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、编程规约"><span class="toc-number">1.</span> <span class="toc-text">一、编程规约</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）命名风格"><span class="toc-number">1.1.</span> <span class="toc-text">（一）命名风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）常量定义"><span class="toc-number">1.2.</span> <span class="toc-text">（二）常量定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）代码格式"><span class="toc-number">1.3.</span> <span class="toc-text">（三）代码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）OOP规约"><span class="toc-number">1.4.</span> <span class="toc-text">（四）OOP规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（五）集合处理"><span class="toc-number">1.5.</span> <span class="toc-text">（五）集合处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（六）并发处理"><span class="toc-number">1.6.</span> <span class="toc-text">（六）并发处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（七）控制语句"><span class="toc-number">1.7.</span> <span class="toc-text">（七）控制语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（八）注释规约"><span class="toc-number">1.8.</span> <span class="toc-text">（八）注释规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（九）异常处理"><span class="toc-number">1.9.</span> <span class="toc-text">（九）异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（十）日志规约"><span class="toc-number">1.10.</span> <span class="toc-text">（十）日志规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（十一）安全规约"><span class="toc-number">1.11.</span> <span class="toc-text">（十一）安全规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（十二）其他"><span class="toc-number">1.12.</span> <span class="toc-text">（十二）其他</span></a></li></ol></li></ol>
-    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -1249,8 +941,6 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
-    
-        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
