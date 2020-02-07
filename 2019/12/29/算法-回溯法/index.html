@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>回溯法 · The World Best ST</title>
+    <title>算法之回溯法 · The World Best ST</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">The World Best ST.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">回溯法</a>
+                <a href="#" class="post-name">算法之回溯法</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            回溯法
+            算法之回溯法
             <!-- 404 -->
             
         </h1>
@@ -264,9 +264,17 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="算法">算法</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="回溯法">回溯法</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">0</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">749</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,7 +403,23 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h1 id="常用算法——回溯法"><a href="#常用算法——回溯法" class="headerlink" title="常用算法——回溯法"></a>常用算法——回溯法</h1><blockquote>
+<p>回溯法（探索与回溯法）是一种选优搜索法，又称为试探法，按选优条件向前搜索，以达到目标。但当探索到某一步时，发现原先选择并不优或达不到目标，就退回一步重新选择，这种走不通就退回再走的技术为回溯法，而满足回溯条件的某个状态的点称为“回溯点”。</p>
+</blockquote>
+<h2 id="剪枝方式"><a href="#剪枝方式" class="headerlink" title="剪枝方式"></a>剪枝方式</h2><p>对于一棵树来讲，以深度优先遍历为例，从1节点开始深搜，若要完全遍历，则需要搜索所有的节点。但是在解决实际问题的过程中，我们往往可以发现，有一些点和它们的子节点显然不符合题意，压根就没必要进行搜索。那么我们就在算法中加入一个判断条件，使得这棵子树在搜索的时候不会被进入，以此优化时空复杂度。因为这个优化的技巧非常像在树上砍冗余的枝条，所以起了一个名字叫做：剪枝。</p>
+<h3 id="剪枝的几种常见方式"><a href="#剪枝的几种常见方式" class="headerlink" title="剪枝的几种常见方式"></a>剪枝的几种常见方式</h3><ol>
+<li><p>可行性剪枝<br>所谓可行性剪枝，顾名思义，就是当当前状态和题意不符，并且由于题目可以推出，往后的所有情况和题意都不符，那么就可以进行剪枝，直接把这种情况及后续的所有情况判负，直接返回。<br>即：不可行，就返回。</p>
+</li>
+<li><p>排除等效冗余<br>所谓排除等效冗余，就是当几个枝桠具有完全相同的效果的时候，只选择其中一个走就可以了。<br>即：都可以，选一个。</p>
+</li>
+<li><p>最优性剪枝<br>所谓最优性剪枝，是在我们用搜索方法解决最优化问题的时候的一种常用剪枝。就是当你搜到一半的时候，已经比已经搜到的最优解要不优了，那么这个方案肯定是不行的，即刻停止搜索，进行回溯。<br>即：有比较，选最优。</p>
+</li>
+<li><p>顺序剪枝<br>普遍来讲，搜索的顺序是不固定的，对一个问题来讲，算法可以进入搜索树的任意的一个子节点。但假如我们要搜索一个最小值，而非要从最大值存在的那个节点开搜，就可能存在搜索到最后才出解。而我们从最小的节点开搜很可能马上就出解。这就是顺序剪枝的一个应用。一般来讲，有单调性存在的搜索问题可以和贪心思想结合，进行顺序剪枝。<br>即：有顺序，按题意。</p>
+</li>
+<li><p>记忆化<br>记忆化搜索其实是搜索的另外一个分支。在这里简单介绍一下记忆化的原理：<br>就是记录搜索的每一个状态，当重复搜索到相同的状态的时候直接返回。<br>即：搜重了，直接跳。</p>
+</li>
+</ol>
+
     </article>
     <!-- license  -->
     
@@ -403,7 +427,7 @@ height:50vh;
             <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
             </p><p>原文链接：<a href="https://st19950627.github.io/2019/12/29/算法-回溯法/">https://st19950627.github.io/2019/12/29/算法-回溯法/</a>
             </p><p>发表日期：<a href="https://st19950627.github.io/2019/12/29/算法-回溯法/">December 29th 2019, 4:47:27 pm</a>
-            </p><p>更新日期：<a href="https://st19950627.github.io/2019/12/29/算法-回溯法/">December 29th 2019, 4:47:27 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2019/12/29/算法-回溯法/">February 7th 2020, 9:45:51 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -415,8 +439,8 @@ height:50vh;
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/12/29/回溯法/" title="算法之回溯法">
-                    <div class="prevTitle">算法之回溯法</div>
+                <a href="/2019/12/28/定时任务/" title="定时任务">
+                    <div class="prevTitle">定时任务</div>
                 </a>
             
         </li>
@@ -539,7 +563,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用算法——回溯法"><span class="toc-number">1.</span> <span class="toc-text">常用算法——回溯法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#剪枝方式"><span class="toc-number">1.1.</span> <span class="toc-text">剪枝方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#剪枝的几种常见方式"><span class="toc-number">1.1.1.</span> <span class="toc-text">剪枝的几种常见方式</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -842,24 +866,9 @@ top:50vh;
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 25
+        Total : 24
         </div>
         <!-- search  -->
         
@@ -875,12 +884,7 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">12/29</span><a class="archive-post-title" href="/2019/12/29/算法-回溯法/">回溯法</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/29</span><a class="archive-post-title" href="/2019/12/29/回溯法/">算法之回溯法</a>
+            <span class="archive-post-date">12/29</span><a class="archive-post-title" href="/2019/12/29/算法-回溯法/">算法之回溯法</a>
         </li>
     
     
@@ -945,12 +949,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/java编程规范/">JAVA编程规范整理</a>
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/创建型设计模式/">设计模式-创建型设计模式</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/创建型设计模式/">设计模式-创建型设计模式</a>
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/java编程规范/">JAVA编程规范整理</a>
         </li>
     
     
@@ -1021,25 +1025,23 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
     
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
+    
+        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
+    
+        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
+    
         <span class="sidebar-tag-name" data-tags="List"><span class="iconfont-archer">&#xe606;</span>List</span>
     
         <span class="sidebar-tag-name" data-tags="Set"><span class="iconfont-archer">&#xe606;</span>Set</span>
     
         <span class="sidebar-tag-name" data-tags="Map"><span class="iconfont-archer">&#xe606;</span>Map</span>
     
-        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
-    
-        <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
-    
-        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
-    
-        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
-    
-        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
-    
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
-    
-        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="Token"><span class="iconfont-archer">&#xe606;</span>Token</span>
     
@@ -1047,19 +1049,21 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Cookie"><span class="iconfont-archer">&#xe606;</span>Cookie</span>
     
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
         <span class="sidebar-tag-name" data-tags="定时任务"><span class="iconfont-archer">&#xe606;</span>定时任务</span>
     
-        <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="编程规范"><span class="iconfont-archer">&#xe606;</span>编程规范</span>
+        <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
     
         <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
     
         <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
     
-        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+        <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
     
-        <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
+        <span class="sidebar-tag-name" data-tags="编程规范"><span class="iconfont-archer">&#xe606;</span>编程规范</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
