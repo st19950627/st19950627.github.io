@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>初入Docker · The World Best ST</title>
+    <title>Hexo插件 · The World Best ST</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">The World Best ST.</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">初入Docker</a>
+                <a href="#" class="post-name">Hexo插件</a>
             </div>
     </div>
     
@@ -241,13 +241,13 @@ height:50vh;
     <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/header-2.jpg)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/header-3.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            初入Docker
+            Hexo插件
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,18 @@ height:50vh;
                 
                     <div class="post-intro-tags">
     
-        <a class="post-tag" href="javascript:void(0);" data-tags="Docker">Docker</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags="hexo">hexo</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">100</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/04/13</span>
+                    <span class="post-intro-time">2020/04/04</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -401,116 +401,22 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="Docker口号"><a href="#Docker口号" class="headerlink" title="Docker口号:"></a>Docker口号:</h2><ol>
-<li>Build, Ship and Run</li>
-<li>Build once，Run anywhere</li>
-</ol>
-<h2 id="Docker的安装"><a href="#Docker的安装" class="headerlink" title="Docker的安装"></a>Docker的安装</h2><ol>
-<li>yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine //完全卸载旧版本docker</li>
-<li><p>yum install docker.x86_64    //下载docker<br>或yum install docker-ce<br><strong>※如果出现: No package docker-ce available</strong><br>答: 先运行yum install epel-release, 再运行yum install docker-io</p>
-</li>
-<li><p>service docker start    //开启docker</p>
-</li>
-<li>chkconfig docker on //开机自启</li>
-</ol>
-<h3 id="centos安装docker"><a href="#centos安装docker" class="headerlink" title="centos安装docker"></a>centos安装docker</h3><ol>
-<li>yum install epel-release //先安装epl工具</li>
-<li>yum -y install docker-io    //安装docker</li>
-<li>service docker start    //开启docker服务</li>
-<li>chkconfig docker on //设置为开机自启</li>
-</ol>
-<p>如果上述方法不能安装成功, 可用下面的方法:</p>
-<ol>
-<li>vi /etc/yum.repos.d/docker.repo</li>
-<li><p>在文件中填入以下内容</p>
-<blockquote>
-<p>[dockerrepo]<br>name=Docker Repository<br>baseurl=<a href="https://yum.dockerproject.org/repo/main/centos/$releasever/" target="_blank" rel="noopener">https://yum.dockerproject.org/repo/main/centos/$releasever/</a><br>enabled=1<br>gpgcheck=1<br>gpgkey=<a href="https://yum.dockerproject.org/gpg" target="_blank" rel="noopener">https://yum.dockerproject.org/gpg</a></p>
-</blockquote>
-</li>
-<li><p>yum install docker-engine</p>
-</li>
-<li>service docker start</li>
-</ol>
-<h2 id="Docker部署nginx"><a href="#Docker部署nginx" class="headerlink" title="Docker部署nginx"></a>Docker部署nginx</h2><blockquote>
-<p>方案1<br>docker run -p 80:80 –name nginx -v $PWD/www:/www -v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf -v $PWD/logs:/wwwlogs -d nginx</p>
-</blockquote>
-<blockquote>
-<p>方案2<br>docker run -itd  –name=nginx  -p 80:80 –log-driver=json-file -v /docker/nginx/conf/nginx.conf:/etc/nginx/nginx.conf -v /docker/nginx/h5:/h5 nginx</p>
-</blockquote>
-<p>$PWD 表示当前目录</p>
-<h2 id="Docker安装sql"><a href="#Docker安装sql" class="headerlink" title="Docker安装sql"></a>Docker安装sql</h2><blockquote>
-<p>docker run -p 3306:3306 –name mysql -v /docker/mysql/conf:/etc/mysql/conf -v /docker/mysql/logs:/logs -v /docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6</p>
-</blockquote>
-<ul>
-<li><p>-p 3306:3306：将容器的 3306 端口映射到主机的 3306 端口。</p>
-</li>
-<li><p>-v -v /docker/mysql/conf:/etc/mysql/conf.d：将主机当前目录下的 conf/my.cnf 挂载到容器的 /etc/mysql/my.cnf。</p>
-</li>
-<li><p>-v /docker/mysql/logs:/logs：将主机当前目录下的 logs 目录挂载到容器的 /logs。</p>
-</li>
-<li><p>-v /docker/mysql/data:/var/lib/mysql ：将主机当前目录下的data目录挂载到容器的 /var/lib/mysql 。</p>
-</li>
-<li><p>-e MYSQL_ROOT_PASSWORD=123456：初始化 root 用户的密码。</p>
-</li>
-</ul>
-<p>※运行时可能出现mysql启动不起来的情况，输入命令<code>docker logs mysql</code>查看启动失败原因，发现提示<code>/var/lib/mysql permission denied</code>的错误，原来是Centos7安全Selinux禁止了一些安全权限。解决方案有以下3种:</p>
-<ol>
-<li>在docker run中加入 –privileged=true  给容器加上特定权限</li>
-<li>关闭selinux</li>
-<li>在selinux添加规则，修改挂载目录de</li>
-</ol>
-<p>故将之前启动失败的容器删除，重新启动docker run</p>
-<blockquote>
-<p>docker run -p 3306:3306 –name mysql –privileged=true -v /docker/mysql/conf:/etc/mysql/conf -v /docker/mysql/logs:/logs -v /docker/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6</p>
-</blockquote>
-<h2 id="Docker部署mongodb"><a href="#Docker部署mongodb" class="headerlink" title="Docker部署mongodb"></a>Docker部署mongodb</h2><blockquote>
-<p>docker run -p 27017:27017 –name mongodb -v $PWD/db:/data/db -d mongo</p>
-</blockquote>
-<h2 id="Docker部署rabbitMQ"><a href="#Docker部署rabbitMQ" class="headerlink" title="Docker部署rabbitMQ"></a>Docker部署rabbitMQ</h2><blockquote>
-<p>docker run -d –name rabbit -e RABBITMQ_DEFAULT_USER=admin -e RABBITMQ_DEFAULT_PASS=admin -p 15672:15672 -p 5672:5672 -p 25672:25672 -p 61613:61613 -p 1883:1883 rabbitmq:management</p>
-</blockquote>
-<blockquote>
-<p>docker run -d -p 5672:5672 -p 15672:15672 –name rabbitmq rabbitmq</p>
-</blockquote>
-<h2 id="Docker部署gitlab"><a href="#Docker部署gitlab" class="headerlink" title="Docker部署gitlab"></a>Docker部署gitlab</h2><blockquote>
-<p>docker run -d –hostname 119.3.77.120 –env GITLAB_OMNIBUS_CONFIG=”external_url ‘<a href="http://119.3.77.120/&#39;" target="_blank" rel="noopener">http://119.3.77.120/&#39;</a>; gitlab_rails[‘lfs_enabled’] = true;gitlab_rails[‘gitlab_shell_ssh_port’] = 2222;” -p 2289:443 -p 8929:80 -p 2222:22 –name gitlab –restart always -v /docker/gitlab/config:/etc/gitlab -v /docker/gitlab/log:/var/log/gitlab -v /docker/gitlab/data:/var/opt/gitlab gitlab/gitlab-ce<br># -d：后台运行<br># -p：将容器内部端口向外映射<br># –name：命名容器名称<br># -v：将容器内数据文件夹或者日志、配置等文件夹挂载到宿主机指定目录</p>
-</blockquote>
-<h2 id="docker-的命令"><a href="#docker-的命令" class="headerlink" title="docker 的命令"></a>docker 的命令</h2><h3 id="在docker仓库中搜索镜像"><a href="#在docker仓库中搜索镜像" class="headerlink" title="在docker仓库中搜索镜像"></a>在docker仓库中搜索镜像</h3><p>docker search 镜像名<br>如: docker search niginx<br><strong>如果搜索超时, 可将仓库地址改为国内镜像地址, 修改方法: <a href="https://blog.csdn.net/zengmingen/article/details/78319334" target="_blank" rel="noopener">https://blog.csdn.net/zengmingen/article/details/78319334</a></strong></p>
-<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><p>docker run -p 91:80 镜像名<br>-p: 容器端口映射, 91为linux开放的端口, 80为容器内开放的端口<br>-d: 后台启动容器</p>
-<h3 id="获取容器ip"><a href="#获取容器ip" class="headerlink" title="获取容器ip"></a>获取容器ip</h3><p>docker inspect 容器名/容器id</p>
-<h3 id="curl命令"><a href="#curl命令" class="headerlink" title="curl命令"></a>curl命令</h3><p>curl <a href="http://ip:port" target="_blank" rel="noopener">http://ip:port</a> 可以在linux里访问docker端口</p>
-<h3 id="停止docker"><a href="#停止docker" class="headerlink" title="停止docker"></a>停止docker</h3><p>docker stop 容器id<br>docker kill 容器id</p>
-<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><p>docker rmi image id</p>
-<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><p>docker rm 容器id</p>
-<h3 id="查看容器日志"><a href="#查看容器日志" class="headerlink" title="查看容器日志"></a>查看容器日志</h3><p>docker containers logs 容器id</p>
-<h3 id="显示容器运行的进程"><a href="#显示容器运行的进程" class="headerlink" title="显示容器运行的进程"></a>显示容器运行的进程</h3><p>docker top 容器id</p>
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><p>docker exec -it 容器id /bin/bash  </p>
-<p>docker-enter 容器idi<br>docker container exec -it 容器id /bin/bash</p>
-<h3 id="搜索镜像"><a href="#搜索镜像" class="headerlink" title="搜索镜像"></a>搜索镜像</h3><p>docker search XX<br>例：docker search nginx</p>
-<h3 id="下载镜像"><a href="#下载镜像" class="headerlink" title="下载镜像"></a>下载镜像</h3><p>docker pull XX</p>
-<h3 id="查看镜像（镜像列表）"><a href="#查看镜像（镜像列表）" class="headerlink" title="查看镜像（镜像列表）"></a>查看镜像（镜像列表）</h3><p>docker images</p>
-<h3 id="上传小文件"><a href="#上传小文件" class="headerlink" title="上传小文件"></a>上传小文件</h3><p>rz</p>
-<h3 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h3><ol>
-<li>新建镜像模板文件 -&gt; Dockerfile<br><strong>※Dockerfile中有很多构建命令</strong></li>
-<li>docker build -t nignx:styy . -&gt; 最后的点号代表Dockerfile文件所在的路径, nginx:styy表示在本地的nginx镜像上构建自己的nginx镜像</li>
-</ol>
-<h3 id="构建自己的微服务镜像"><a href="#构建自己的微服务镜像" class="headerlink" title="构建自己的微服务镜像"></a>构建自己的微服务镜像</h3><p>在Dockerfile中填入以下内容</p>
-<blockquote>
-</blockquote>
-<p># 基于哪个镜像<br>From java:8<br>#将本地文件夹挂载到当前容器<br>VOLUME /tmp<br>#复制文件到容器<br>ADD jar包名字.jar /app.jar -&gt; 本地jar包名字   app.jar为改了名字的jar包<br>#声明需要暴露的端口<br>EXPOSE 8080<br>#配置容器启动后执行的命令<br>ENTRYPOINT[“java”,”-jar”,”/app.jar”]</p>
-<p>使用docker build命令构建镜像<br>docker build -t 名字:版本号 . -&gt; 点为dockerfile所在目录?</p>
-<h2 id="部署nginx遇到过的问题"><a href="#部署nginx遇到过的问题" class="headerlink" title="部署nginx遇到过的问题"></a>部署nginx遇到过的问题</h2><p>按照语句安装的时候，报unknown: Are you trying to mount a directory onto a file (or vice-versa)? Check if the specified host path exists and is the expected type.的错，是由于conf/nginx.conf是个文件夹的缘故，把文件夹删了，创建一个nginx.conf文件即可<br>启动是成功了，但是docker ps发现nginx没有被起起来，同学说是nginx.conf里面没有配置的缘故，现将之前的容器和创建的nginx文件夹全部都清空，在nginx文件夹新增两个文件夹，conf和h5，从网上copy了一个nginx.conf的配置放在conf文件夹中，使用方案2进行部署nginx</p>
-<h3 id="全部的容器（包括已经关闭的）"><a href="#全部的容器（包括已经关闭的）" class="headerlink" title="全部的容器（包括已经关闭的）"></a>全部的容器（包括已经关闭的）</h3><p>docker container ps -a</p>
-<h3 id="启动的时候加上–rm会让他关闭的时候就会被删除"><a href="#启动的时候加上–rm会让他关闭的时候就会被删除" class="headerlink" title="启动的时候加上–rm会让他关闭的时候就会被删除"></a>启动的时候加上–rm会让他关闭的时候就会被删除</h3><p>docker run –name miao123 –rm -d nginx</p>
+        <h1 id="HEXO插件"><a href="#HEXO插件" class="headerlink" title="HEXO插件"></a>HEXO插件</h1><p>今日机缘巧合看到了一个厉害的音乐播放JS（Aplayer.js），顺藤摸瓜又看到了它的好兄弟hexo-tag-aplayer，感觉开启了新世界的大门</p>
+<hr>
+<h2 id="hexo-tag-aplayer"><a href="#hexo-tag-aplayer" class="headerlink" title="hexo-tag-aplayer"></a>hexo-tag-aplayer</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在本地博客文件夹内执行<br><code>npm install --save hexo-tag-aplayer</code></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在想要嵌入的文章中加入如下代码:<br><code>
+			<script>
+				console.error("Error: [hexo-tag-aplayer] Specified asset file not found ([picture_url,)");
+			</script></code></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
-            </p><p>原文链接：<a href="https://st19950627.github.io/2019/04/13/Docker/">https://st19950627.github.io/2019/04/13/Docker/</a>
-            </p><p>发表日期：<a href="https://st19950627.github.io/2019/04/13/Docker/">April 13th 2019, 3:29:59 pm</a>
-            </p><p>更新日期：<a href="https://st19950627.github.io/2019/04/13/Docker/">December 21st 2019, 1:45:22 pm</a>
+            </p><p>原文链接：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">https://st19950627.github.io/2020/04/04/Hexo插件/</a>
+            </p><p>发表日期：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">April 4th 2020, 4:53:12 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">April 4th 2020, 5:05:09 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -518,17 +424,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href="/2019/04/13/SpringBoot基础学习/" title="SpringBoot学习(一)">
-                    <div class="nextTitle">SpringBoot学习(一)</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/04/12/List-Array-Map/" title="List-Set-Map">
-                    <div class="prevTitle">List-Set-Map</div>
+                <a href="/2020/04/04/前端备忘/" title="前端备忘">
+                    <div class="prevTitle">前端备忘</div>
                 </a>
             
         </li>
@@ -651,7 +552,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker口号"><span class="toc-number">1.</span> <span class="toc-text">Docker口号:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker的安装"><span class="toc-number">2.</span> <span class="toc-text">Docker的安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#centos安装docker"><span class="toc-number">2.1.</span> <span class="toc-text">centos安装docker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker部署nginx"><span class="toc-number">3.</span> <span class="toc-text">Docker部署nginx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker安装sql"><span class="toc-number">4.</span> <span class="toc-text">Docker安装sql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker部署mongodb"><span class="toc-number">5.</span> <span class="toc-text">Docker部署mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker部署rabbitMQ"><span class="toc-number">6.</span> <span class="toc-text">Docker部署rabbitMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker部署gitlab"><span class="toc-number">7.</span> <span class="toc-text">Docker部署gitlab</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-的命令"><span class="toc-number">8.</span> <span class="toc-text">docker 的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在docker仓库中搜索镜像"><span class="toc-number">8.1.</span> <span class="toc-text">在docker仓库中搜索镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行容器"><span class="toc-number">8.2.</span> <span class="toc-text">运行容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获取容器ip"><span class="toc-number">8.3.</span> <span class="toc-text">获取容器ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#curl命令"><span class="toc-number">8.4.</span> <span class="toc-text">curl命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#停止docker"><span class="toc-number">8.5.</span> <span class="toc-text">停止docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除镜像"><span class="toc-number">8.6.</span> <span class="toc-text">删除镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除容器"><span class="toc-number">8.7.</span> <span class="toc-text">删除容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看容器日志"><span class="toc-number">8.8.</span> <span class="toc-text">查看容器日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示容器运行的进程"><span class="toc-number">8.9.</span> <span class="toc-text">显示容器运行的进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进入容器"><span class="toc-number">8.10.</span> <span class="toc-text">进入容器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索镜像"><span class="toc-number">8.11.</span> <span class="toc-text">搜索镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载镜像"><span class="toc-number">8.12.</span> <span class="toc-text">下载镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看镜像（镜像列表）"><span class="toc-number">8.13.</span> <span class="toc-text">查看镜像（镜像列表）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上传小文件"><span class="toc-number">8.14.</span> <span class="toc-text">上传小文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建镜像"><span class="toc-number">8.15.</span> <span class="toc-text">构建镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构建自己的微服务镜像"><span class="toc-number">8.16.</span> <span class="toc-text">构建自己的微服务镜像</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#部署nginx遇到过的问题"><span class="toc-number">9.</span> <span class="toc-text">部署nginx遇到过的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全部的容器（包括已经关闭的）"><span class="toc-number">9.1.</span> <span class="toc-text">全部的容器（包括已经关闭的）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动的时候加上–rm会让他关闭的时候就会被删除"><span class="toc-number">9.2.</span> <span class="toc-text">启动的时候加上–rm会让他关闭的时候就会被删除</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HEXO插件"><span class="toc-number">1.</span> <span class="toc-text">HEXO插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-tag-aplayer"><span class="toc-number">1.1.</span> <span class="toc-text">hexo-tag-aplayer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
