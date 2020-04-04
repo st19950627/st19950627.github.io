@@ -200,6 +200,9 @@
     
     <!-- 谷歌统计  -->
     
+<link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+<script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
+<script src="\assets\js\Meting.min.js" class="meting-script-marker"></script>
 </head>
 
     
@@ -272,7 +275,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">100</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">781</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,13 +404,165 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="HEXO插件"><a href="#HEXO插件" class="headerlink" title="HEXO插件"></a>HEXO插件</h1><p>今日机缘巧合看到了一个厉害的音乐播放JS（Aplayer.js），顺藤摸瓜又看到了它的好兄弟hexo-tag-aplayer，感觉开启了新世界的大门</p>
+        <h1 id="HEXO插件"><a href="#HEXO插件" class="headerlink" title="HEXO插件"></a>HEXO插件</h1><p>今日机缘巧合看到了一个厉害的音乐播放JS（Aplayer.js），顺藤摸瓜又看到了它的好兄弟hexo-tag-aplayer，感觉开启了新世界的大门。<br>先放首歌听听</p>
+
+    <div id="aplayer-RlxqSGDl" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="27548281" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <hr>
 <h2 id="hexo-tag-aplayer"><a href="#hexo-tag-aplayer" class="headerlink" title="hexo-tag-aplayer"></a>hexo-tag-aplayer</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在本地博客文件夹内执行<br><code>npm install --save hexo-tag-aplayer</code></p>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在想要嵌入的文章中加入如下代码:<br><code>
-			<script>
-				console.error("Error: [hexo-tag-aplayer] Specified asset file not found ([picture_url,)");
-			</script></code></p>
+<h3 id="入门使用"><a href="#入门使用" class="headerlink" title="入门使用"></a>入门使用</h3><p>在想要嵌入的文章中加入如下代码:  </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, <span class="attr">width</span>:xxx, <span class="attr">lrc</span>:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参数解释"><a href="#参数解释" class="headerlink" title="参数解释"></a>参数解释</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>是否必选</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>曲目标题</td>
+<td>必选</td>
+</tr>
+<tr>
+<td>author</td>
+<td>曲目作者</td>
+<td>必选</td>
+</tr>
+<tr>
+<td>url</td>
+<td>音乐文件 URL 地址</td>
+<td>必选</td>
+</tr>
+<tr>
+<td>picture_url</td>
+<td>音乐对应的图片地址</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>narrow</td>
+<td>播放器袖珍风格</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>自动播放，移动端浏览器暂时不支持此功能</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>width:xxx</td>
+<td>播放器宽度 (默认: 100%)</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>lrc:xxx</td>
+<td>歌词文件 URL 地址</td>
+<td>可选</td>
+</tr>
+</tbody>
+</table>
+<h4 id="For-Example"><a href="#For-Example" class="headerlink" title="For Example"></a>For Example</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer <span class="string">"あまねき祈り"</span> <span class="string">"花たん"</span> <span class="string">"https://m801.music.126.net/20200404170207/87f722be935b163cc15f0b4ee007cbf0/jdyyaac/0e5f/0509/0f5d/9585b41fd22cb749977b87573cdfc4f7.m4a"</span> <span class="string">"http://p2.music.126.net/qgjTfkkpaSDB544TXpczNg==/7943971512497703.jpg?param=130y130"</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>PS：此方法需要有明确的播放链接</strong></p>
+<h3 id="MeingJS"><a href="#MeingJS" class="headerlink" title="MeingJS"></a>MeingJS</h3><p>MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。</p>
+<h4 id="开启MeingJS"><a href="#开启MeingJS" class="headerlink" title="开启MeingJS"></a>开启MeingJS</h4><p>在hexo配置文件_config.yml中设置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line"><span class="attr">  meting:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="食用方法"><a href="#食用方法" class="headerlink" title="食用方法"></a>食用方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 简单示例 (id, server, type)  --&gt;</span><br><span class="line">&#123;% meting <span class="string">"60198"</span> <span class="string">"netease"</span> <span class="string">"playlist"</span> %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 进阶示例 --&gt;</span><br><span class="line">&#123;% meting <span class="string">"60198"</span> <span class="string">"netease"</span> <span class="string">"playlist"</span> <span class="string">"autoplay"</span> <span class="string">"mutex:false"</span> <span class="string">"listmaxheight:340px"</span> <span class="string">"preload:none"</span> <span class="string">"theme:#ad7a86"</span>%&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="参数解释-1"><a href="#参数解释-1" class="headerlink" title="参数解释"></a>参数解释</h4><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>必须值</td>
+<td>歌曲 id / 播放列表 id / 相册 id / 搜索关键字</td>
+</tr>
+<tr>
+<td>server</td>
+<td>必须值</td>
+<td>音乐平台: netease, tencent, kugou, xiami, baidu</td>
+</tr>
+<tr>
+<td>type</td>
+<td>必须值</td>
+<td>song, playlist, album, search, artist</td>
+</tr>
+<tr>
+<td>fixed</td>
+<td>false</td>
+<td>开启固定模式</td>
+</tr>
+<tr>
+<td>mini</td>
+<td>false</td>
+<td>开启迷你模式</td>
+</tr>
+<tr>
+<td>loop</td>
+<td>all</td>
+<td>列表循环模式：all, one,none</td>
+</tr>
+<tr>
+<td>order</td>
+<td>list</td>
+<td>列表播放模式： list, random</td>
+</tr>
+<tr>
+<td>volume</td>
+<td>0.7</td>
+<td>播放器音量</td>
+</tr>
+<tr>
+<td>lrctype</td>
+<td>0</td>
+<td>歌词格式类型</td>
+</tr>
+<tr>
+<td>listfolded</td>
+<td>false</td>
+<td>指定音乐播放列表是否折叠</td>
+</tr>
+<tr>
+<td>storagename</td>
+<td>metingjs</td>
+<td>LocalStorage 中存储播放器设定的键名</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>true</td>
+<td>自动播放，移动端浏览器暂时不支持此功能</td>
+</tr>
+<tr>
+<td>mutex</td>
+<td>true</td>
+<td>该选项开启时，如果同页面有其他 aplayer 播放，该播放器会暂停</td>
+</tr>
+<tr>
+<td>listmaxheight</td>
+<td>340px</td>
+<td>播放列表的最大长度</td>
+</tr>
+<tr>
+<td>preload</td>
+<td>auto</td>
+<td>音乐文件预载入模式，可选项： none, metadata, auto</td>
+</tr>
+<tr>
+<td>theme</td>
+<td>#ad7a86</td>
+<td>播放器风格色彩设置</td>
+</tr>
+</tbody>
+</table>
+<h4 id="For-Example-1"><a href="#For-Example-1" class="headerlink" title="For Example"></a>For Example</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% meting <span class="string">"33913985"</span> <span class="string">"netease"</span> <span class="string">"song"</span> %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义配置"><a href="#自定义配置" class="headerlink" title="自定义配置"></a>自定义配置</h3><p>可以在hexo配置文件_config.yml文件中进行如下配置：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">aplayer:</span></span><br><span class="line"><span class="attr">  script_dir:</span> <span class="string">some/place</span>                        <span class="comment"># Public 目录下脚本目录路径，默认: 'assets/js'</span></span><br><span class="line"><span class="attr">  style_dir:</span> <span class="string">some/place</span>                         <span class="comment"># Public 目录下样式目录路径，默认: 'assets/css'</span></span><br><span class="line"><span class="attr">  cdn:</span> <span class="attr">http://xxx/aplayer.min.js</span>                <span class="comment"># 引用 APlayer.js 外部 CDN 地址 (默认不开启)</span></span><br><span class="line"><span class="attr">  style_cdn:</span> <span class="attr">http://xxx/aplayer.min.css</span>         <span class="comment"># 引用 APlayer.css 外部 CDN 地址 (默认不开启)</span></span><br><span class="line"><span class="attr">  meting:</span> <span class="literal">true</span>                                  <span class="comment"># MetingJS 支持</span></span><br><span class="line"><span class="attr">  meting_api:</span> <span class="attr">http://xxx/api.php</span>                <span class="comment"># 自定义 Meting API 地址</span></span><br><span class="line"><span class="attr">  meting_cdn:</span> <span class="attr">http://xxx/Meing.min.js</span>           <span class="comment"># 引用 Meting.js 外部 CDN 地址 (默认不开启)</span></span><br><span class="line"><span class="attr">  asset_inject:</span> <span class="literal">true</span>                            <span class="comment"># 自动插入 Aplayer.js 与 Meting.js 资源脚本, 默认开启</span></span><br><span class="line"><span class="attr">  externalLink:</span> <span class="attr">http://xxx/aplayer.min.js</span>       <span class="comment"># 老版本参数，功能与参数 cdn 相同</span></span><br></pre></td></tr></table></figure>
+<p>参考资料（超赞的）：<br><a href="https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md" target="_blank" rel="noopener">https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md</a></p>
 
     </article>
     <!-- license  -->
@@ -416,7 +571,7 @@ height:50vh;
             <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
             </p><p>原文链接：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">https://st19950627.github.io/2020/04/04/Hexo插件/</a>
             </p><p>发表日期：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">April 4th 2020, 4:53:12 pm</a>
-            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">April 4th 2020, 5:05:09 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/Hexo插件/">April 4th 2020, 5:57:08 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -552,7 +707,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HEXO插件"><span class="toc-number">1.</span> <span class="toc-text">HEXO插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-tag-aplayer"><span class="toc-number">1.1.</span> <span class="toc-text">hexo-tag-aplayer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-number">1.1.2.</span> <span class="toc-text">使用</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HEXO插件"><span class="toc-number">1.</span> <span class="toc-text">HEXO插件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo-tag-aplayer"><span class="toc-number">1.1.</span> <span class="toc-text">hexo-tag-aplayer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#入门使用"><span class="toc-number">1.1.2.</span> <span class="toc-text">入门使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参数解释"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">参数解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#For-Example"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">For Example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MeingJS"><span class="toc-number">1.1.3.</span> <span class="toc-text">MeingJS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开启MeingJS"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">开启MeingJS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#食用方法"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">食用方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参数解释-1"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">参数解释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#For-Example-1"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">For Example</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义配置"><span class="toc-number">1.1.4.</span> <span class="toc-text">自定义配置</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -565,8 +720,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -1107,17 +1260,17 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
+        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
+    
         <span class="sidebar-tag-name" data-tags="ELK"><span class="iconfont-archer">&#xe606;</span>ELK</span>
     
         <span class="sidebar-tag-name" data-tags="日志系统"><span class="iconfont-archer">&#xe606;</span>日志系统</span>
     
-        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
-    
-        <span class="sidebar-tag-name" data-tags="Gradle"><span class="iconfont-archer">&#xe606;</span>Gradle</span>
-    
         <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
+    
+        <span class="sidebar-tag-name" data-tags="Gradle"><span class="iconfont-archer">&#xe606;</span>Gradle</span>
     
         <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
     
@@ -1129,9 +1282,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Map"><span class="iconfont-archer">&#xe606;</span>Map</span>
     
-        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
-    
         <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
     
         <span class="sidebar-tag-name" data-tags="adobe"><span class="iconfont-archer">&#xe606;</span>adobe</span>
     
@@ -1157,11 +1310,11 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="递归"><span class="iconfont-archer">&#xe606;</span>递归</span>
     
-        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
-    
         <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
         <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
+    
+        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
     
         <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
     
