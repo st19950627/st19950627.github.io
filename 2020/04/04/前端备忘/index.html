@@ -277,7 +277,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">427</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -408,8 +408,110 @@ height:50vh;
     <article class="article-entry">
         <h1 id="前端备忘"><a href="#前端备忘" class="headerlink" title="前端备忘"></a>前端备忘</h1><p><strong>好记性不如烂笔头!</strong></p>
 
-    <div id="aplayer-CDQACwKy" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33913985" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-ndMyVRVA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33913985" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <hr>
+<h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><h3 id="HTML5表单的特点："><a href="#HTML5表单的特点：" class="headerlink" title="HTML5表单的特点："></a>HTML5表单的特点：</h3><p>HTML5 表单增加了许多内置的控件和控件属性</p>
+<p>XHTML 中需要放在 form 之中的诸如 input/button/select/textarea 等标签元素，在 HTML 5 中完全可以放在页面任何位置，并通过新增的 form 属性指向元素所属表单的 ID 值，即可关联起来。</p>
+<h3 id="HTML5新增的控件类型："><a href="#HTML5新增的控件类型：" class="headerlink" title="HTML5新增的控件类型："></a>HTML5新增的控件类型：</h3><p>email输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"email"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要求输入格式正确的 email 地址，否则浏览器不允许提交，同时会提示错误信息</p>
+<p>url输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"url"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要求输入格式正确的 URL 地址，Opera 中会自动在开始处添加 http://</p>
+<p>日期时间相关输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"date"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"time"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"month"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"week"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>目前 MS 只有 Opera/Chrome 新版本支持，且展示效果也不一样</p>
+<p>number输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要求输入格式正确的数字</p>
+<p>range类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">step</span>=<span class="string">"2"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"10"</span> <span class="attr">value</span>=<span class="string">"2"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>显示一个可拖动的滑块条，通过设定 max/min/step 值限定拖动范围，拖动时会反馈给value一个值</p>
+<p>search输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"search"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>输入一个搜索关键字，通过 results=s 可显示一个搜索小图标</p>
+<p>tel输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"tel"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>要求输入一个电话号码，但实际上并没有特殊的验证，与 text 类型没什么区别</p>
+<p>color输入类型：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"color"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>可让用户通过颜色选择器选择一个颜色值，并反馈到value中</p>
+<h3 id="HTML5新增的表单属性："><a href="#HTML5新增的表单属性：" class="headerlink" title="HTML5新增的表单属性："></a>HTML5新增的表单属性：</h3><p>placeholder属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">placeholder</span>=<span class="string">"点击我会清除"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>实现点击清除表单初始值，MS 除了 Firefox，其他标 准浏览器都能很好的支持</p>
+<p>require/pattern属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"require"</span> <span class="attr">required</span>=<span class="string">""</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"require1"</span> <span class="attr">required</span>=<span class="string">"required"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"require2"</span> <span class="attr">pattern</span>=<span class="string">"^[1-9]\d&#123;5&#125;$"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>表单验证属性require 类型时，若输入值为空，则拒绝提交并出现提示，注意在 Opera 中必须指定 name 值，否则无效果。</p>
+<p>autofocus属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autofocus</span>=<span class="string">"true"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>默认聚焦属性，可在页面加载时聚焦到一个表单控件，类似于 JS 的 focus()</p>
+<p>list属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">list</span>=<span class="string">"ilist"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"ilist"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">label</span>=<span class="string">"a"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">label</span>=<span class="string">"b"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span> <span class="attr">label</span>=<span class="string">"c"</span>&gt;</span><span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>需要与datalist属性共用，datalist是对选择框的记忆，而list属性可以为选择框自定义记忆的内容</p>
+<p>max/min/step属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">max</span>=<span class="string">"100"</span> <span class="attr">min</span>=<span class="string">"1"</span> <span class="attr">step</span>=<span class="string">"20"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>限制值的输入范围，以及值的输入渐进程度，比如可在 number 设定输入最大值最小值，或在 range 中设定拖动阶梯</p>
+<p>autocomplete属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">autocomplete</span>=<span class="string">"on"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此属性是为表单提供自动完成功能，如果该属性为打开状态可很好地自动完成，一般来说，此属性必须启动浏览器的自动完成功能</p>
+<p>novalidate属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"demo_form.asp"</span> <span class="attr">method</span>=<span class="string">"get"</span> <span class="attr">novalidate</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line">  E-mail: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">name</span>=<span class="string">"user_email"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在提交表单时不应该验证 form 或 input 域</p>
+<p>data属性：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">data</span>=<span class="string">"http://XX.com/"</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>HTML5 支持 data 属性，为 select 控件外联数据源，可以在 select 下拉别表动态的添加来自数据库的各组选项， 比如说国家、省市列表等等。</p>
+<p>XML Submission编码格式：<br>常见的是 Web Form 的编码格式是 application/x-www-form-urlencoded。 这种格式将数据送到服务器端，可以方便的存取。HTML5 提供一种新的数据格式：XML Submission，即 application/x-www-form+xml。简单的举例说，服务器端将直接接收到 XML 形式的表单数据。</p>
+<h3 id="目前任何表单元素都有八种可能的验证约束条件："><a href="#目前任何表单元素都有八种可能的验证约束条件：" class="headerlink" title="目前任何表单元素都有八种可能的验证约束条件："></a>目前任何表单元素都有八种可能的验证约束条件：</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>用途</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>valueMissing</td>
+<td>确保控件中的值已填写</td>
+<td>将required属性设为true，<code>&lt;input type=&quot;text&quot;required=&quot;required&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>typeMismatch</td>
+<td>确保控件值与预期类型相匹配</td>
+<td><code>&lt;input type=&quot;email&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>patternMismatch</td>
+<td>根据pattern的正则表达式判断输入是否为合法格式</td>
+<td><code>&lt;input type=&quot;text&quot; pattern=&quot;[0-9]{12}&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>toolong</td>
+<td>避免输入过多字符</td>
+<td>设置maxLength，<code>&lt;textarea id=&quot;notes&quot; name=&quot;notes&quot; maxLength=&quot;100&quot;&gt;&lt;/textarea&gt;</code></td>
+</tr>
+<tr>
+<td>rangeUnderflow</td>
+<td>限制数值控件的最小值</td>
+<td>设置min，<code>&lt;input type=&quot;number&quot; min=&quot;0&quot; value=&quot;20&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>rangeOverflow</td>
+<td>限制数值控件的最大值</td>
+<td>设置max，<code>&lt;input type=&quot;number&quot; max=&quot;100&quot; value=&quot;20&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>stepMismatch</td>
+<td>确保输入值符合min,max,step的设置</td>
+<td>设置max min step，<code>&lt;input type=&quot;number&quot; min=&quot;0&quot; max=&quot;100&quot; step=&quot;10&quot; value=&quot;20&quot;/&gt;</code></td>
+</tr>
+<tr>
+<td>customError</td>
+<td>处理应用代码明确设置能计算产生错误</td>
+<td>例如验证两次输入的密码是否一致，<code>document.getElementById(&quot;元素id&quot;).setCustomValidity(&quot;提示的错误信息&quot;)</code></td>
+</tr>
+</tbody>
+</table>
 <h2 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h2><h3 id="在vue工程中引入jquery"><a href="#在vue工程中引入jquery" class="headerlink" title="在vue工程中引入jquery"></a>在vue工程中引入jquery</h3><h4 id="一、通过npm-install-jquery安装jquery依赖"><a href="#一、通过npm-install-jquery安装jquery依赖" class="headerlink" title="一、通过npm install jquery安装jquery依赖"></a>一、通过npm install jquery安装jquery依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install jquery --save</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果你更换了淘宝镜像，可以使用cnpm来安装，速度更快</span><br><span class="line">cnpm install jquery --save</span><br></pre></td></tr></table></figure>
 <h4 id="二、修改webpack-base-conf文件"><a href="#二、修改webpack-base-conf文件" class="headerlink" title="二、修改webpack.base.conf文件"></a>二、修改webpack.base.conf文件</h4><p>该文件一般位于build文件夹内</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>)</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'../config'</span>)</span><br><span class="line"><span class="keyword">const</span> vueLoaderConfig = <span class="built_in">require</span>(<span class="string">'./vue-loader.conf'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br></pre></td></tr></table></figure>
@@ -418,7 +520,8 @@ height:50vh;
 <p><code>import $ from &#39;jquery&#39;</code></p>
 <p>也可直接在main.js中全局引入jquery</p>
 <h2 id="实现文件上传功能"><a href="#实现文件上传功能" class="headerlink" title="实现文件上传功能"></a>实现文件上传功能</h2><p>一个文件上传功能做了好多次了，但每次做的时候还是需要各种百度，瞧我这个烂记性。。<br>想实现用ajax进行文件上传~</p>
-<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>此处还用了elmentui的样式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"upload"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>分组名称<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"groupName"</span> <span class="attr">id</span>=<span class="string">"groupName"</span> <span class="attr">name</span>=<span class="string">"groupName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>分组描述<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"description"</span> <span class="attr">id</span>=<span class="string">"description"</span> <span class="attr">name</span>=<span class="string">"description"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>白名单文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"pic"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"uploadPic"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>此处还用了elmentui的样式</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">id</span>=<span class="string">"upload"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>分组名称<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"groupName"</span> <span class="attr">id</span>=<span class="string">"groupName"</span> <span class="attr">name</span>=<span class="string">"groupName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>分组描述<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">v-model</span>=<span class="string">"description"</span> <span class="attr">id</span>=<span class="string">"description"</span> <span class="attr">name</span>=<span class="string">"description"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span>&gt;</span>白名单文件<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> <span class="attr">id</span>=<span class="string">"pic"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"uploadPic"</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">uploadPic() &#123;</span><br><span class="line">  <span class="keyword">var</span> form = <span class="built_in">document</span>.getElementById(<span class="string">'upload'</span>),</span><br><span class="line">  formData = <span class="keyword">new</span> FormData(form);</span><br><span class="line">  <span class="built_in">console</span>.log(form)</span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    url:<span class="string">"http://localhost:8081/file/upload"</span>,</span><br><span class="line">    type:<span class="string">"post"</span>,</span><br><span class="line">    data:formData,</span><br><span class="line">    processData:<span class="literal">false</span>,</span><br><span class="line">    contentType:<span class="literal">false</span>,</span><br><span class="line">    success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(res)&#123;</span><br><span class="line">        alert(<span class="string">"上传成功！"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">console</span>.log(res);</span><br><span class="line">    &#125;,</span><br><span class="line">    error:<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">      alert(<span class="string">"网络连接失败,稍后重试"</span>,err);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="JAVA端"><a href="#JAVA端" class="headerlink" title="JAVA端"></a>JAVA端</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/file"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileController</span> </span>&#123;</span><br><span class="line">  <span class="meta">@RequestMapping</span>(<span class="string">"/upload"</span>)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">upload</span><span class="params">(@RequestParam(<span class="string">"file"</span>)</span> MultipartFile multipartFile,</span></span><br><span class="line"><span class="function">                        @RequestParam String groupName,</span></span><br><span class="line"><span class="function">                        @RequestParam String description)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (multipartFile == <span class="keyword">null</span>) &#123;</span><br><span class="line">          System.out.println(<span class="string">"empty"</span>);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">          System.out.println(<span class="string">"ok"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">"success"</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -429,7 +532,7 @@ height:50vh;
             <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
             </p><p>原文链接：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">https://st19950627.github.io/2020/04/04/前端备忘/</a>
             </p><p>发表日期：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">April 4th 2020, 2:41:52 pm</a>
-            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">April 4th 2020, 5:27:16 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">June 6th 2021, 11:07:50 pm</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -570,7 +673,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端备忘"><span class="toc-number">1.</span> <span class="toc-text">前端备忘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE"><span class="toc-number">1.1.</span> <span class="toc-text">VUE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在vue工程中引入jquery"><span class="toc-number">1.1.1.</span> <span class="toc-text">在vue工程中引入jquery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、通过npm-install-jquery安装jquery依赖"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">一、通过npm install jquery安装jquery依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、修改webpack-base-conf文件"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">二、修改webpack.base.conf文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、引入jquery"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">三、引入jquery</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现文件上传功能"><span class="toc-number">1.2.</span> <span class="toc-text">实现文件上传功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端"><span class="toc-number">1.2.1.</span> <span class="toc-text">前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAVA端"><span class="toc-number">1.2.2.</span> <span class="toc-text">JAVA端</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端备忘"><span class="toc-number">1.</span> <span class="toc-text">前端备忘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5"><span class="toc-number">1.1.</span> <span class="toc-text">HTML5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5表单的特点："><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML5表单的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新增的控件类型："><span class="toc-number">1.1.2.</span> <span class="toc-text">HTML5新增的控件类型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新增的表单属性："><span class="toc-number">1.1.3.</span> <span class="toc-text">HTML5新增的表单属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前任何表单元素都有八种可能的验证约束条件："><span class="toc-number">1.1.4.</span> <span class="toc-text">目前任何表单元素都有八种可能的验证约束条件：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE"><span class="toc-number">1.2.</span> <span class="toc-text">VUE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在vue工程中引入jquery"><span class="toc-number">1.2.1.</span> <span class="toc-text">在vue工程中引入jquery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、通过npm-install-jquery安装jquery依赖"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">一、通过npm install jquery安装jquery依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、修改webpack-base-conf文件"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">二、修改webpack.base.conf文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、引入jquery"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">三、引入jquery</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现文件上传功能"><span class="toc-number">1.3.</span> <span class="toc-text">实现文件上传功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端"><span class="toc-number">1.3.1.</span> <span class="toc-text">前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAVA端"><span class="toc-number">1.3.2.</span> <span class="toc-text">JAVA端</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -583,6 +686,10 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
     
     
     
@@ -1175,12 +1282,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/创建型设计模式/">设计模式-创建型设计模式</a>
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/java编程规范/">JAVA编程规范整理</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/java编程规范/">JAVA编程规范整理</a>
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/创建型设计模式/">设计模式-创建型设计模式</a>
         </li>
     
     
@@ -1230,25 +1337,31 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Apollo"><span class="iconfont-archer">&#xe606;</span>Apollo</span>
     
-        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
-    
         <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
     
         <span class="sidebar-tag-name" data-tags="ELK"><span class="iconfont-archer">&#xe606;</span>ELK</span>
     
         <span class="sidebar-tag-name" data-tags="日志系统"><span class="iconfont-archer">&#xe606;</span>日志系统</span>
     
-        <span class="sidebar-tag-name" data-tags="Electron"><span class="iconfont-archer">&#xe606;</span>Electron</span>
-    
         <span class="sidebar-tag-name" data-tags="Gradle"><span class="iconfont-archer">&#xe606;</span>Gradle</span>
     
-        <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
-    
-        <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
+        <span class="sidebar-tag-name" data-tags="Electron"><span class="iconfont-archer">&#xe606;</span>Electron</span>
     
         <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
+        <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
+    
+        <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
+    
         <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
     
         <span class="sidebar-tag-name" data-tags="List"><span class="iconfont-archer">&#xe606;</span>List</span>
     
@@ -1256,53 +1369,47 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Map"><span class="iconfont-archer">&#xe606;</span>Map</span>
     
-        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
-    
-        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
-    
-        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
-    
         <span class="sidebar-tag-name" data-tags="Token"><span class="iconfont-archer">&#xe606;</span>Token</span>
     
         <span class="sidebar-tag-name" data-tags="Session"><span class="iconfont-archer">&#xe606;</span>Session</span>
     
         <span class="sidebar-tag-name" data-tags="Cookie"><span class="iconfont-archer">&#xe606;</span>Cookie</span>
     
-        <span class="sidebar-tag-name" data-tags="adobe"><span class="iconfont-archer">&#xe606;</span>adobe</span>
-    
-        <span class="sidebar-tag-name" data-tags="定时任务"><span class="iconfont-archer">&#xe606;</span>定时任务</span>
-    
         <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
     
         <span class="sidebar-tag-name" data-tags="前端"><span class="iconfont-archer">&#xe606;</span>前端</span>
     
+        <span class="sidebar-tag-name" data-tags="定时任务"><span class="iconfont-archer">&#xe606;</span>定时任务</span>
+    
         <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
+    
+        <span class="sidebar-tag-name" data-tags="资产托管"><span class="iconfont-archer">&#xe606;</span>资产托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="托管"><span class="iconfont-archer">&#xe606;</span>托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="adobe"><span class="iconfont-archer">&#xe606;</span>adobe</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
-    
         <span class="sidebar-tag-name" data-tags="递归"><span class="iconfont-archer">&#xe606;</span>递归</span>
     
-        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+        <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
     
-        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
+        <span class="sidebar-tag-name" data-tags="LIVER"><span class="iconfont-archer">&#xe606;</span>LIVER</span>
+    
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
     
         <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
         <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
     
         <span class="sidebar-tag-name" data-tags="编程规范"><span class="iconfont-archer">&#xe606;</span>编程规范</span>
     
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
         <span class="sidebar-tag-name" data-tags="推荐系统"><span class="iconfont-archer">&#xe606;</span>推荐系统</span>
-    
-        <span class="sidebar-tag-name" data-tags="LIVER"><span class="iconfont-archer">&#xe606;</span>LIVER</span>
-    
-        <span class="sidebar-tag-name" data-tags="资产托管"><span class="iconfont-archer">&#xe606;</span>资产托管</span>
-    
-        <span class="sidebar-tag-name" data-tags="托管"><span class="iconfont-archer">&#xe606;</span>托管</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
