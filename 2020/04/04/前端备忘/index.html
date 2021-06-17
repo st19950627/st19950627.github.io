@@ -277,7 +277,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">2.7k</span>阅读时长: <span class="post-count reading-time">11 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -408,7 +408,7 @@ height:50vh;
     <article class="article-entry">
         <h1 id="前端备忘"><a href="#前端备忘" class="headerlink" title="前端备忘"></a>前端备忘</h1><p><strong>好记性不如烂笔头!</strong></p>
 
-    <div id="aplayer-ndMyVRVA" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33913985" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
+    <div id="aplayer-gJrRdwbf" class="aplayer aplayer-tag-marker meting-tag-marker" data-id="33913985" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86"></div>
 <hr>
 <h2 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h2><h3 id="HTML5表单的特点："><a href="#HTML5表单的特点：" class="headerlink" title="HTML5表单的特点："></a>HTML5表单的特点：</h3><p>HTML5 表单增加了许多内置的控件和控件属性</p>
 <p>XHTML 中需要放在 form 之中的诸如 input/button/select/textarea 等标签元素，在 HTML 5 中完全可以放在页面任何位置，并通过新增的 form 属性指向元素所属表单的 ID 值，即可关联起来。</p>
@@ -512,6 +512,32 @@ height:50vh;
 </tr>
 </tbody>
 </table>
+<h2 id="CSS3"><a href="#CSS3" class="headerlink" title="CSS3"></a>CSS3</h2><h3 id="文字与字体相关样式"><a href="#文字与字体相关样式" class="headerlink" title="文字与字体相关样式"></a>文字与字体相关样式</h3><h4 id="text-shadow"><a href="#text-shadow" class="headerlink" title="text-shadow"></a>text-shadow</h4><p>用途: 基本的文本阴影效果</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span> &#123;</span><br><span class="line">  <span class="attribute">text-shadow</span>: <span class="number">5px</span> <span class="number">5px</span> <span class="number">5px</span> <span class="number">#FF0000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">text-shadow</span>: <span class="selector-tag">h-shadow</span> <span class="selector-tag">v-shadow</span> <span class="selector-tag">blur</span> <span class="selector-tag">color</span>;</span><br><span class="line">水平阴影位置 , 垂直阴影位置 , 模糊距离(可选) , 颜色</span><br></pre></td></tr></table></figure>
+<h4 id="Web-Font与-font-face"><a href="#Web-Font与-font-face" class="headerlink" title="Web Font与@font-face"></a>Web Font与@font-face</h4><p>用途: 指定名为”myFirstFont”的字体，并指定在哪里可以找到它的URL</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">font-family</span>: myFirstFont;</span><br><span class="line"><span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'Sansation_Light.ttf'</span>),</span><br><span class="line">     <span class="built_in">url</span>(<span class="string">'Sansation_Light.eot'</span>); <span class="comment">/* IE9 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">font-family</span>: myFirstFont;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="font-size-adjust"><a href="#font-size-adjust" class="headerlink" title="font-size-adjust"></a>font-size-adjust</h4><p>用途: 通过指定font-size-adjust属性，浏览器将调整字体大小，无论字体系列, 不同字体也能保持一样的大小(只有firefox支持)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">font-size-adjust</span>: <span class="number">0.58</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="背景边框相关新增属性"><a href="#背景边框相关新增属性" class="headerlink" title="背景边框相关新增属性"></a>背景边框相关新增属性</h3><h4 id="background-clip"><a href="#background-clip" class="headerlink" title="background-clip"></a>background-clip</h4><p>用途: 规定背景的绘制区域</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">background-color</span>:yellow;</span><br><span class="line"><span class="attribute">background-clip</span>:content-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">background-clip: border-box|padding-box|content-box;</span><br><span class="line">背景被裁剪到边框盒 , 背景被裁剪到内边距框 , 背景被裁剪到内容框</span><br></pre></td></tr></table></figure>
+<h4 id="background-origin"><a href="#background-origin" class="headerlink" title="background-origin"></a>background-origin</h4><p>用途: 内容框相对定位的背景图片(背景原点)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">background-image</span>:<span class="built_in">url</span>(<span class="string">'smiley.gif'</span>);</span><br><span class="line"><span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line"><span class="attribute">background-position</span>:left;</span><br><span class="line"><span class="attribute">background-origin</span>:content-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">background-origin: padding-box|border-box|content-box;</span><br><span class="line">※如果<span class="selector-tag">background-attachment</span>是固定, 则这个属性没有效果</span><br></pre></td></tr></table></figure>
+<h4 id="background-size"><a href="#background-size" class="headerlink" title="background-size"></a>background-size</h4><p>用途: 重设背景图片大小</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">background</span>:<span class="built_in">url</span>(img_flwr.gif);</span><br><span class="line">    <span class="attribute">background-size</span>:<span class="number">80px</span> <span class="number">60px</span>;</span><br><span class="line">    <span class="attribute">background-repeat</span>:no-repeat;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">background-size: length|percentage|cover|contain;</span><br><span class="line">通过像素设置长宽 , 通过百分比设置长宽 , 保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小 , 保持图像的纵横比并将图像缩放成将适合背景定位区域的最大大小</span><br></pre></td></tr></table></figure>
+<h4 id="background-break"><a href="#background-break" class="headerlink" title="background-break"></a>background-break</h4><p>用途: 控制背景在不同区域显示</p>
+<p>(1)Background-break: continuous;<br>此属性是默认值，忽视区域之间的间隔空隙（给它们应用图片就好像把它们看成一个区域一样）<br>(2)Background-break: bounding-box;<br>重新考虑区域之间的间隔<br>(3)Background-break: each-box;<br>对每一个独立的标签区域进行背景的重新划分。</p>
+<h4 id="多个背景叠加"><a href="#多个背景叠加" class="headerlink" title="多个背景叠加"></a>多个背景叠加</h4><p>第一个图片是定位在元素最上面的背景，后面的背景图片依次在它下面显示</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">url</span>(<span class="selector-tag">top-image</span><span class="selector-class">.jpg</span>), <span class="selector-tag">url</span>(<span class="selector-tag">middle-image</span><span class="selector-class">.jpg</span>), <span class="selector-tag">url</span>(<span class="selector-tag">bottom-image</span><span class="selector-class">.jpg</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="background-attachment"><a href="#background-attachment" class="headerlink" title="background-attachment"></a>background-attachment</h4><p>当background-attachment设置为scroll时，背景图片是不随内容滚条滚动的。现在，有了background-attachment:local，就可以做到让背景随元素内容滚动而滚动了</p>
+<h4 id="border-radius"><a href="#border-radius" class="headerlink" title="border-radius"></a>border-radius</h4><p>用途: 为div加圆角</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">border</span>:<span class="number">2px</span> solid;</span><br><span class="line">    <span class="attribute">border-radius</span>:<span class="number">25px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">border-radius: 2em 1em 4em / 0.5em 3em;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">is</span> <span class="selector-tag">equivalent</span> <span class="selector-tag">to</span>:</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">border-top-left-radius</span>: 2<span class="selector-tag">em</span> 0<span class="selector-class">.5em</span>;</span><br><span class="line"><span class="selector-tag">border-top-right-radius</span>: 1<span class="selector-tag">em</span> 3<span class="selector-tag">em</span>;</span><br><span class="line"><span class="selector-tag">border-bottom-right-radius</span>: 4<span class="selector-tag">em</span> 0<span class="selector-class">.5em</span>;</span><br><span class="line"><span class="selector-tag">border-bottom-left-radius</span>: 1<span class="selector-tag">em</span> 3<span class="selector-tag">em</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="border-image"><a href="#border-image" class="headerlink" title="border-image"></a>border-image</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#borderimg</span> &#123; </span><br><span class="line">    <span class="attribute">-webkit-border-image</span>: <span class="built_in">url</span>(border.png) <span class="number">30</span> round; <span class="comment">/* Safari 3.1-5 */</span></span><br><span class="line">    <span class="attribute">-o-border-image</span>: <span class="built_in">url</span>(border.png) <span class="number">30</span> round; <span class="comment">/* Opera 11-12.1 */</span></span><br><span class="line">    <span class="attribute">border-image</span>: <span class="built_in">url</span>(border.png) <span class="number">30</span> round;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">border-image: source slice width outset repeat|initial|inherit;</span><br><span class="line">用于设置图像边界是否应重复（<span class="selector-tag">repeat</span>）、拉伸（<span class="selector-tag">stretch</span>）或铺满（<span class="selector-tag">round</span>）。</span><br></pre></td></tr></table></figure>
+<h3 id="布局相关"><a href="#布局相关" class="headerlink" title="布局相关"></a>布局相关</h3><h4 id="display新增属性"><a href="#display新增属性" class="headerlink" title="display新增属性"></a>display新增属性</h4><h4 id="多行文本居中省略号"><a href="#多行文本居中省略号" class="headerlink" title="多行文本居中省略号"></a>多行文本居中省略号</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">单行文本省略号</span><br><span class="line">&#123;</span><br><span class="line"><span class="attribute">overflow</span>: hidden;</span><br><span class="line"><span class="attribute">text-overflow</span>:ellipsis;</span><br><span class="line"><span class="attribute">white-space</span>: nowrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">多行文本省略号</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attribute">display</span>: -webkit-box;</span><br><span class="line">  <span class="attribute">-webkit-box-orient</span>: vertical;</span><br><span class="line">  -webkit-line-clamp: 3;  // 限制文本的行数, 只显示3行</span><br><span class="line">  <span class="selector-tag">overflow</span>: <span class="selector-tag">hidden</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="column多栏布局"><a href="#column多栏布局" class="headerlink" title="column多栏布局"></a>column多栏布局</h4><h4 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h4><h3 id="Media-Queries相关样式"><a href="#Media-Queries相关样式" class="headerlink" title="Media Queries相关样式"></a>Media Queries相关样式</h3><p>Media Queries直译过来就是“媒体查询”</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/reset.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"screen"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"all"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"css/print.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">media</span>=<span class="string">"print"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>“media”就是用来指定特定的媒体类型，在HTML4和CSS2中充许你使用“media”来指定特定的媒体类型，如屏幕（screen）和打印（print）的样式表，当然还有其他的，比如说“TV”,“handheld”等，其中“all”表示的是支持所有媒体介质</p>
+<p>简单的实例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">media</span>=<span class="string">"screen and (max-width: 600px)"</span> <span class="attr">href</span>=<span class="string">"small.css"</span> /&gt;</span></span><br><span class="line">当页页宽度小于或等于600px,调用small.css样式表来渲染你的Web页面</span><br></pre></td></tr></table></figure>
 <h2 id="VUE"><a href="#VUE" class="headerlink" title="VUE"></a>VUE</h2><h3 id="在vue工程中引入jquery"><a href="#在vue工程中引入jquery" class="headerlink" title="在vue工程中引入jquery"></a>在vue工程中引入jquery</h3><h4 id="一、通过npm-install-jquery安装jquery依赖"><a href="#一、通过npm-install-jquery安装jquery依赖" class="headerlink" title="一、通过npm install jquery安装jquery依赖"></a>一、通过npm install jquery安装jquery依赖</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install jquery --save</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 如果你更换了淘宝镜像，可以使用cnpm来安装，速度更快</span><br><span class="line">cnpm install jquery --save</span><br></pre></td></tr></table></figure>
 <h4 id="二、修改webpack-base-conf文件"><a href="#二、修改webpack-base-conf文件" class="headerlink" title="二、修改webpack.base.conf文件"></a>二、修改webpack.base.conf文件</h4><p>该文件一般位于build文件夹内</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> utils = <span class="built_in">require</span>(<span class="string">'./utils'</span>)</span><br><span class="line"><span class="keyword">const</span> config = <span class="built_in">require</span>(<span class="string">'../config'</span>)</span><br><span class="line"><span class="keyword">const</span> vueLoaderConfig = <span class="built_in">require</span>(<span class="string">'./vue-loader.conf'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br></pre></td></tr></table></figure>
@@ -532,7 +558,7 @@ height:50vh;
             <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
             </p><p>原文链接：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">https://st19950627.github.io/2020/04/04/前端备忘/</a>
             </p><p>发表日期：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">April 4th 2020, 2:41:52 pm</a>
-            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">June 6th 2021, 11:07:50 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2020/04/04/前端备忘/">June 18th 2021, 12:00:07 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -673,7 +699,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端备忘"><span class="toc-number">1.</span> <span class="toc-text">前端备忘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5"><span class="toc-number">1.1.</span> <span class="toc-text">HTML5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5表单的特点："><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML5表单的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新增的控件类型："><span class="toc-number">1.1.2.</span> <span class="toc-text">HTML5新增的控件类型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新增的表单属性："><span class="toc-number">1.1.3.</span> <span class="toc-text">HTML5新增的表单属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前任何表单元素都有八种可能的验证约束条件："><span class="toc-number">1.1.4.</span> <span class="toc-text">目前任何表单元素都有八种可能的验证约束条件：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE"><span class="toc-number">1.2.</span> <span class="toc-text">VUE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在vue工程中引入jquery"><span class="toc-number">1.2.1.</span> <span class="toc-text">在vue工程中引入jquery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、通过npm-install-jquery安装jquery依赖"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">一、通过npm install jquery安装jquery依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、修改webpack-base-conf文件"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">二、修改webpack.base.conf文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、引入jquery"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">三、引入jquery</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现文件上传功能"><span class="toc-number">1.3.</span> <span class="toc-text">实现文件上传功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端"><span class="toc-number">1.3.1.</span> <span class="toc-text">前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAVA端"><span class="toc-number">1.3.2.</span> <span class="toc-text">JAVA端</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前端备忘"><span class="toc-number">1.</span> <span class="toc-text">前端备忘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#HTML5"><span class="toc-number">1.1.</span> <span class="toc-text">HTML5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5表单的特点："><span class="toc-number">1.1.1.</span> <span class="toc-text">HTML5表单的特点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新增的控件类型："><span class="toc-number">1.1.2.</span> <span class="toc-text">HTML5新增的控件类型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML5新增的表单属性："><span class="toc-number">1.1.3.</span> <span class="toc-text">HTML5新增的表单属性：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#目前任何表单元素都有八种可能的验证约束条件："><span class="toc-number">1.1.4.</span> <span class="toc-text">目前任何表单元素都有八种可能的验证约束条件：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3"><span class="toc-number">1.2.</span> <span class="toc-text">CSS3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#文字与字体相关样式"><span class="toc-number">1.2.1.</span> <span class="toc-text">文字与字体相关样式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#text-shadow"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">text-shadow</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Web-Font与-font-face"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">Web Font与@font-face</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#font-size-adjust"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">font-size-adjust</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景边框相关新增属性"><span class="toc-number">1.2.2.</span> <span class="toc-text">背景边框相关新增属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#background-clip"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">background-clip</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#background-origin"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">background-origin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#background-size"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">background-size</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#background-break"><span class="toc-number">1.2.2.4.</span> <span class="toc-text">background-break</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多个背景叠加"><span class="toc-number">1.2.2.5.</span> <span class="toc-text">多个背景叠加</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#background-attachment"><span class="toc-number">1.2.2.6.</span> <span class="toc-text">background-attachment</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#border-radius"><span class="toc-number">1.2.2.7.</span> <span class="toc-text">border-radius</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#border-image"><span class="toc-number">1.2.2.8.</span> <span class="toc-text">border-image</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#布局相关"><span class="toc-number">1.2.3.</span> <span class="toc-text">布局相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#display新增属性"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">display新增属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多行文本居中省略号"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">多行文本居中省略号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#column多栏布局"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">column多栏布局</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#flex布局"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">flex布局</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Media-Queries相关样式"><span class="toc-number">1.2.4.</span> <span class="toc-text">Media Queries相关样式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VUE"><span class="toc-number">1.3.</span> <span class="toc-text">VUE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在vue工程中引入jquery"><span class="toc-number">1.3.1.</span> <span class="toc-text">在vue工程中引入jquery</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、通过npm-install-jquery安装jquery依赖"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">一、通过npm install jquery安装jquery依赖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、修改webpack-base-conf文件"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">二、修改webpack.base.conf文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、引入jquery"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">三、引入jquery</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现文件上传功能"><span class="toc-number">1.4.</span> <span class="toc-text">实现文件上传功能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端"><span class="toc-number">1.4.1.</span> <span class="toc-text">前端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAVA端"><span class="toc-number">1.4.2.</span> <span class="toc-text">JAVA端</span></a></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -686,10 +712,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
-    
-    
     
     
     
@@ -1339,29 +1361,25 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
     
-        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
-    
         <span class="sidebar-tag-name" data-tags="ELK"><span class="iconfont-archer">&#xe606;</span>ELK</span>
     
         <span class="sidebar-tag-name" data-tags="日志系统"><span class="iconfont-archer">&#xe606;</span>日志系统</span>
     
         <span class="sidebar-tag-name" data-tags="Gradle"><span class="iconfont-archer">&#xe606;</span>Gradle</span>
     
-        <span class="sidebar-tag-name" data-tags="Electron"><span class="iconfont-archer">&#xe606;</span>Electron</span>
-    
         <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
     
         <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
     
-        <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
+        <span class="sidebar-tag-name" data-tags="Electron"><span class="iconfont-archer">&#xe606;</span>Electron</span>
     
         <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
     
+        <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
+    
         <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
     
-        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
-    
-        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
+        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
     
         <span class="sidebar-tag-name" data-tags="List"><span class="iconfont-archer">&#xe606;</span>List</span>
     
@@ -1369,47 +1387,51 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Map"><span class="iconfont-archer">&#xe606;</span>Map</span>
     
+        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
+    
         <span class="sidebar-tag-name" data-tags="Token"><span class="iconfont-archer">&#xe606;</span>Token</span>
     
         <span class="sidebar-tag-name" data-tags="Session"><span class="iconfont-archer">&#xe606;</span>Session</span>
     
         <span class="sidebar-tag-name" data-tags="Cookie"><span class="iconfont-archer">&#xe606;</span>Cookie</span>
     
-        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
-    
-        <span class="sidebar-tag-name" data-tags="前端"><span class="iconfont-archer">&#xe606;</span>前端</span>
+        <span class="sidebar-tag-name" data-tags="LIVER"><span class="iconfont-archer">&#xe606;</span>LIVER</span>
     
         <span class="sidebar-tag-name" data-tags="定时任务"><span class="iconfont-archer">&#xe606;</span>定时任务</span>
     
         <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
     
-        <span class="sidebar-tag-name" data-tags="资产托管"><span class="iconfont-archer">&#xe606;</span>资产托管</span>
-    
-        <span class="sidebar-tag-name" data-tags="托管"><span class="iconfont-archer">&#xe606;</span>托管</span>
-    
         <span class="sidebar-tag-name" data-tags="adobe"><span class="iconfont-archer">&#xe606;</span>adobe</span>
     
         <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
     
-        <span class="sidebar-tag-name" data-tags="递归"><span class="iconfont-archer">&#xe606;</span>递归</span>
-    
         <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
     
-        <span class="sidebar-tag-name" data-tags="LIVER"><span class="iconfont-archer">&#xe606;</span>LIVER</span>
+        <span class="sidebar-tag-name" data-tags="资产托管"><span class="iconfont-archer">&#xe606;</span>资产托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="托管"><span class="iconfont-archer">&#xe606;</span>托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="递归"><span class="iconfont-archer">&#xe606;</span>递归</span>
     
         <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
     
         <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
     
         <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
     
-        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
-    
         <span class="sidebar-tag-name" data-tags="编程规范"><span class="iconfont-archer">&#xe606;</span>编程规范</span>
     
-        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+        <span class="sidebar-tag-name" data-tags="前端"><span class="iconfont-archer">&#xe606;</span>前端</span>
     
         <span class="sidebar-tag-name" data-tags="推荐系统"><span class="iconfont-archer">&#xe606;</span>推荐系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
