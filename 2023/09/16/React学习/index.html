@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="itibanst">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="itibanst">
+    
+    <meta name="keywords" content="hexo,java">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>React学习 · The World Best ST</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/bitbug_favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">The World Best ST.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">React学习</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">The World Best ST.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/header-3.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            React学习
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="前端">前端</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="React">React</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.9k</span>阅读时长: <span class="post-count reading-time">12 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2023/09/16</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="站在巨人的肩膀上开发前端"><a href="#站在巨人的肩膀上开发前端" class="headerlink" title="站在巨人的肩膀上开发前端"></a>站在巨人的肩膀上开发前端</h1><h2 id="React的优点"><a href="#React的优点" class="headerlink" title="React的优点"></a>React的优点</h2><ul>
+<li>组件化: 提高开发效率</li>
+<li>虚拟dom: 提升用户体验</li>
+<li>函数式编程: 提高可维护性和可阅读性</li>
+<li>react-native: 开发原生移动应用</li>
+</ul>
+<h2 id="Web开发"><a href="#Web开发" class="headerlink" title="Web开发"></a>Web开发</h2><h3 id="web安全"><a href="#web安全" class="headerlink" title="web安全"></a>web安全</h3><h4 id="xxs"><a href="#xxs" class="headerlink" title="xxs"></a>xxs</h4><h5 id="反射型"><a href="#反射型" class="headerlink" title="反射型"></a>反射型</h5><p>攻击者通过电子邮件等方式将包含注入脚本的恶意链接发送给受害者，当受害者点击该链接的时候，注入脚本被传输到目标服务器上，然后服务器将注入脚本 “反射”到受害者的浏览器上，从而浏览器就执行了该脚本</p>
+<h5 id="存储型"><a href="#存储型" class="headerlink" title="存储型"></a>存储型</h5><p>存储型XSS的原理是：主要是将恶意代码上传或存储到服务器中，下次只要受害者浏览包含此恶意代码的页面就会执行恶意代码</p>
+<h5 id="基于DOM"><a href="#基于DOM" class="headerlink" title="基于DOM"></a>基于DOM</h5><p>因此我们需要对HTML进行编码，对JS进行编码来防止这些问题产生</p>
+<h5 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h5><p>SQL注入是通过客户端的输入把SQL命令注入到一个应用的数据库中，从而执行恶意的SQL语句</p>
+<h4 id="csrf"><a href="#csrf" class="headerlink" title="csrf"></a>csrf</h4><p>中文名：跨站请求伪造。其原理是攻击者构造网站后台某个功能接口的请求地址，诱导用户去点击或者用特殊方法让该请求地址自动加载。用户在登录状态下这个请求被服务端接收后会被误以为是用户合法的操作。对于 GET 形式的接口地址可轻易被攻击，对于 POST 形式的接口地址也不是百分百安全，攻击者可诱导用户进入带 Form 表单可用POST方式提交参数的页面。</p>
+<h4 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h4><ul>
+<li>限制文件后缀</li>
+<li>不执行用户上传的文件</li>
+</ul>
+<h3 id="性能相关"><a href="#性能相关" class="headerlink" title="性能相关"></a>性能相关</h3><h4 id="页面加载过程"><a href="#页面加载过程" class="headerlink" title="页面加载过程"></a>页面加载过程</h4><ol>
+<li>浏览器会从服务器中获取到 HTML 内容</li>
+<li>浏览器获取到 HTML 内容后，就开始从上到下解析 HTML 的元素</li>
+<li>\<head><meta name="generator" content="Hexo 3.8.0">元素内容会先被解析，此时浏览器还没开始渲染页面。当遇到’head’ 标签内部一般会有<br>3.1. 页面元数据的\<meta>元素<br>3.2. 还有一些\<link>元素涉及外部资源（如图片、CSS 样式等），此时浏览器会去获取这些外部资源。<br>3.3. \<script>元素通过src属性指向外部资源。  </li>
+<li>当浏览器解析\<script>，会暂停解析并下载 JavaScript 脚本。</li>
+<li>当 JavaScript 脚本下载完成后，浏览器的控制权转交给 JavaScript 引擎。当脚本执行完成后，<br>控制权会交回给渲染引擎，渲染引擎继续往下解析 HTML 页面。</li>
+<li>\<body>元素内容开始被解析，浏览器开始渲染页面。</li>
+</ol>
+<p>1）输入URL<br>2）检查缓存<br>3）DNS域名解析，获取IP地址<br>4）浏览器与服务器建立连接（TCP三次握手）<br>4）向服务器发送HTTP请求，服务器返回response<br>5）浏览器对response进行解析渲染页面<br>6）断开连接（四次挥手）</p>
+<h4 id="页面渲染及页面加载资源的顺序"><a href="#页面渲染及页面加载资源的顺序" class="headerlink" title="页面渲染及页面加载资源的顺序"></a>页面渲染及页面加载资源的顺序</h4><ol>
+<li>一个页面的加载顺序是从上到下顺序加载的，并且加载与渲染同时进行。</li>
+<li>引用外部js文件时，当在加载过程中遇到\<script>标签时，浏览器会向服务器发送一个reques并等待该request的返回。<br>因为浏览器需要1个稳定的DOM树结构，而JS中很有可能有代码直接改变了DOM树结构，比如使用document.write 或 appendChild,甚至是直接使用的location.href进行跳转，浏览器为了防止出现JS修改DOM树，需要重新构建DOM树的情况，所以加载js就会阻塞其后内容的下载和呈现。</li>
+<li>使用嵌入式js时，会阻塞所有内容的呈现。</li>
+<li>当在加载过程中遇到\<style>标签时，浏览器会发1个request去请求CSS或image,然后继续执行下面的转换，而不需要等待request的返回，当request返回后，只需要把返回的内容放入到DOM树中对应的位置就OK，所以正常来说CSS并不会诸塞页面(不阻塞DOM的解析,会阻塞Dom的渲染)。</li>
+</ol>
+<p>但是也有例外：当CSS后面跟着嵌入的JS的时候，该CSS就会出现阻塞后面资源下载的情况。</p>
+<p>原因：因为浏览器会维持html中css和js的顺序，样式表必须在嵌入的JS执行前先加载、解析完。而嵌入的JS会阻塞后面的资源加载，所以就会出现上面CSS阻塞下载的情况。</p>
+<h4 id="浏览器加载页面渲染流程"><a href="#浏览器加载页面渲染流程" class="headerlink" title="浏览器加载页面渲染流程"></a>浏览器加载页面渲染流程</h4><ol>
+<li>渲染引擎首先通过网络获取所请求文档内容</li>
+<li>解析HTML文件生成DOM Tree</li>
+<li>解析CSS文件生成CSSOM（CSS对象模型）</li>
+<li>整合DOM Tree和CSSOM，生成Render Tree（渲染树）</li>
+<li>根据Render Tree渲染绘制，将像素渲染到屏幕上。</li>
+<li>layout布局（重排在这一步，确定大小位置等，可以想象成将页面切成一块一块的）</li>
+<li>渲染每一个节点（重绘在这一步，这也是为什么重排一定重绘，重绘不一定重排）</li>
+</ol>
+<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><h4 id="contentwindow"><a href="#contentwindow" class="headerlink" title="contentwindow"></a>contentwindow</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 父级网页 --&gt;</span><br><span class="line">&lt;iframe src=<span class="string">"http://child.domain.com"</span> id=<span class="string">"myframe"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br><span class="line">&lt;script&gt;</span><br><span class="line">	<span class="keyword">var</span> iframe = <span class="built_in">window</span>.document.getElementById(<span class="string">"myframe"</span>);</span><br><span class="line">	<span class="keyword">var</span> childWindow = iframe.contentWindow; <span class="comment">// 获取子窗口对象</span></span><br><span class="line">	childWindow.postMessage(<span class="string">"Hello, Child Window!"</span>, <span class="string">"http://child.domain.com"</span>); <span class="comment">// 向子窗口发送消息</span></span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;!-- 子级网页 --&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">	window.addEventListener("message", function(event) &#123;</span></span><br><span class="line"><span class="regexp">		console.log(event.data); /</span><span class="regexp">/ 输出从父级窗口接收到的消息</span></span><br><span class="line"><span class="regexp">		event.source.postMessage("Hello, Parent Window!", event.origin); /</span><span class="regexp">/ 向父级窗口发送消息</span></span><br><span class="line"><span class="regexp">	&#125;, false);</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="JS进阶"><a href="#JS进阶" class="headerlink" title="JS进阶"></a>JS进阶</h2><h3 id="let-和-const"><a href="#let-和-const" class="headerlink" title="let 和 const"></a>let 和 const</h3><p>var 声明变量。<br>let 代替 var，声明变量。<br>const 声明常量。</p>
+<ul>
+<li>使用 const 声明常量，一旦声明，就必须立即初始化，不能留到以后赋值</li>
+<li>const 声明的常量，允许在不重新赋值的情况下修改它的值（只适用于引用数据类型）</li>
+<li>已经存在的变量或常量，又声明了一遍。</li>
+<li>var 允许重复声明，let、const 不允许。</li>
+<li>只要是已经声明过的变量或常量（不论是用什么方式声明的），let、const 都不能再次声明。</li>
+<li>var 会提升变量的声明到当前作用域的顶部</li>
+<li>let、const 存在暂时性死区。</li>
+<li>只要作用域内存在 let、const，它们所声明的变量或常量就自动“绑定”这个区域，不再受到外部作用域的影响。</li>
+<li>全局作用域中，var 声明的变量和通过 function 声明的函数，会自动变成 window 对象的属性或方法。let、const 则不会。</li>
+<li>var 没有块级作用域。</li>
+<li>let/const 有块级作用域。</li>
+</ul>
+<h3 id="解构"><a href="#解构" class="headerlink" title="解构"></a>解构</h3><p>数组的解构赋值，对象的解构赋值，字符串的解构赋值，数值与布尔值的解构赋值，函数参数的解构赋值。</p>
+<h4 id="解构数组"><a href="#解构数组" class="headerlink" title="解构数组"></a>解构数组</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = [<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> [one, two, three] = foo;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果解构不成功，变量的值为undefined。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//解构可设置默认值</span></span><br><span class="line">[a = <span class="number">5</span>, b = <span class="number">7</span>] = [<span class="number">1</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//交换变量</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> b = <span class="number">3</span>;</span><br><span class="line">[a, b] = [b, a];</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 忽略某些返回值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> [a, , b] = f();</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 3</span></span><br><span class="line">你也可以忽略全部返回值：</span><br><span class="line">[, ,] = f();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将剩余数组赋值给一个变量</span></span><br><span class="line"><span class="keyword">var</span> [a, ...b] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// [2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<h4 id="解构对象"><a href="#解构对象" class="headerlink" title="解构对象"></a>解构对象</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123; <span class="attr">p</span>: <span class="number">42</span>, <span class="attr">q</span>: <span class="literal">true</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> &#123; p, q &#125; = o;</span><br><span class="line"><span class="built_in">console</span>.log(p); <span class="comment">// 42</span></span><br><span class="line"><span class="built_in">console</span>.log(q); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> &#123; a, b, ...rest &#125; = &#123; <span class="attr">a</span>: <span class="number">10</span>, <span class="attr">b</span>: <span class="number">20</span>, <span class="attr">c</span>: <span class="number">30</span>, <span class="attr">d</span>: <span class="number">40</span> &#125;;</span><br><span class="line">a; <span class="comment">// 10</span></span><br><span class="line">b; <span class="comment">// 20</span></span><br><span class="line">rest; <span class="comment">// &#123; c: 30, d: 40 &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认值</span></span><br><span class="line"><span class="keyword">var</span> &#123; a = <span class="number">10</span>, b = <span class="number">5</span> &#125; = &#123; <span class="attr">a</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给新的变量命名并提供默认值</span></span><br><span class="line">一个属性可以同时 <span class="number">1</span>）从一个对象解构，并分配给一个不同名称的变量 <span class="number">2</span>）分配一个默认值，以防未解构的值是 <span class="literal">undefined</span>。</span><br><span class="line"><span class="keyword">var</span> &#123; <span class="attr">a</span>: aa = <span class="number">10</span>, <span class="attr">b</span>: bb = <span class="number">5</span> &#125; = &#123; <span class="attr">a</span>: <span class="number">3</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(aa); <span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(bb); <span class="comment">// 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 函数参数默认值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawES2015Chart</span>(<span class="params">&#123; size = <span class="string">"big"</span>, cords = &#123; x: <span class="number">0</span>, y: <span class="number">0</span> &#125;, radius = <span class="number">25</span> &#125; = &#123;&#125;</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(size, cords, radius);</span><br><span class="line">	<span class="comment">// do some chart drawing</span></span><br><span class="line">&#125;</span><br><span class="line">drawES2015Chart(&#123;</span><br><span class="line">	cords: &#123; <span class="attr">x</span>: <span class="number">18</span>, <span class="attr">y</span>: <span class="number">30</span> &#125;,</span><br><span class="line">	radius: <span class="number">30</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 解构嵌套对象和数组</span></span><br><span class="line"><span class="keyword">const</span> metadata = &#123;</span><br><span class="line">	title: <span class="string">"Scratchpad"</span>,</span><br><span class="line">	translations: [</span><br><span class="line">		&#123;</span><br><span class="line">			locale: <span class="string">"de"</span>,</span><br><span class="line">			localization_tags: [],</span><br><span class="line">			last_edit: <span class="string">"2014-04-14T08:43:37"</span>,</span><br><span class="line">			url: <span class="string">"/de/docs/Tools/Scratchpad"</span>,</span><br><span class="line">			title: <span class="string">"JavaScript-Umgebung"</span></span><br><span class="line">		&#125;</span><br><span class="line">	],</span><br><span class="line">	url: <span class="string">"/en-US/docs/Tools/Scratchpad"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> &#123;</span><br><span class="line">	title: englishTitle, <span class="comment">// rename</span></span><br><span class="line">	translations: [</span><br><span class="line">		&#123;</span><br><span class="line">			title: localeTitle <span class="comment">// rename</span></span><br><span class="line">		&#125;</span><br><span class="line">	]</span><br><span class="line">&#125; = metadata;</span><br><span class="line"><span class="built_in">console</span>.log(englishTitle); <span class="comment">// "Scratchpad"</span></span><br><span class="line"><span class="built_in">console</span>.log(localeTitle); <span class="comment">// "JavaScript-Umgebung"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//For of 迭代和解构</span></span><br><span class="line"><span class="keyword">var</span> people = [</span><br><span class="line">	&#123;</span><br><span class="line">		name: <span class="string">"Mike Smith"</span>,</span><br><span class="line">		family: &#123;</span><br><span class="line">			mother: <span class="string">"Jane Smith"</span>,</span><br><span class="line">			father: <span class="string">"Harry Smith"</span>,</span><br><span class="line">			sister: <span class="string">"Samantha Smith"</span></span><br><span class="line">		&#125;,</span><br><span class="line">		age: <span class="number">35</span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		name: <span class="string">"Tom Jones"</span>,</span><br><span class="line">		family: &#123;</span><br><span class="line">			mother: <span class="string">"Norah Jones"</span>,</span><br><span class="line">			father: <span class="string">"Richard Jones"</span>,</span><br><span class="line">			brother: <span class="string">"Howard Jones"</span></span><br><span class="line">		&#125;,</span><br><span class="line">		age: <span class="number">25</span></span><br><span class="line">	&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> &#123;</span><br><span class="line">	name: n,</span><br><span class="line">	family: &#123; <span class="attr">father</span>: f &#125;</span><br><span class="line">&#125; <span class="keyword">of</span> people) &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"Name: "</span> + n + <span class="string">", Father: "</span> + f);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// "Name: Mike Smith, Father: Harry Smith"</span></span><br><span class="line"><span class="comment">// "Name: Tom Jones, Father: Richard Jones"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 从作为函数实参的对象中提取数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">userId</span>(<span class="params">&#123; id &#125;</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">whois</span>(<span class="params">&#123; displayName: displayName, fullName: &#123; firstName: name &#125; &#125;</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(displayName + <span class="string">" is "</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> user = &#123;</span><br><span class="line">	id: <span class="number">42</span>,</span><br><span class="line">	displayName: <span class="string">"jdoe"</span>,</span><br><span class="line">	fullName: &#123;</span><br><span class="line">		firstName: <span class="string">"John"</span>,</span><br><span class="line">		lastName: <span class="string">"Doe"</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"userId: "</span> + userId(user)); <span class="comment">// "userId: 42"</span></span><br><span class="line">whois(user); <span class="comment">// "jdoe is John"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象属性计算名和解构</span></span><br><span class="line"><span class="keyword">let</span> key = <span class="string">"z"</span>;</span><br><span class="line"><span class="keyword">let</span> &#123; [key]: foo &#125; = &#123; <span class="attr">z</span>: <span class="string">"bar"</span> &#125;;</span><br><span class="line"><span class="built_in">console</span>.log(foo); <span class="comment">// "bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解构对象时会查找原型链（如果属性不在对象自身，将从原型链中查找）</span></span><br><span class="line"><span class="comment">// 声明对象 和 自身 self 属性</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">self</span>: <span class="string">"123"</span> &#125;;</span><br><span class="line"><span class="comment">// 在原型链中定义一个属性 prot</span></span><br><span class="line">obj.__proto__.prot = <span class="string">"456"</span>;</span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">const</span> &#123; self, prot &#125; = obj;</span><br><span class="line"><span class="comment">// self "123"</span></span><br><span class="line"><span class="comment">// prot "456"（访问到了原型链）</span></span><br></pre></td></tr></table></figure>
+<h3 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h3><p>模板字符串相当于加强版的字符串，用反引号 `，除了作为普通字符串，还可以用来定义多行字符串，还可以在字符串中加入变量和表达式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串插入变量和表达式。变量名写在 $&#123;&#125; 中，$&#123;&#125; 中可以放入 JavaScript 表达式。</span></span><br><span class="line"><span class="keyword">let</span> name = <span class="string">"lucy"</span></span><br><span class="line"><span class="keyword">let</span> age = <span class="number">20</span></span><br><span class="line"><span class="keyword">let</span> info = <span class="string">`My name is <span class="subst">$&#123;name&#125;</span> ,I am <span class="subst">$&#123;age+<span class="number">1</span>&#125;</span>`</span></span><br><span class="line"><span class="built_in">console</span>.log(info)</span><br><span class="line"></span><br><span class="line">$(<span class="string">'#list'</span>).html(<span class="string">`</span></span><br><span class="line"><span class="string">&lt;ul&gt;</span></span><br><span class="line"><span class="string">  &lt;li&gt;first&lt;/li&gt;</span></span><br><span class="line"><span class="string">  &lt;li&gt;second&lt;/li&gt;</span></span><br><span class="line"><span class="string">&lt;/ul&gt;</span></span><br><span class="line"><span class="string">`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"><span class="string">`<span class="subst">$&#123;x&#125;</span> + <span class="subst">$&#123;y&#125;</span> = <span class="subst">$&#123;x + y&#125;</span>`</span>;</span><br><span class="line"><span class="comment">// "1 + 2 = 3"</span></span><br><span class="line"><span class="string">`<span class="subst">$&#123;x&#125;</span> + <span class="subst">$&#123;y * <span class="number">2</span>&#125;</span> = <span class="subst">$&#123;x + y * <span class="number">2</span>&#125;</span>`</span>;</span><br><span class="line"><span class="comment">// "1 + 4 = 5"</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>&#125;;</span><br><span class="line"><span class="string">`<span class="subst">$&#123;obj.x + obj.y&#125;</span>`</span></span><br><span class="line"><span class="comment">// "3"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 模板字符串之中还可以调用函数。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="string">`<span class="subst">$&#123;func()&#125;</span> World`</span>;</span><br><span class="line"><span class="comment">// "Hello World"</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串方法"><a href="#字符串方法" class="headerlink" title="字符串方法"></a>字符串方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">includes:</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"Hello world, welcome to the Runoob。"</span>;</span><br><span class="line"><span class="keyword">var</span> n = str.includes(<span class="string">"Runoob"</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">startsWith</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"Hello world, welcome to the Runoob."</span>;</span><br><span class="line"><span class="keyword">var</span> n = str.startsWith(<span class="string">"Hello"</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">endsWith</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">"Hello world"</span>;</span><br><span class="line">str.endsWith(<span class="string">"world"</span>)   <span class="comment">// 返回 true</span></span><br><span class="line">str.endsWith(<span class="string">"World"</span>)   <span class="comment">// 返回 false</span></span><br><span class="line"></span><br><span class="line">padStart</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'123'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.padStart(<span class="number">5</span>, <span class="string">'0'</span>)); <span class="comment">// 输出 "00123"</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'12345'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.padStart(<span class="number">3</span>, <span class="string">'0'</span>)); <span class="comment">// 如果目标长度小于或等于原始字符串的长度，则返回原始字符串。输出 "12345"</span></span><br><span class="line"></span><br><span class="line">padEnd</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'123'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.padEnd(<span class="number">5</span>, <span class="string">'0'</span>)); <span class="comment">// 输出 "12300"</span></span><br><span class="line"><span class="keyword">let</span> str = <span class="string">'12345'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(str.padEnd(<span class="number">3</span>, <span class="string">'0'</span>)); <span class="comment">// 如果目标长度小于或等于原始字符串的长度，则返回原始字符串。输出 "12345"</span></span><br><span class="line"></span><br><span class="line">trimStart</span><br><span class="line"><span class="keyword">let</span> s = <span class="string">'  foo  '</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s.trimStart());<span class="comment">//foo  //</span></span><br><span class="line"></span><br><span class="line">trimEnd</span><br><span class="line"><span class="keyword">let</span> s = <span class="string">'  foo  '</span>;</span><br><span class="line"><span class="built_in">console</span>.log(s.trimEnd()); <span class="comment">//  foo</span></span><br><span class="line"></span><br><span class="line">match</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"The rain in SPAIN stays mainly in the plain"</span>; </span><br><span class="line"><span class="keyword">var</span> n=str.match(<span class="regexp">/ain/g</span>);</span><br><span class="line"><span class="comment">// ain,ain,ain</span></span><br><span class="line"><span class="comment">// 如果 regexp 没有标志 g，那么 match() 方法就只能在 stringObject 中执行一次匹配。如果没有找到任何匹配的文本， match() 将返回 null。否则，它将返回一个数组，其中存放了与它找到的匹配文本有关的信息。</span></span><br><span class="line"><span class="comment">//gi代表不区分大小写</span></span><br><span class="line"></span><br><span class="line">replace</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"Visit Microsoft! Visit Microsoft!"</span>;</span><br><span class="line"><span class="keyword">var</span> n=str.replace(<span class="string">"Microsoft"</span>,<span class="string">"Runoob"</span>);</span><br><span class="line"><span class="comment">// Visit Runoob!Visit Microsoft!</span></span><br><span class="line"><span class="comment">// 当第一个 "Microsoft" 被找到，它就被替换为 "Runoob"</span></span><br><span class="line"></span><br><span class="line">-- 正则</span><br><span class="line"><span class="keyword">var</span> str=<span class="string">"Mr Blue has a blue house and a blue car"</span>;</span><br><span class="line"><span class="keyword">var</span> n=str.replace(<span class="regexp">/blue/gi</span>, <span class="string">"red"</span>);</span><br><span class="line"><span class="comment">// Mr red has a red house and a red car</span></span><br></pre></td></tr></table></figure></script></head></li></ol>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
+            <p>原文链接：<a href="https://st19950627.github.io/2023/09/16/React学习/">https://st19950627.github.io/2023/09/16/React学习/</a>
+            <p>发表日期：<a href="https://st19950627.github.io/2023/09/16/React学习/">September 16th 2023, 9:57:55 am</a>
+            <p>更新日期：<a href="https://st19950627.github.io/2023/09/16/React学习/">September 30th 2023, 8:32:07 pm</a>
+            <p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2022/10/16/python学习/" title= "python学习">
+                    <div class="prevTitle">python学习</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NDA2Ni8yMDYwMQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+    
+        
+            
+                <a href="//github.com/st19950627" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">BONG: <span id="busuanzi_value_site_pv"></span> >//<</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#站在巨人的肩膀上开发前端"><span class="toc-number">1.</span> <span class="toc-text">站在巨人的肩膀上开发前端</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#React的优点"><span class="toc-number">1.1.</span> <span class="toc-text">React的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web开发"><span class="toc-number">1.2.</span> <span class="toc-text">Web开发</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#web安全"><span class="toc-number">1.2.1.</span> <span class="toc-text">web安全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#xxs"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">xxs</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#反射型"><span class="toc-number">1.2.1.1.1.</span> <span class="toc-text">反射型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#存储型"><span class="toc-number">1.2.1.1.2.</span> <span class="toc-text">存储型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#基于DOM"><span class="toc-number">1.2.1.1.3.</span> <span class="toc-text">基于DOM</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#SQL注入"><span class="toc-number">1.2.1.1.4.</span> <span class="toc-text">SQL注入</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#csrf"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">csrf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件上传漏洞"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">文件上传漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#性能相关"><span class="toc-number">1.2.2.</span> <span class="toc-text">性能相关</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#页面加载过程"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">页面加载过程</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 39
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2023 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href="/2023/09/16/React学习/">React学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/16</span><a class="archive-post-title" href="/2022/10/16/python学习/">python学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href="/2022/07/13/系统测试/">系统测试</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/04</span><a class="archive-post-title" href="/2021/10/04/JAVA备忘/">JAVA备忘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href="/2021/05/18/资产托管/">资产托管</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href="/2021/05/15/virtual-liver/">VIRTUAL-LIVER</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href="/2021/04/29/Electron/">Electron</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href="/2020/08/27/策划策划策划/">策划策划策划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/22</span><a class="archive-post-title" href="/2020/07/22/JAVA工具类备忘/">JAVA工具类备忘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span><a class="archive-post-title" href="/2020/04/04/Hexo插件/">Hexo插件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span><a class="archive-post-title" href="/2020/04/04/前端备忘/">前端备忘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href="/2020/03/29/adobe-au/">adobe au入门儿</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2020/03/16/递归学习/">递归学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2020/03/16/chrome插件/">chrome插件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href="/2020/03/15/推荐系统学习/">推荐系统学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2020/03/07/springboot可视化监控/">SpringBoot可视化监控</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/29</span><a class="archive-post-title" href="/2019/12/29/算法-回溯法/">算法之回溯法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href="/2019/12/28/定时任务/">定时任务</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span><a class="archive-post-title" href="/2019/12/26/Dynamic-Datasource/">Dynamic Datasource</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span><a class="archive-post-title" href="/2019/12/23/JDK8之Stream/">JDK8之Stream</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2019/12/21/查找常用字符串/">LEETCODE-查找常用字符串</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2019/12/15/Hexo搬家/">HEXO的搬家</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2019/12/15/split-line/">split-line</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href="/2019/07/13/K8S/">K8S学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href="/2019/04/26/Apollo使用/">Apollo使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href="/2019/04/24/Apollo介绍及部署/">Apollo介绍及部署</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/SLF4J学习(二)/">SLF4J学习(二)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/token_session_cookie/">Token-Session-Cookie</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/创建型设计模式/">设计模式-创建型设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/Restful/">Restful接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/java编程规范/">JAVA编程规范整理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/LINUX学习/">Linux学习(一)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/SpringBoot基础学习/">SpringBoot学习(一)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/Docker/">初入Docker</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/Gradle/">Gradle简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/SLF4J-LESSON1/">初入SLF4J</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/List-Array-Map/">List-Set-Map</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/ELK日志系统/">ELK日志系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/Redis_API的理解与使用/">Redis-API的理解与使用</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Apollo"><span class="iconfont-archer">&#xe606;</span>Apollo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
+    
+        <span class="sidebar-tag-name" data-tags="ELK"><span class="iconfont-archer">&#xe606;</span>ELK</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志系统"><span class="iconfont-archer">&#xe606;</span>日志系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="Gradle"><span class="iconfont-archer">&#xe606;</span>Gradle</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
+    
+        <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
+    
+        <span class="sidebar-tag-name" data-tags="List"><span class="iconfont-archer">&#xe606;</span>List</span>
+    
+        <span class="sidebar-tag-name" data-tags="Set"><span class="iconfont-archer">&#xe606;</span>Set</span>
+    
+        <span class="sidebar-tag-name" data-tags="Map"><span class="iconfont-archer">&#xe606;</span>Map</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
+    
+        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
+    
+        <span class="sidebar-tag-name" data-tags="插件"><span class="iconfont-archer">&#xe606;</span>插件</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="adobe"><span class="iconfont-archer">&#xe606;</span>adobe</span>
+    
+        <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
+    
+        <span class="sidebar-tag-name" data-tags="Token"><span class="iconfont-archer">&#xe606;</span>Token</span>
+    
+        <span class="sidebar-tag-name" data-tags="Session"><span class="iconfont-archer">&#xe606;</span>Session</span>
+    
+        <span class="sidebar-tag-name" data-tags="Cookie"><span class="iconfont-archer">&#xe606;</span>Cookie</span>
+    
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="Electron"><span class="iconfont-archer">&#xe606;</span>Electron</span>
+    
+        <span class="sidebar-tag-name" data-tags="LIVER"><span class="iconfont-archer">&#xe606;</span>LIVER</span>
+    
+        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
+    
+        <span class="sidebar-tag-name" data-tags="定时任务"><span class="iconfont-archer">&#xe606;</span>定时任务</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
+    
+        <span class="sidebar-tag-name" data-tags="测试"><span class="iconfont-archer">&#xe606;</span>测试</span>
+    
+        <span class="sidebar-tag-name" data-tags="资产托管"><span class="iconfont-archer">&#xe606;</span>资产托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="托管"><span class="iconfont-archer">&#xe606;</span>托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="前端"><span class="iconfont-archer">&#xe606;</span>前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
+    
+        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
+    
+        <span class="sidebar-tag-name" data-tags="编程规范"><span class="iconfont-archer">&#xe606;</span>编程规范</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="推荐系统"><span class="iconfont-archer">&#xe606;</span>推荐系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="递归"><span class="iconfont-archer">&#xe606;</span>递归</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "itibanst"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+

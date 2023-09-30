@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="itibanst">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="itibanst">
+    
+    <meta name="keywords" content="hexo,java">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>JAVA备忘 · The World Best ST</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/assets/bitbug_favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">The World Best ST.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">JAVA备忘</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/">The World Best ST.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/header-3.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            JAVA备忘
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class="post-intro-tags">
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="JAVA">JAVA</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">13.8k</span>阅读时长: <span class="post-count reading-time">51 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2021/10/04</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="JAVA备忘"><a href="#JAVA备忘" class="headerlink" title="JAVA备忘"></a>JAVA备忘</h1><h2 id="JAVA1-7-amp-JAVA1-8新增特性"><a href="#JAVA1-7-amp-JAVA1-8新增特性" class="headerlink" title="JAVA1.7&amp;JAVA1.8新增特性"></a>JAVA1.7&amp;JAVA1.8新增特性</h2><h3 id="JDK1-7部分新特性"><a href="#JDK1-7部分新特性" class="headerlink" title="JDK1.7部分新特性"></a>JDK1.7部分新特性</h3><ol>
+<li>switch可以接受String类型(本质上是算出了一个hash值)</li>
+<li>可以在catch代码块中捕获多个异常类型<code>catch(Exception 1 | Exception2)</code></li>
+<li>增加了二进制字面量的表示<code>0b111</code></li>
+<li>在数字中可以添加分隔符, 如<code>123_456</code>, 只能被用在数字中间, 编译时会被去掉</li>
+<li>增加了类型推断机制<code>Map&lt;String, String&gt; map = new HashMap&lt;&gt;()</code></li>
+<li>增加了try-with-resource语句, 确保每个资源都能在生命周期结束后被关闭, 不需要显式调用close方法<code>try (UnputStream fis = new FileInpustream(&quot;input.txt&quot;)) {}</code></li>
+<li>增加了fork/join框架来增强对处理多核并行计算的支持</li>
+</ol>
+<h3 id="JDK1-8部分新特性"><a href="#JDK1-8部分新特性" class="headerlink" title="JDK1.8部分新特性"></a>JDK1.8部分新特性</h3><h4 id="lambda表达式-核心"><a href="#lambda表达式-核心" class="headerlink" title="lambda表达式(核心)"></a>lambda表达式(核心)</h4><p>Lambda是一个匿名函数，我们可以把Lambda表达式理解为一段可以传递的代码（将代码像数据一样传递）。可以写出更加简洁、灵活的代码。作为一种更加紧凑的代码风格，使java的语言表达能力得到了提升</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匿名内部类 -&gt; lambda</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Runnable rl = <span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"st good"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        Runnable r2 = () -&gt; System.out.println(<span class="string">"st good"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="lambda语法"><a href="#lambda语法" class="headerlink" title="lambda语法"></a>lambda语法</h5><ul>
+<li>无参, 无返回值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">() -&gt; System.out.println(<span class="string">"无参无返回值"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>一个参数, 无返回值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(n) -&gt; System.out.println(<span class="string">"无参无返回值"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当只有一个参数时, 括号可以省略</span></span><br><span class="line">n -&gt; System.out.println(<span class="string">"无参无返回值"</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>需要2个参数, 有返回值</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当lambda体中只有一条语句时, return与大括号可以省略</span></span><br><span class="line">(o1, o2) -&gt; o1 + o2;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>类型判断<br>上述Lambda表达式中的参数类型都是有编译器推断得出的。Lambda表达式中无序指定类型，程序依然可以编译，这是因为javac根据程序上下文，在后台推断出参数的类型，Lambda表达式的类型依赖于上下文环境，是由编译器推断出来的，这就是所谓的“类型推断”。</li>
+</ul>
+<h4 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h4><p>值包含一个抽象方法的接口，称为函数式接口。我们可以在任意函数式接口上使用@FunctionalInterface注解，这样做可以检查它是否是一个函数式接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AddFun</span> </span>&#123;</span><br><span class="line">    <span class="function">Integer <span class="title">add</span><span class="params">(Integer a, Integer b)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="四大核心函数式接口"><a href="#四大核心函数式接口" class="headerlink" title="四大核心函数式接口"></a>四大核心函数式接口</h5><p><img src="/images/2021/10/function.png" alt="函数式接口"></p>
+<h4 id="接口中默认方法和静态方法"><a href="#接口中默认方法和静态方法" class="headerlink" title="接口中默认方法和静态方法"></a>接口中默认方法和静态方法</h4><p><strong>默认方法</strong></p>
+<p>Java8 中允许接口中包含具有具体实现的方法，该方法称为“默认方法”，默认方法使用default关键字修饰。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AddFun</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">default</span> Integer <span class="title">add</span><span class="params">(Integer a, Integer b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a + b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>类优先原则</strong></p>
+<p>若一个接口中定义了一个默认方法，而另外一个父类或接口中又定义了一个同名的方法时：</p>
+<ol>
+<li>如果子类(或实现类)继承的父类和实现的接口中声明了同名同参数的默认方法，那么子类在没重写此方法的情况下，默认调用的是父类中的同名同参数的方法</li>
+<li>接口冲突。如果一个父接口提供一个默认方法，而另一个接口也提供了一个具有相同名称和参数列表的方法（不管方法是否是默认方法），那么必须覆盖该方法解决冲突。</li>
+</ol>
+<p><strong>静态方法</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">AddFun</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"静态方法"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法引用与构造器引用"><a href="#方法引用与构造器引用" class="headerlink" title="方法引用与构造器引用"></a>方法引用与构造器引用</h4><p><strong>方法引用</strong><br>当要传递给Lambda体的操作，已经有实现方法了，可以使用方法引用！（实现抽象方法的列表，必须与方法引用方法的参数列表保持一致）</p>
+<p>方法引用：使用操作符”::”将方法名和对象或类的名字分隔开来。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 旧写法</span></span><br><span class="line">    MyFunc mf = str -&gt; System.out.println(str);</span><br><span class="line">    <span class="comment">// 新写法</span></span><br><span class="line">    MyFunc mf = System.out::println;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 旧写法</span></span><br><span class="line">    BinaryOperator&lt;Double&gt; b = (x, y) -&gt; Math.pow(x, y);</span><br><span class="line">    <span class="comment">// 新写法</span></span><br><span class="line">    BinaryOperator&lt;Double&gt; b = Math::pow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>方法引用三种情况:</strong></p>
+<ul>
+<li>对象::实例方法</li>
+<li>类::静态方法</li>
+<li>类::实例方法</li>
+</ul>
+<p><strong>构造器引用</strong></p>
+<p>格式：ClassName::new</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Function&lt;Integer, MyClass&gt; fun = (n) -&gt; <span class="keyword">new</span> MyClass(n);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line">Function&lt;Integer, MyClass&gt; fun = MyClass::<span class="keyword">new</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>数组引用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Function&lt;Integer, Integer[]&gt; fun = (n) -&gt; <span class="keyword">new</span> Integer[n];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新写法</span></span><br><span class="line">Function&lt;Integer, Integer[]&gt; fun = Integer[]::<span class="keyword">new</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="stream类-核心"><a href="#stream类-核心" class="headerlink" title="stream类(核心)"></a>stream类(核心)</h4><p>Stream是Java8中处理集合的关键抽象概念，它可以指定你希望对集合进行的操作，可以执行非常复杂的查找、过滤映射数据等操作。使用Stream API对集合数据进行操作，就类似于使用SQL执行的数据库查询。也可以使用Stream API来并行执行操作。简而言之，Sream API提供了一种高效且易于使用的处理数据方式。</p>
+<ol>
+<li>Stream 自己不会存储元素。</li>
+<li>Stream 不会改变源对象。相反，他们会返回一个持有结果的新的Stream。</li>
+<li>Stream 操作时延迟执行的。这意味着他们会等到需要的结果的时候才会执行。</li>
+</ol>
+<h5 id="Stream操作的三个步骤"><a href="#Stream操作的三个步骤" class="headerlink" title="Stream操作的三个步骤"></a>Stream操作的三个步骤</h5><p><strong>1. 创建Stream</strong><br>通过一个数据源（如：集合、数组），获取一个流</p>
+<p>有两个获取流的方法<br><code>default Stream&lt;E&gt;  stream()</code> : 返回一个顺序流；<br><code>default Stream&lt;E&gt; parallelStream()</code> : 返回一个并行流。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通过数组创建流</span></span><br><span class="line">String[] str = <span class="keyword">new</span> String[<span class="number">10</span>];</span><br><span class="line">Stream s = Arrays.stream(str);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过值创建流</span></span><br><span class="line">Stream s = Stream.of(<span class="string">""</span>,<span class="string">""</span>,<span class="string">""</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过函数创建流</span></span><br><span class="line">Stream.iterate(<span class="keyword">final</span> T seed, <span class="keyword">final</span> UnaryOperator);</span><br><span class="line"></span><br><span class="line">Stream.generate(Supplier&lt;T&gt; s);</span><br></pre></td></tr></table></figure>
+<p><strong>2. 中间操作</strong><br>一个中间操作链，对数据源的数据进行处理，多个中间操作可以连接起来形成一个流水线，除非流水线上出发终止操作，否则中间操作不会执行任何的处理！而在终止操作时一次性安全的全部处理，称之为“惰性求值”；</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filter(Predicate p)</td>
+<td>接受lambda, 从流中排除一些元素</td>
+</tr>
+<tr>
+<td>distinct()</td>
+<td>筛选, 通过流所生成的元素hashCode()和equals()取出重复元素</td>
+</tr>
+<tr>
+<td>limit(long maxSize)</td>
+<td>截断流, 使其元素不超过给定的数量</td>
+</tr>
+<tr>
+<td>skip(long n)</td>
+<td>跳过元素, 返回一个扔掉前n个元素的流, 若流中元素不足n个, 则返回一个空流, 与limit互补</td>
+</tr>
+<tr>
+<td>map(Function f)</td>
+<td>接受一个函数作为参数, 该函数会被应用到每个元素上面, 并将其映射成一个新的元素</td>
+</tr>
+<tr>
+<td>mapToDouble(ToDoubleFunction f)</td>
+<td>接受一个函数作为参数, 该函数会被应用到每个元素上, 产生一个新的DoubleStream</td>
+</tr>
+<tr>
+<td>mapToInt(ToIntFunction f)</td>
+<td>接受一个函数作为参数, 该函数会被应用到每个元素上, 产生一个新的IntStream</td>
+</tr>
+<tr>
+<td>mapToLong(ToLongFunction f)</td>
+<td>接受一个函数作为参数, 该函数会被应用到每个元素上, 产生一个新的LongStream</td>
+</tr>
+<tr>
+<td>flatMap(Function f)</td>
+<td>接受一个函数作为参数, 将流中的每个值转换成另一个流, 然后把所有流连成一个流</td>
+</tr>
+<tr>
+<td>sorted()</td>
+<td>产生一个新流, 其中俺自然排序排序</td>
+</tr>
+<tr>
+<td>sorted(Comparator comp)</td>
+<td>产生一个新流, 其中按比较器顺序排序</td>
+</tr>
+</tbody>
+</table>
+<p><strong>3. 终止操作（终端操作）</strong><br>一个终止操作，执行中间操作链，并产生结果，结果可以是任何不是流的值，例如：List、Integer，甚至void</p>
+<table>
+<thead>
+<tr>
+<th><strong>查找与匹配</strong></th>
+<th>–</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>方法</td>
+<td>描述</td>
+</tr>
+<tr>
+<td>allMatch(Predicate p)</td>
+<td>检查是否匹配所有元素</td>
+</tr>
+<tr>
+<td>anyMatch(Predicate p)</td>
+<td>检查是否至少匹配一个元素</td>
+</tr>
+<tr>
+<td>noneMatch(Predicate p)</td>
+<td>检查是否没有匹配所有元素</td>
+</tr>
+<tr>
+<td>findFirst()</td>
+<td>返回第一个元素</td>
+</tr>
+<tr>
+<td>findAny()</td>
+<td>返回当前流中的任意一个元素</td>
+</tr>
+<tr>
+<td>count()</td>
+<td>返回流中元素总数</td>
+</tr>
+<tr>
+<td>max(Comparator c)</td>
+<td>返回流中最大值</td>
+</tr>
+<tr>
+<td>min(Comparator c)</td>
+<td>返回流中最小值</td>
+</tr>
+<tr>
+<td>forEach(Consumer c)</td>
+<td>内部迭代</td>
+</tr>
+<tr>
+<td><strong>归约</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>reduce(T iden, BinaryOperation b)</td>
+<td>可以将流中的元素反复结合起来, 得到一个值T</td>
+</tr>
+<tr>
+<td>reduce(BinaryOperator b)</td>
+<td>可以将流中的元素反复结合起来, 得到一个值, 返回<code>Operation&lt;T&gt;</code></td>
+</tr>
+<tr>
+<td><strong>收集</strong></td>
+<td>–</td>
+</tr>
+<tr>
+<td>collect(Collector)</td>
+<td>将流转化为其他形式, 用于给Stream中元素做汇总的方法, 如toList, toSet</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/images/2021/10/Collectors.png" alt="Collectors"></p>
+<h5 id="并行流与串行流"><a href="#并行流与串行流" class="headerlink" title="并行流与串行流"></a>并行流与串行流</h5><p>并行流就是把一个内容分成多个数据块，并用不同的线程分别处理每个数据块的流。Java8中将并行进行了优化，我们可以很容易的对数据进行并行操作。Stream API可以声明性的通过parallel（）与sequential（）在并行流与顺序流之间进行切换。</p>
+<h4 id="日期新特性"><a href="#日期新特性" class="headerlink" title="日期新特性"></a>日期新特性</h4><h2 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h2><h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><p>opsForValue：字符串<br>opsForList：列表<br>opsForSet：集合<br>opsForHash：散列<br>opsForZSet：有序集合</p>
+<h3 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h3><ul>
+<li>JMS（Java Message Service）</li>
+<li>AMQP（advanced message queuing protocol）- 兼容JMS, RabbitMQ 、 StormMQ 、 RocketMQ</li>
+<li>MQTT（Message Queueing Telemetry Transport） - 占用带宽小</li>
+</ul>
+<h4 id="交换机类型"><a href="#交换机类型" class="headerlink" title="交换机类型"></a>交换机类型</h4><p>直接(direct), 主题(topic), 标题(headers), 扇出(fanout)</p>
+<h4 id="常见消息队列对比"><a href="#常见消息队列对比" class="headerlink" title="常见消息队列对比"></a>常见消息队列对比</h4><p>RocketMQ只支持java和c++</p>
+<p>Kafka不支持消费失败重试, 吞吐量大, 分布式</p>
+<p>RocketMQ稳定性更好</p>
+<p>RabbitMQ社区比较活跃</p>
+<h4 id="绑定键规则"><a href="#绑定键规则" class="headerlink" title="绑定键规则"></a>绑定键规则</h4><p>*表示一个单词, 相当于_, #表示任意数量单词, 相当于%<br>topic.*.* 可以匹配到topic.order.id<br>topic.# 可以匹配到topic.order</p>
+<h3 id="Elasticsearch"><a href="#Elasticsearch" class="headerlink" title="Elasticsearch"></a>Elasticsearch</h3><p>Elasticsearch 是面向文档的，这意味着索引和搜索数据的最小单位是文档, 一个文档通常是以JSON 的数据格式来表示的</p>
+<h4 id="field"><a href="#field" class="headerlink" title="field"></a>field</h4><p>一个Document中有很多Field，一个Field就是一个数据字段</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>类型，是文档的逻辑容器，类似于表格是行的容器。在不同的类型中，最好放入不同结构的文档, 每个类型中字段（Field）的定义称为映射（Mapping）。例如， 一个人的姓名可以映射为string，年龄可以映射为int</p>
+<p>ES 6以前每个Index可以有多个Type，在ES 6中一个Index仅能包含一个Type，而在ES 7将完全移除Type</p>
+<h4 id="index"><a href="#index" class="headerlink" title="index"></a>index</h4><p>索引，是类型的容器。一个Elasticsearch 索引非常像关系型世界的数据库，是独立的大量文档集合。每个索引存储在磁盘上的同组文件中，索引存储了所有映射类型的字段，还有一些设置</p>
+<h4 id="Shard-分片"><a href="#Shard-分片" class="headerlink" title="Shard 分片"></a>Shard 分片</h4><p>一个索引可以存储超出单个结点硬件限制的大量数据。比如，一个具有10亿文档的索引占据1TB的磁盘空间，而任一节点都没有这样大的磁盘空间；或者单个节点处理搜索请求，响应太慢。为了解决这个问题，ES提供了将索引划分成多份的能力，这些份就叫做分片。当创建一个索引的时候，可以指定想要的分片的数量。每个分片本身也是一个功能完善并且独立的Lucene“索引”，这个“索引”可以被放置到集群中的任何节点上。在一个网络/云的环境里，失败随时都可能发生，在某个分片/节点不知怎么的就处于离线状态，或者由于任何原因消失了。这种情况下，有一个故障转移机制是非常有用并且是强烈推荐的。</p>
+<p>为此目的，ES允许创建分片的一份或多份拷贝。一旦有了拷贝，每个索引就有了主分片（Primary Shard）和复制分片（Replica Shard）之别</p>
+<h4 id="Cluster"><a href="#Cluster" class="headerlink" title="Cluster"></a>Cluster</h4><p>Elasticsearch 的集群监控信息中包含了许多的统计数据，其中最为重要的一项就是集群健康， 它在 status 字段中展示为 green 、 yellow 或者 red 。</p>
+<p>Green：所有主分片和备份分片都准备就绪（分配成功），即使有一台机器挂了（假设一台机器一个实例），数据都不会丢失，但会变成Yellow状态</p>
+<p>Yellow：：所有主分片准备就绪，但存在至少一个主分片（假设是A）对应的备份分片没有就绪，此时集群属于警告状态，意味着集群高可用和容灾能力下降，如果刚好A所在的机器挂了，并且你只设置了一个备份（已处于未就绪状态），那么A的数据就会丢失（查询结果不完整），此时集群进入Red状态</p>
+<p>Red：：至少有一个主分片没有就绪（直接原因是找不到对应的备份分片成为新的主分片），此时查询的结果会出现数据丢失（不完整）</p>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><h3 id="类加载"><a href="#类加载" class="headerlink" title="类加载"></a>类加载</h3><p>一个java类的完整的生命周期会经历加载、连接、初始化、使用、和卸载五个阶段</p>
+<p>当程序主动使用某个类时，如果该类还没有加载到内存中，则通过以下三个步骤对类进行加载初始化：</p>
+<p>类的加载：将类的class文件读入内存，并为之创建一个java.lang.Class对象到方法区中，此过程由类加载器完成<br>类的链接：将类的二进制数据合并到JRE中<br>类的初始化：JVM负责对类进行初始化<br>加载完之后还有两步为使用，卸载，就是完整的类的生命周期。</p>
+<h4 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h4><p>将类的文件信息加载到内存中，作为程序方法入口，分三步：</p>
+<p>通过类的全限定名获取类的二进制字节流<br>将字节流的静态存储结构转化为方法去的运行时结构<br>在内存中生成Class对象，作为方法去入口<br>如果被加载的是一个数组类型，数组类型是一个比较特殊的类型，他不通过类加载器加载，而是由虚拟机去完成。但是他的引用却要靠加载器加载，加载器会加载完数组的数据类型后将该数组绑定到相应的加载器上，然后与该类加载器一起绑定标识唯一性。</p>
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>其中，类的链接可以分为以下几点：</p>
+<ul>
+<li>验证：确保加载的类符合JVM规范</li>
+<li>准备：正式为类变量（static）分配内存并设置类变量默认初始值的阶段，这些内存都将在方法区中进行分配，后续初始化时会实际赋值（实例变量会被分配到堆中）</li>
+<li>解析：虚拟机常量池内的符号引用（常量名）替换为直接引用（地址）的过程）<br>符号引用替换为直接引用理解：<br><strong>符号引用</strong>：比如一个类中引用了其它类，但是JVM不知道实际引用的其它类地址在哪，所以就会用符号引用来代表，等到解析的时候，再根据唯一符号引用去找其它类的地址。不止是其它类的代表，符号引用也可以代表方法，字段等。需要注意的是，符号引用与虚拟机布局无关，引用的目标不一定已经加载到内存中。</li>
+</ul>
+<p><strong>直接引用</strong>：直接引用与虚拟机布局有关，如果使用直接引用，那么引用的目标一定已经加载到内存中。</p>
+<p>符号引用要转换成直接引用才有效，这也说明直接引用的效率要比符号引用高。那为什么要用符号引用呢？这是因为类加载之前，javac会将源代码编译成.class文件，这个时候javac是不知道被编译的类中所引用的类、方法或者变量他们的引用地址在哪里，所以只能用符号引用来表示，当然，符号引用是要遵循java虚拟机规范的。</p>
+<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h4><p>执行类构造器()方法的过程。类构造器()方法是由编译器自动收集所有类变量的赋值动作和静态代码块中的语句合并产生的。<br>当初始化一个类的时候，会判断该类父类有没有初始化，如果没有则先触发父类的初始化<br>虚拟机会保证一个类的()方法在多线程环境下的被正确加锁和同步<br>准备阶段中已经对类变量（static）进行内存分配，初始化时对类变量和静态代码块进行赋值和执行</p>
+<h3 id="类加载时机"><a href="#类加载时机" class="headerlink" title="类加载时机"></a>类加载时机</h3><p>创建类的实例，也就是一个new对象<br>访问某个类或接口的静态变量，或者对该静态变量赋值<br>调用类的静态方法<br>反射获取类信息<br>初始化一个类的子类（会首先初始化子类的父类）<br>JVM启动时标明的启动类，即文件名和类名相同的那个类<br>类的加载机制</p>
+<ul>
+<li>全盘负责：所谓全盘负责，就是当一个类加载器负责加载某个Class时，该Class所依赖和引用其他Class也将由该类加载器负责载入，除非显示使用另外一个类加载器来载入</li>
+<li>双亲委派：所谓的双亲委派，则是先让父类加载器试图加载该Class，只有在父类加载器无法加载该类时才尝试从自己的类路径中加载该类。通俗的讲，就是某个特定的类加载器在接到加载类的请求时，首先将加载任务委托给父加载器，依次递归，如果父加载器可以完成类加载任务，就成功返回；只有父加载器无法完成此加载任务时，才自己去加载</li>
+<li>缓存机制：缓存机制将会保证所有加载过的Class都会被缓存，当程序中需要使用某个Class时，类加载器先从缓存区中搜寻该Class，只有当缓存区中不存在该Class对象时，系统才会读取该类对应的二进制数据，并将其转换成Class对象，存入缓冲区中。这就是为很么修改了Class后，必须重新启动JVM，程序所做的修改才会生效的原因<br>双亲委派模型</li>
+</ul>
+<p>类加载器分为：启动类加载器（BootStrap ClassLoader）、扩展类加载器（Extension ClassLoader）、应用类加载器（Application ClassLoader）、自定义类加载器。</p>
+<p>如果一个类加载器收到了一个类加载的请求，它首先不会去加载类，而是去把这个请求委派给父加载器去加载，直到顶层启动类加载器，如果父类加载不了（不在父类加载的搜索范围内），才会自己去加载。</p>
+<ul>
+<li>启动类加载器：加载的是lib目录中的类加载出来，包名是java.xxx（如：java.lang.Object）</li>
+<li>扩展类加载器：加载的是lib/ext目录下的类，包名是javax.xxx（如：javax.swing.xxx）</li>
+<li>应用程序扩展器：这个加载器就是ClassLoader的getSystemClassLoader的返回值，这个也是默认的类加载器。</li>
+</ul>
+<p>双亲委派模型的意义在于不同的类加载器之间分别负责所搜索范围内的类的加载工作，这样能保证同一个类在使用中才不会出现不相等的类。</p>
+<h3 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h3><p>控制反转, 意味着将你设计好的对象交给容器控制,而不是传统的在你的对象内部直接控制</p>
+<ul>
+<li>被动实例化: 无需主动new对象, 只需要描述如何创建, 让IOC容器帮我创建</li>
+<li>被动接受装配: 不需要主动装配对象之间的依赖关系, 容器会帮我装配</li>
+<li>主动变被动</li>
+<li>迪米特法则: 不知道依赖的具体实现; 面向接口编程; 可能少的了解</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- id要全局唯一 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- spring会根据我的class创建一个代理类 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"hello"</span> <span class="attr">class</span>=<span class="string">"com.cmbchina.demo.HelloImpl"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- scope属性: singleton-单例, prototype-每次都会生成一个新对象, request-为每个http请求创建一个对象, session-一般用来存用户会话 --&gt;</span></span><br><span class="line">------------------------------------</span><br><span class="line"><span class="comment">&lt;!-- 除了xml的定义的模式, 还会使用注解的模式 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- spring会扫描com.cmbchina包下所有的BEAN定义注解, 并初始化 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.cmbchina.*"</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 这句话是把Controller的注解给过滤掉 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span> <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span></span><br><span class="line"></span><br><span class="line">@Service(IBuzinessAService.BEAN_ID)</span><br><span class="line">public class BuzinessAServiceImpl implements IBuzinessAService</span><br></pre></td></tr></table></figure>
+<h3 id="DI"><a href="#DI" class="headerlink" title="DI"></a>DI</h3><p>依赖注入, 用一个单独的对象来装配对象之间的依赖关系</p>
+<p>动态注入依赖关系</p>
+<ol>
+<li>应用程序不主动创建对象, 只描述创建他们的方式</li>
+<li>在应用程序代码中不直接进行服务的装配, 但要配置文件中描述哪一个组件需要哪一项服务, 容器负责将这些装配在一起</li>
+</ol>
+<blockquote>
+<p>好莱坞法则: Dont call us, we’ll call you</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 数据库类型或配置变化时, 不需要改代码, 只需要改配置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.apache.commons.dbcp.BasicDataSource"</span> <span class="attr">destroy-method</span>=<span class="string">"close"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.driverClassName&#125;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;jdbc.url&#125;"</span>&gt;</span></span><br><span class="line">    .....</span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h3><p>AOP是一种编程范式, 将那些与业务无关, 缺为业务模块所共同调用的逻辑或责任封装起来, 它可以降低模块的耦合度, 使系统容易扩展, 设计决定的迟邦定, 更好的代码复用性</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PayEbiAspect</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Pointcut是横切关注点</span></span><br><span class="line">    <span class="meta">@Pointcut</span>(value=<span class="string">"execution(* pay(..))"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> pointcut&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 切入点, 前置/后置/环绕等等</span></span><br><span class="line">    <span class="meta">@Arroud</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">around</span><span class="params">(ProceedingJoinPoint pjp)</span> thorws Throwable </span>&#123;</span><br><span class="line">        Objecxt retVal = pjp.proceed();</span><br><span class="line">        <span class="keyword">return</span> retVal;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>AfterReturning会多一个returning参数(Object result) <code>@AfterReturning(value = &quot;execution(public int com.st.demo.CalImpl.*(..))&quot;, returning=&quot;result&quot;)</code></li>
+<li>AfterThrowing会多一个throwing参数(Exception e) <code>@AfterThrowing(value = &quot;execution(public int com.st.demo.CalImpl.*(..))&quot;, throwing=&quot;e&quot;)</code></li>
+</ul>
+<h4 id="After和After-returning的区别："><a href="#After和After-returning的区别：" class="headerlink" title="After和After-returning的区别："></a>After和After-returning的区别：</h4><ul>
+<li>后置通知(After)：表示在目标方法执行完成后执行的通知功能，即使在执行目标方法出现异常，也照常执行这个逻辑。</li>
+<li>返回通知(After-returning)表示目标方法正常执行完成后置的通知功能，如果目标方法执行过程中出现异常，那么这个通知的逻辑就不执行。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">execution(public void aop.TargetImpl.run()) 表示 aop.TargetImpl类，修饰符为public，返回值、参数列表为空的run方法。</span><br><span class="line">execution(void aop.TargetImpl.*()) 表示 aop.TargetImpl类，返回值、参数列表为空的任意方法。</span><br><span class="line">execution(* aop…*(…)) 表示 aop包及其子包下的任意类，任意方法。</span><br></pre></td></tr></table></figure>
+<h3 id="Spring事务管理"><a href="#Spring事务管理" class="headerlink" title="Spring事务管理"></a>Spring事务管理</h3><p>分布式事务, 先定义事务再打开连接 与 一般事务有所不同</p>
+<p>1）编程式事务-使用jdbc原生的事务处理，可以将事务处理写在业务逻辑代码中，违背aop原则，不推荐；</p>
+<p>2）声明式事务-使用事务注解 @Transactional，可以声明在方法上，也可以声明在类上；</p>
+<ul>
+<li>默认配置下 Spring 只会回滚运行时异常（非受检查异常），即继承自 RuntimeException 的异常或者 Error</li>
+<li>@Transactional 注解只能应用到 public 修饰的方法</li>
+<li>可以明确的配置在抛出哪些异常时回滚事务，包括checked异常。也可以明确定义哪些异常抛出时不回滚事务，也可通过setRollbackOnly()方法来指定一个事务必须回滚，在调用完setRollbackOnly()后你所能执行的唯一操作就是回滚。</li>
+</ul>
+<h4 id="Transaction属性"><a href="#Transaction属性" class="headerlink" title="Transaction属性"></a>Transaction属性</h4><p>Propagation: 事务传播行为</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Transactional(propagation=Propagation.REQUIRED)</td>
+<td>如果有事务则加入事务，若没有则新建（默认）</td>
+</tr>
+<tr>
+<td>@Transactional(propagation=Propagation.NOT_SUPPORTED)</td>
+<td>容器不为这个方法开启事务</td>
+</tr>
+<tr>
+<td>@Transactional(propagation=Propagation.REQUIRES_NEW)</td>
+<td>不管是否存在事务，都创建一个新事务，原来的挂起，新事务执行完毕，继续执行挂起的事务</td>
+</tr>
+<tr>
+<td>@Transactional(propagation=Propagation.MANDATORY)</td>
+<td>必须在一个已有的事务中执行，否则抛出异常</td>
+</tr>
+<tr>
+<td>@Transactional(propagation=Propagation.NEVER)</td>
+<td>必须在一个没有的事务中执行，否则抛出异常（与Propagation.MANDATORY相反）</td>
+</tr>
+<tr>
+<td>@Transactional(propagation=Propagation.SUPPORTS)</td>
+<td>如果其他bean调用这个方法，在其他bean中声明事务，那就用事务。如果其他bean没有声明事务，那就不用事务</td>
+</tr>
+<tr>
+<td>@Transactional(propagation=Propagation.NESTED)</td>
+<td>若一个活动的事务存在，则运行在一个嵌套的事务中；若没有活动事务，则按REQUIRED属性执行</td>
+</tr>
+</tbody>
+</table>
+<h4 id="Timeout属性"><a href="#Timeout属性" class="headerlink" title="Timeout属性"></a>Timeout属性</h4><p>用于设置事务处理的时间长度，阻止可能出现的长时间的阻塞系统或占用系统资源。单位为秒。如果超时设置事务回滚，并抛出TransactionTimeOutException异常。</p>
+<h4 id="Isolation事务隔离级别属性"><a href="#Isolation事务隔离级别属性" class="headerlink" title="Isolation事务隔离级别属性"></a>Isolation事务隔离级别属性</h4><p>1、读未提交Isolation.READ_UNCOMMITTED : 读取其它事务未提交的数据，了解，基本不会使用；会出现脏读，不可重复读</p>
+<p>2、读已提交Isolation.READ_COMMITTED : oracle的默认事务隔离级别，同一个事务处理中，只能读取其它事务提交后的数据（也就是说事务提交之前对其余事务不可见）；SQL server默认, 会出现不可重复读和幻读, 解决脏读问题</p>
+<p>3、可重复读Isolation.REPEATABLE_READ : mysql默认事务隔离级别，同一个事务处理中，多次读取同一数据是都是一样的，不受其它事务影响；会出现幻读, 解决不可重复读问题</p>
+<p>4、串行化Isolation.SERIALIZABLE : 可以避免上面所有并发问题，但是执行效率最低，数据一致性最高；解决全部</p>
+<p>5、Isolation.DETAULT: 使用各个数据库默认的隔离级别</p>
+<h3 id="ORM框架"><a href="#ORM框架" class="headerlink" title="ORM框架"></a>ORM框架</h3><p>Mybatis, Hibernate, Jpa, Jdo都是ORM框架</p>
+<p>同一个方法里面JDBC\Mybatic\Hibernate不要同时用</p>
+<h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><ul>
+<li>支持Restful的URL</li>
+<li>可完全注解驱动</li>
+<li>引入HttpMessageConverter</li>
+<li>对静态资源处理提供特殊支持</li>
+<li>更加灵活的控制器方法签名</li>
+<li>和数据转换、格式化、验证框架无缝集成</li>
+</ul>
+<blockquote>
+<p>/ 和 /<em> 的区别<br>/ 不会拦截页面（比如：/xxx/login.html），只会拦截路径（比如：/xxx/login）<br>/</em> 都会拦截（即 路径+ 页面 ）  </p>
+<p>/ 和 /<em> 的区别<br>/</em> 是拦截所有的文件夹，不包含子文件夹<br>/** 是拦截所有的文件夹及里面的子文件夹</p>
+</blockquote>
+<h3 id="RequestBody-amp-amp-ResponseBody"><a href="#RequestBody-amp-amp-ResponseBody" class="headerlink" title="@RequestBody &amp;&amp; @ResponseBody"></a>@RequestBody &amp;&amp; @ResponseBody</h3><ul>
+<li>将HttpServletRequest的getInputStream内容绑定到入参中</li>
+<li>将返回值写入到HttpServletResponse的getOutputStream中</li>
+</ul>
+<p>优点是处理方法签名不受限<br>缺点是只能访问报文体, 不能访问报文头</p>
+<h3 id="HttpEntity-amp-amp-ResponseEntity"><a href="#HttpEntity-amp-amp-ResponseEntity" class="headerlink" title="HttpEntity &amp;&amp; ResponseEntity"></a>HttpEntity &amp;&amp; ResponseEntity</h3><p>用的比较少, 它可以支持访问报文头</p>
+<h3 id="数据校验处理"><a href="#数据校验处理" class="headerlink" title="数据校验处理"></a>数据校验处理</h3><p>JSR303, @Null, @Min(value), @AssertTrue等等</p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>MySQL关系型数据库, 有4种数据库存储引擎: InnoDB、MyISAM、MEMORY、MERGE</p>
+<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>是Mysql的默认存储引擎，用于事务处理应用程序，支持外键。如果应用对事务的完整性有比较高的要求，在并发条件下要求数据的一致性，数据操作除了插入和查询意外，还包含很多的更新、删除操作，那么InnoDB存储引擎是比较合适的选择。InnoDB存储引擎除了有效的降低由于删除和更新导致的锁定， 还可以确保事务的完整提交和回滚，对于类似于计费系统或者财务系统等对数据准确性要求比较高的系统，InnoDB是最合适的选择</p>
+<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>如果应用是以读操作和插入操作为主，只有很少的更新和删除操作，并且对事务的完整性、并发性要求不是很高，那么选择这个存储引擎是非常合适的。</p>
+<h2 id="面向对象设计方法"><a href="#面向对象设计方法" class="headerlink" title="面向对象设计方法"></a>面向对象设计方法</h2><h2 id="网络IO"><a href="#网络IO" class="headerlink" title="网络IO"></a>网络IO</h2><h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>Exception：属于程序的错误，包含运行时异常和检查性异常，除了运行时异常剩下的都是检查性异常，运行时异常会继承RuntimeException</p>
+<p>常见运行时异常：</p>
+<ul>
+<li>NullPointerException<br>空指针异常，JAVA8中可用Optional来避免，一般是代码中出现了空对象时，抛出该异常</li>
+<li>IndexOutOfBoundsException<br>数组下标越界异常，当使用的数组下标超出数组允许范围时，抛出该异常</li>
+<li>ClassCastException<br>类型转换异常，当试图将对象强制转换为不是实例的子类时，抛出该异常</li>
+<li>NumberFormatException<br>数字格式化异常，当试图将一个String转换为指定的数字类型，而该字符串确不满足数字类型要求的格式时，抛出该异常</li>
+<li>JSONException<br>JSON异常，进行JSON格式化操作时出现异常，会抛出该异常</li>
+</ul>
+<p>常见检查性异常：</p>
+<ul>
+<li>SQLException<br>SQL异常</li>
+<li>IOException<br>IO异常，在对流操作时有可能会出现的异常</li>
+<li>FileNotFoundException<br>找不到某个文件时，会抛出该异常</li>
+<li>ClassNotFoundException<br>找不到某个类时，会抛出该异常</li>
+<li>EOFException<br>输入过程中意外地到达文件尾或流尾，会抛出该异常，常见于对流的操作</li>
+</ul>
+<h3 id="ExceptionHandler"><a href="#ExceptionHandler" class="headerlink" title="@ExceptionHandler"></a>@ExceptionHandler</h3><p>可以统一处理方法抛出的异常, 但只作用于当前controller, 可以结合@ControllerAdvice进行全局处理, 当前方法的默认需要返回ModelAndView对象或void, 添加@ResponseBody之后可以返回String</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ExceptionHandler</span>()</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">handleException</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ex.printStackTrace();</span><br><span class="line">    String resultStr = <span class="string">"报错啦: "</span> + e.toString();</span><br><span class="line">    <span class="keyword">return</span> resultStr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接收抛出的NumberFormatException异常</span></span><br><span class="line"><span class="meta">@ExceptionHandler</span>(NumberFormatException.class)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 抛出异常遵循就近原则, 选择最接近的异常处理方法</span></span><br></pre></td></tr></table></figure>
+<h2 id="JAVA开发规范"><a href="#JAVA开发规范" class="headerlink" title="JAVA开发规范"></a>JAVA开发规范</h2><h3 id="规范目的"><a href="#规范目的" class="headerlink" title="规范目的"></a>规范目的</h3><p>全面有效地执行开发规范是保证团队代码开发质量有效的措施</p>
+<h3 id="开发编码规范总的原则"><a href="#开发编码规范总的原则" class="headerlink" title="开发编码规范总的原则"></a>开发编码规范总的原则</h3><ul>
+<li>排版规范: 整齐划一</li>
+<li>注释规范: 易于理解</li>
+<li>命名规范: 见名知意</li>
+<li>编码规范: 少犯错误</li>
+</ul>
+<h3 id="JAVA源文件"><a href="#JAVA源文件" class="headerlink" title="JAVA源文件"></a>JAVA源文件</h3><blockquote>
+<p>每个JAVA源文件都包含一个单一的公共类或者接口, 或私有类与接口与公共类相关联, 可以将他们放入同一个源文件. 公共类必须是这个文件中的第一个类或接口</p>
+</blockquote>
+<p>规则:</p>
+<ul>
+<li>开头注释</li>
+<li>包和引用语句</li>
+<li>类和接口声明</li>
+</ul>
+<h4 id="开头注释"><a href="#开头注释" class="headerlink" title="开头注释"></a>开头注释</h4><p>所有源文件应该都在开头有一个注释, 列出类名, 版本信息, 日期和版权申明</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Title</span>:</span></span><br><span class="line"><span class="comment">* <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment">* <span class="doctag">@date</span>:</span></span><br><span class="line"><span class="comment">* <span class="doctag">@version</span>:</span></span><br><span class="line"><span class="comment">* <span class="doctag">@copyright</span>:</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="包和引用语句"><a href="#包和引用语句" class="headerlink" title="包和引用语句"></a>包和引用语句</h4><p>在多数java源文件中, 第一个非注释行是包语句, 在它之后是引入语句</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.st;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br></pre></td></tr></table></figure>
+<h4 id="类和接口生命"><a href="#类和接口生命" class="headerlink" title="类和接口生命"></a>类和接口生命</h4><p>先后顺序如下:</p>
+<ol>
+<li>类/接口文档注释: <code>/**...*/</code></li>
+<li>类/接口声明</li>
+<li>类/接口实现注释: <code>/*...*/</code>如果有必要的话, 包含有关类的相关信息但又不适合作为文档注释</li>
+<li>类的(静态)变量: 公共变量-保护变量-包一级变量-私有变量</li>
+<li>实例变量: 公共变量-保护变量-包一级变量-私有变量</li>
+<li>构造器</li>
+<li>方法: 方法按功能分组, 方便阅读代码</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.demo.st;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String HELLO_WORLD = <span class="string">"Hello world"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Test</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="缩进排版"><a href="#缩进排版" class="headerlink" title="缩进排版"></a>缩进排版</h4><p>尽量避免一行的长度超过80个字符, 视情况考虑换行, 遵循以下4个规则:</p>
+<ul>
+<li>在逗号之后换行</li>
+<li>在运算符之前换行</li>
+<li>优先选择较高级别的断开</li>
+<li>新的一行应该与上一行的开头处对齐, 或者缩进8个空格</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (condition1 &amp;&amp; condition2</span><br><span class="line">    || (condition3 &amp;&amp; conditon4)</span><br><span class="line">    || (condition5 &amp;&amp; condition6)) &#123;</span><br><span class="line">        system.out.println(<span class="string">"ok"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><ul>
+<li>一般情况下, 源程序的有效注释必须在30%以上</li>
+<li>编写代码编注释, 修改代码同时修改相应的注释, 保证注释和代码的一致性, 不再用时需要删除</li>
+<li>注释应当浅显/明白</li>
+<li>错误的注释还不如不注释</li>
+<li>注释不是程序员指南</li>
+<li>注释不是标准库函数参考手册</li>
+<li>注释的主要任务是答疑解惑而不是增加程序行数</li>
+<li>好的注释是对设计思想的精确表述和清晰展现</li>
+<li>含义一目了然的不需要注释</li>
+<li>一行内可以写完的请使行注释</li>
+<li>一行内无法写完的使用块注释</li>
+<li>为将来生成api文档而写的注释请使用javadoc注释</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">块注释:</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 块注释</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">单行注释:</span><br><span class="line"><span class="comment">/* 单行注释 */</span></span><br><span class="line"></span><br><span class="line">尾端注释:</span><br><span class="line">String str = <span class="string">"1"</span>; <span class="comment">/* 尾端注释 */</span></span><br><span class="line"></span><br><span class="line">行末注释:</span><br><span class="line">String str = <span class="string">"2"</span>; <span class="comment">// 行末注释</span></span><br></pre></td></tr></table></figure>
+<h3 id="文档注释"><a href="#文档注释" class="headerlink" title="文档注释"></a>文档注释</h3><p>javadoc</p>
+<p>// TODO</p>
+<h3 id="空行"><a href="#空行" class="headerlink" title="空行"></a>空行</h3><ul>
+<li>空行将逻辑相关的代码段分隔开</li>
+<li>下列情况使用两个空行:<ul>
+<li>一个源文件的两个片段之间</li>
+<li>类声明和接口声明之间</li>
+</ul>
+</li>
+<li>下列情况使用一个空行:<ul>
+<li>两个方法之间</li>
+<li>方法内的局部变量和方法的第一条语句之间</li>
+<li>块注释或单行注释之前</li>
+<li>一个方法内的两个逻辑段之间, 用以提高可读性</li>
+</ul>
+</li>
+</ul>
+<h3 id="空格"><a href="#空格" class="headerlink" title="空格"></a>空格</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 需要空格</span></span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法后不需要空格, 逗号后面需要空格</span></span><br><span class="line">eating(String food, String water);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 除了.之外的运算符, 前后都需要空格</span></span><br><span class="line">a = (a + b) / (c * d);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自增自减不要加空格</span></span><br><span class="line">a++;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 强转之后要加空格</span></span><br><span class="line">(<span class="keyword">int</span>) a;</span><br></pre></td></tr></table></figure>
+<h3 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h3><h4 id="类-接口"><a href="#类-接口" class="headerlink" title="类/接口"></a>类/接口</h4><p>使用大驼峰, 每个单词的首字母大写, 使用完整单词, 避免缩写词, 需要简洁而富于描述<br>如: <code>ApiController</code></p>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><p>使用小驼峰, 如: <code>getUserInfo();</code></p>
+<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>使用小驼峰, 尽量不适用下划线或者美元符号开头, 变量名应易于记忆, 并能指出其用途</p>
+<p>整形: 临时变量可被取名为i,j,k,m,n<br>字符型: c,d,e</p>
+<h4 id="实例变量-gt-独立于方法之外的变量，不过没有-static-修饰"><a href="#实例变量-gt-独立于方法之外的变量，不过没有-static-修饰" class="headerlink" title="实例变量 -&gt; 独立于方法之外的变量，不过没有 static 修饰"></a>实例变量 -&gt; 独立于方法之外的变量，不过没有 static 修饰</h4><p>使用小驼峰, 最前面需要加下划线, 例如: <code>String _name</code></p>
+<h4 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h4><p>应该全部大写, 单词间用下划线隔开, 例如: <code>static final int USER_ID = 4;</code></p>
+<h4 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h4><p>避免使用魔鬼数字</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 错误示例:</span></span><br><span class="line"><span class="keyword">if</span> (state == <span class="number">0</span>) &#123;</span><br><span class="line">    state = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 正确示例:</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> SUCCESS_FLAG = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> <span class="keyword">int</span> FAIL_FLAG = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (state == SUCCESS_FLAG) &#123;</span><br><span class="line">    state = FAIL_FLAG;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Sonar检查规则"><a href="#Sonar检查规则" class="headerlink" title="Sonar检查规则"></a>Sonar检查规则</h2><h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><h3 id="3种实现方式"><a href="#3种实现方式" class="headerlink" title="3种实现方式"></a>3种实现方式</h3><h4 id="1-实现Runnable接口"><a href="#1-实现Runnable接口" class="headerlink" title="1. 实现Runnable接口"></a>1. 实现Runnable接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskA</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TaskA"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2-实现Callable接口"><a href="#2-实现Callable接口" class="headerlink" title="2. 实现Callable接口"></a>2. 实现Callable接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Callable接口是泛型, 定义的是返回值的类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskB</span> <span class="keyword">implements</span> <span class="title">Callable</span>&lt;<span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"TaskB"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-集成Thread类"><a href="#3-集成Thread类" class="headerlink" title="3. 集成Thread类"></a>3. 集成Thread类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 本方法与实现Runnable接口基本一致, 因为Thread实现了Runnable</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TaskC</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"TaskC"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><h4 id="方式1"><a href="#方式1" class="headerlink" title="方式1"></a>方式1</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 直接创建并启动, 这样子无法获取任务的执行结果</span></span><br><span class="line">Thread threadA = <span class="keyword">new</span> Thread(<span class="keyword">new</span> TaskA());</span><br><span class="line">taskA.start();</span><br><span class="line">Thread threadB = <span class="keyword">new</span> Thread(<span class="keyword">new</span> TaskB());</span><br><span class="line">taskB.start();</span><br><span class="line">TaskC taskC = <span class="keyword">new</span> TaskC();</span><br><span class="line">taskC.start();</span><br></pre></td></tr></table></figure>
+<h4 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h4><p>使用线程池</p>
+<ul>
+<li>直接创建ThreadPoolExecutor实例</li>
+<li>使用Executors创建常见的线程池类型(不推荐使用)</li>
+</ul>
+<p>常见的线程池类型:  </p>
+<ul>
+<li>Executors.newCashedThreadPool(): 可缓存线程池, 创建线程数量的上限是INTEGER.MAX  </li>
+<li>Executors.newSingleThreadExecutor(): 单线程化的线程池, 只会用唯一的工作线程来执行任务, 保证所有任务都是按照指定顺序执行的, 先进先出或者先进后出, 任务队列的长度基本是无限的, 可能有内存溢出的风险  </li>
+<li>Executors.newFixedThreadPool(int): 创建一个指定工作线程数量的线程池, 如果数量超过设定的最大值, 则放在队列中, 也存在内存溢出的风险</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ExecutorService executor = Executors.newCashedThreadPool();</span><br><span class="line">TaskC taskC = <span class="keyword">new</span> TaskC();</span><br><span class="line">executor.execute(taskC);</span><br></pre></td></tr></table></figure>
+<p>以上三种调用线程均无法获取执行结果</p>
+<ul>
+<li>Executors.newScheduledThreadPool(int): 它与上面是三种不同, 它封装的是ScheduleedThreadPoolExecutor类, 线程池的数量是固定的, 支持只执行一次或周期性执行的自动任务, 也有内存溢出的风险<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(<span class="number">5</span>);</span><br><span class="line"></span><br><span class="line">TaskC taskC = <span class="keyword">new</span> TaskC();</span><br><span class="line">ScheduledFuture&lt;String&gt; future = executor.schedule(taskC, <span class="number">1</span>, TimeUint.SECONDS);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h3 id="Synchornize"><a href="#Synchornize" class="headerlink" title="Synchornize"></a>Synchornize</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> synchronize String <span class="title">applyCoupon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// do something</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">applyCoupon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    synchronize(<span class="keyword">this</span>) &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Lock"><a href="#Lock" class="headerlink" title="Lock"></a>Lock</h3><p>Lock比Synchronize更灵活, 可以手动加锁和释放</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">applyCoupon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// do something</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h3><p>Redis分布锁</p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p>需要满足的4个条件</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>固定执行顺序<br>指定锁账户顺序:<br>(1) 代发任务: 先查询内部户状态, 再查询其他账户状态<br>(2) 退款任务: 先查询内部户转台, 再查询要退款账户状态</p>
+<h3 id="执行效率差异"><a href="#执行效率差异" class="headerlink" title="执行效率差异"></a>执行效率差异</h3><p>可以用多线程处理耗时的项目</p>
+<h2 id="数据库-1"><a href="#数据库-1" class="headerlink" title="数据库"></a>数据库</h2><h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p>从低到高的隔离级别:</p>
+<ul>
+<li>Read uncommitted</li>
+<li>Read committed: 解决脏读</li>
+<li>Repeatable read: 解决脏读, 不可重复读</li>
+<li>Serializable: 解决脏读, 不可重复读, 幻读</li>
+</ul>
+<p>oracle数据库没有脏读的概念, 其他的数据库有</p>
+<h3 id="数据源"><a href="#数据源" class="headerlink" title="数据源"></a>数据源</h3><p>springboot默认数据源: 默认数据源是HikariDataSource</p>
+<p>常用连接池: boneCP、DBCP、C3P0、Druid</p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><h4 id="简单工厂"><a href="#简单工厂" class="headerlink" title="简单工厂"></a>简单工厂</h4><p>一个工厂负责所有类型的生产</p>
+<h4 id="工厂方法"><a href="#工厂方法" class="headerlink" title="工厂方法"></a>工厂方法</h4><p>有一个抽象工厂和很多个实际的工厂,比如奥迪工厂,宝马工厂</p>
+<h4 id="抽象工厂"><a href="#抽象工厂" class="headerlink" title="抽象工厂"></a>抽象工厂</h4><p>抽象工厂的任务是定义一个负责创建一组产品的接口.这个接口内的每个方法都负责创建一个具体的产品</p>
+<p>需要根据某个前提条件创建不同的类实现时, 可以使用工厂模式</p>
+<h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><h4 id="JDK动态代理"><a href="#JDK动态代理" class="headerlink" title="JDK动态代理"></a>JDK动态代理</h4><p>必须面向接口</p>
+<h3 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h3><ul>
+<li>需要生成的对象具有复杂的内部结构</li>
+<li>需要生成的对象内部属性本身相互依赖</li>
+<li>与工厂模式的区别是：建造者模式更加关注与零件装配的顺序</li>
+<li>JAVA 中的 StringBuilder就是建造者模式创建的，他把一个单个字符的char数组组合起来</li>
+<li>Spring不是建造者模式，它提供的操作应该是对于字符串本身的一些操作，而不是创建或改变一个字符串</li>
+</ul>
+<p>拼凑机器人</p>
+<h3 id="模板方法"><a href="#模板方法" class="headerlink" title="模板方法"></a>模板方法</h3><p>实现一些操作时，整体步骤很固定，但是呢。就是其中一小部分需要改变，这时候可以使用模板方法模式，将容易变的部分抽象出来，供子类实现。</p>
+<p>例如：数据库访问的封装、Junit单元测试、servlet中关于doGet/doPost方法的调用等等</p>
+<p>餐厅吃饭，餐厅给我们提供了一个模板就是：看菜单，点菜，吃饭，付款，走人 （这里 “点菜和付款” 是不确定的由子类来完成的，其他的则是一个模板。）</p>
+<h3 id="外观模式-也叫门面模式"><a href="#外观模式-也叫门面模式" class="headerlink" title="外观模式, 也叫门面模式"></a>外观模式, 也叫门面模式</h3><p>它向现有的系统添加一个接口，用这一个接口来隐藏实际的系统的复杂性, 他外部看起来就是一个接口，其实他的内部有很多复杂的接口已经被实现</p>
+<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><ul>
+<li>类初始化需要消化非常多的资源，这个资源包括数据、硬件资源等。这时我们就可以通过原型拷贝避免这些消耗</li>
+<li>通过new产生的一个对象需要非常繁琐的数据准备或者权限，这时可以使用原型模式</li>
+<li>一个对象需要提供给其他对象访问，而且各个调用者可能都需要修改其值时，可以考虑使用原型模式拷贝多个对象供调用者使用，即保护性拷贝<br>我们Spring框架中的多例就是使用原型</li>
+</ul>
+<h3 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h3><p>主要是为了 简化 if…else 所带来的复杂和难以维护</p>
+<ul>
+<li>策略模式的用意是针对一组算法或逻辑，将每一个算法或逻辑封装到具有共同接口的独立的类中，从而使得它们之间可以相互替换</li>
+<li>例如：我要做一个不同会员打折力度不同的三种策略，初级会员，中级会员，高级会员（三种不同的计算）</li>
+<li>例如：我要一个支付模块，我要有微信支付、支付宝支付、银联支付等</li>
+</ul>
+<h3 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h3><p>观察者模式主要用于1对N的通知。当一个对象的状态变化时，他需要及时告知一系列对象，令他们做出相应</p>
+<p>跨系统的消息交换场景，如消息队列、事件总线的处理机制</p>
+<h3 id="装饰器模式"><a href="#装饰器模式" class="headerlink" title="装饰器模式"></a>装饰器模式</h3><p>装饰器模式（Decorator Pattern） 也称为包装模式(Wrapper Pattern) 是指在不改变原有对象的基础之上，将功能附加到对象上，提供了比继承更有弹性的替代方案(扩展原有对象的功能)，属于结构型模式。装饰器模式的核心是功能扩展，使用装饰器模式可以透明且动态地扩展类的功能。</p>
+<p>当需要给一个现有类添加附加职责，而又不能采用生成子类的方法进行扩充时。例如，该类被隐藏或者该类是终极类或者采用继承方式会产生大量的子类。<br>当需要通过对现有的一组基本功能进行排列组合而产生非常多的功能时，采用继承关系很难实现，而采用装饰器模式却很好实现。<br>当对象的功能要求可以动态地添加，也可以再动态地撤销。</p>
+<p>比如: 点奶茶加料</p>
+<p>适用场景:  </p>
+<ul>
+<li>当需要给一个现有类添加附加职责，而又不能采用生成子类的方法进行扩充时。例如，该类被隐藏或者该类是终极类或者采用继承方式会产生大量的子类。</li>
+<li>当需要通过对现有的一组基本功能进行排列组合而产生非常多的功能时，采用继承关系很难实现，而采用装饰器模式却很好实现。</li>
+<li>当对象的功能要求可以动态地添加，也可以再动态地撤销。</li>
+</ul>
+<p>装饰器与适配器都有一个别名叫做 包装模式(Wrapper)，它们看似都是起到包装一个类或对象的作用，但是使用它们的目的很不一样。适配器模式的意义是要将一个接口转变成另一个接口，它的目的是通过改变接口来达到重复使用的目的。<br>而装饰器模式不是要改变被装饰对象的接口，而是恰恰要保持原有的接口，但是增强原有对象的功能，或者改变原有对象的处理方式而提升性能。所以这两个模式设计的目的是不同的。</p>
+<p>在jdk中，InputStreamReader是一个适配器，因为它把InputStream的API转换成Reader的API。InputStream是被适配的类，而 Reader是适配的目标类。InputStreamReader做为适配器类把InputStream类的一个实例包装起来,从而能够把InputStream的API。</p>
+<p>而BufferReader是一个装饰器类，因为它实现Reader，并且包装了一个Reader。一些对流处理器可以对另一些流处理器起到装饰作用，形成新的、具有改善功能得流处理器。类似地，BufferedInputStream、OutputStream、Writer 各自都是它们自己的装饰类。LineNumberReader、FilterReader和 PushbackReader均是Reader的装饰类，因为它们自己是Reader类，而且包装其他的Reader类。CharArrayReader、FileReader、PipedReader和StringReader类不是装饰类，因为它们包装的是字符数值组、File、PipedWriter和String类。它们应该被看做字符数值组、File、PipedWriter 和String类的适配器类。</p>
+<h2 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h2><h3 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h3><p>作用范围: 构造器, 方法, 参数 成员变量, 注解</p>
+<p>默认是按照byType方式装配的, 还有byName, constructor, autodetect</p>
+<p>@Autowired注解的required参数默认是true, 表示开启自动装配, @Autowired(required=false)</p>
+<p>spring的@Service方法不允许出现相同的类名，因为spring会将类名的第一个字母转换成小写，作为bean的名称，比如：testService1，而默认情况下bean名称必须是唯一的</p>
+<p>byName的方法: @Qualifier(“名字”)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier</span>(<span class="string">"user1"</span>)</span><br><span class="line">    <span class="keyword">private</span> IUser user;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或者用@Primary注解解决重复实现的问题。在User1上面加上@Primary注解：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Primary</span></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User1</span> <span class="keyword">implements</span> <span class="title">IUser</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>web应用启动的顺序是：listener-&gt;filter-&gt;servlet</p>
+<p>众所周知，springmvc的启动是在DisptachServlet里面做的，而它是在listener和filter之后执行。如果我们想在listener和filter里面@Autowired某个bean，肯定是不行的，因为filter初始化的时候，此时bean还没有初始化，无法自动装配。</p>
+<p>spring的bean默认是单例的，如果单例bean使用@Autowired自动装配，大多数情况，能解决循环依赖问题。但是也有特殊情况, 创建代理对象的时候还是会出现循环依赖的问题</p>
+<h4 id="Autowired和-Resource的区别"><a href="#Autowired和-Resource的区别" class="headerlink" title="@Autowired和@Resource的区别"></a>@Autowired和@Resource的区别</h4><ul>
+<li>@Autowired默认按byType自动装配，而@Resource默认byName自动装配。</li>
+<li>@Autowired只包含一个参数：required，表示是否开启自动准入，默认是true。而@Resource包含七个参数，其中最重要的两个参数是：name 和 type。</li>
+<li>@Autowired如果要使用byName，需要使用@Qualifier一起配合。而@Resource如果指定了name，则用byName自动装配，如果指定了type，则用byType自动装配。</li>
+<li>@Autowired能够用在：构造器、方法、参数、成员变量和注解上，而@Resource能用在：类、成员变量和方法上。</li>
+<li>@Autowired是spring定义的注解，而@Resource是JSR-250定义的注解。</li>
+</ul>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h3><p> @Configuation等价于<code>&lt;Beans&gt;&lt;/Beans&gt;</code></p>
+<p> @Bean等价于<code>&lt;Bean&gt;&lt;/Bean&gt;</code></p>
+<p> @ComponentScan等价于<code>&lt;context:component-scan base-package=&quot;com.ahies.ija.management&quot;/&gt;</code></p>
+<p> 一般于@Bean方法结合<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="meta">@Bean</span></span><br><span class="line">     <span class="function"><span class="keyword">public</span> MyBean <span class="title">myBean</span><span class="params">()</span> </span>&#123;</span><br><span class="line">         <span class="comment">// instantiate, configure and return bean ...</span></span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="ComponentScan"><a href="#ComponentScan" class="headerlink" title="@ComponentScan"></a>@ComponentScan</h3><p> @ComponentScan主要用法就是用来扫描指定的包下面的bean对象，ComponentScan可以配置多个，springboot默认就是扫描启动类所在的包的下面所有的bean，如果还需要额外指定别的package，则需要新增一个ComponentScan，并且需要手动指定springboot所在类的package的路径，要不然就不会被加载。</p>
+<p> basePackageClasses 用于指定特定的类，就比如说需要加载某个特定的类可以使用这一的写法</p>
+<p> 可以通过设置@ComponentScan　basePackages，includeFilters，excludeFilters属性来动态确定自动扫描范围</p>
+<h3 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h3><p>@SpringBootApplication = @ComponentScan+@EnableAutoConfiguration+@SpringBootConfiguration</p>
+<p>spring四大注解: @Service,@Repository,@Component,@Controller用来定义一个bean</p>
+<h3 id="SpringBootConfiguration"><a href="#SpringBootConfiguration" class="headerlink" title="@SpringBootConfiguration"></a>@SpringBootConfiguration</h3><p>这个注解的作用与@Configuration作用相同，都是用来声明当前类是一个配置类</p>
+<h3 id="EnableAutoConfiguration"><a href="#EnableAutoConfiguration" class="headerlink" title="@EnableAutoConfiguration"></a>@EnableAutoConfiguration</h3><p>@EnableAutoConfiguration是springboot实现自动化配置的核心注解，通过这个注解把spring应用所需的bean注入容器中．@EnableAutoConfiguration源码通过@Import注入了一个ImportSelector的实现类<br>AutoConfigurationImportSelector,这个ImportSelector最终实现根据我们的配置，动态加载所需的bean</p>
+<h3 id="自动装载"><a href="#自动装载" class="headerlink" title="自动装载"></a>自动装载</h3><ol>
+<li>通过@SpringBootApplication包含@EnableAutoConfiguration实现自动装配的功能；</li>
+<li>@EnableAutoConfiguration通过@AutoConfigurationPackage实现对于当前项目中Bean的加载；</li>
+<li>@EnableAutoConfiguration通过@Import({AutoConfigurationImportSelector.class})实现对于引入的start中的XXAutoConfiguration的加载；</li>
+<li>AutoConfigurationImportSelector类中通过SpringFactoriesLoader读取 META-INF/spring.factories中key为org.springframework.boot.autoconfigure.EnableAutoConfiguration对应的各个XXAutoConfiguration的值，然后springboot在结合各个start中的代码完成对于XXAutoConfiguration中的Bean的加载动作；</li>
+<li>AutoConfigurationImportSelector类通过实现DeferredImportSelector延迟导入接口，在容器初始化的过程中在完成以上动作；</li>
+</ol>
+<h3 id="条件装配-Conditional注解"><a href="#条件装配-Conditional注解" class="headerlink" title="条件装配@Conditional注解"></a>条件装配@Conditional注解</h3><p>@Conditional注解需要配合Condition类一起使用</p>
+<p>@Conditional可以作用在方法上，也可以作用在类上。<br>使用的时候需要传入实现Condition接口类数组。<br>如果是类和方法都加了@Conditional注解，最终在方法上的注解为最终的条件，如果返回true则加入容器，反之不会加入容器。<br>如果只是类上加了@Conditional注解，整个类的所有方法都会加入容器中。</p>
+<p>当一个类有@Conditional注解, 例如<code>@Conditional(DatabaseCondtional.class)</code>, 那么DatabaseCondtional这个类需要实现Condition, 并重写matches方法, 只有当matches方法返回true时, spring才会装配这个类</p>
+<h3 id="Bean的作用域"><a href="#Bean的作用域" class="headerlink" title="Bean的作用域"></a>Bean的作用域</h3><p>1、Bean的5种作用域<br>（1）singleton：单例模式，Spring IoC容器中只会存在一个共享的Bean实例，无论有多少个Bean引用它，始终指向同一对象Singleton作用域是Spring中的缺省作用域，也可以显示的将Bean定义为singleton模式，配置为：<br><code>&lt;bean id=&quot;userDao&quot; class=&quot;com.ioc.UserDaoImpl&quot; scope=&quot;singleton&quot;/&gt;</code></p>
+<p>（2）prototype:原型模式，每次通过Spring容器获取prototype定义的bean时，容器都将创建一个新的Bean实例，每个Bean实例都有自己的属性和状态，而singleton全局只有一个对象。根据经验，对有状态的bean使用prototype作用域，而对无状态的bean使用singleton作用域。</p>
+<p>（3）request：在一次Http请求中，容器会返回该Bean的同一实例。而对不同的Http请求则会产生新的Bean，而且该bean仅在当前Http Request内有效。<br><code>&lt;bean id=&quot;loginAction&quot; class=&quot;com.cnblogs.Login&quot; scope=&quot;request&quot;/&gt;</code>,针对每一次Http请求，Spring容器根据该bean的定义创建一个全新的实例，且该实例仅在当前Http请求内有效，而其它请求无法看到当前请求中状态的变化，当当前Http请求结束，该bean实例也将会被销毁。</p>
+<p>（4）session：在一次Http Session中，容器会返回该Bean的同一实例。而对不同的Session请求则会创建新的实例，该bean实例仅在当前Session内有效。<br><code>&lt;bean id=&quot;userPreference&quot; class=&quot;com.ioc.UserPreference&quot; scope=&quot;session&quot;/&gt;</code>,同Http请求相同，每一次session请求创建新的实例，而不同的实例之间不共享属性，且实例仅在自己的session请求内有效，请求结束，则实例将被销毁。</p>
+<p>（5）global Session：在一个全局的Http Session中，容器会返回该Bean的同一个实例，仅在使用portlet context时有效。该作用域仅在基于Web的Spring上下文（例如SpringMVC）中才有效</p>
+<h3 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h3><h5 id="服务端降级"><a href="#服务端降级" class="headerlink" title="服务端降级"></a>服务端降级</h5><ol>
+<li><p>首先在业务类中加入新的配置标签@HystrixCommand，相当于在fallbackMethod中添加一个方法，如下value设置为3s，当超过3秒时，就会调用备用的方法，或者是方法中运行错误，比如说是以下的10/0报错</p>
+</li>
+<li><p>然后在主启动类中加入@EnableCircuitBreaker，这样就可以在服务提供端测试自己的服务降级了</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@HystrixCommand</span>(fallbackMethod=<span class="string">"降级方法名"</span>, commandProperties=&#123;<span class="meta">@HystrixProperty</span>(name=<span class="string">"execution.isolatiion.thread.timeoutInMilliseconds"</span>, value=<span class="string">"3000"</span>)&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="客户端降级-常用"><a href="#客户端降级-常用" class="headerlink" title="客户端降级(常用)"></a>客户端降级(常用)</h4><ol>
+<li><p>首先在yml加上hystrix和feign的配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">feign:</span></span><br><span class="line"><span class="attr">    hystrix:</span></span><br><span class="line"><span class="attr">        enabled:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在主启动类中添加注解@EnableHystrix</p>
+</li>
+<li>在业务类中利用Hystrix实现服务降级就行了，跟服务提供端类似</li>
+</ol>
+<h4 id="全局通用降级"><a href="#全局通用降级" class="headerlink" title="全局通用降级"></a>全局通用降级</h4><p>使用@DefaultProperties(defaultFallback=”方法名”)</p>
+<h3 id="Ribbon"><a href="#Ribbon" class="headerlink" title="Ribbon"></a>Ribbon</h3><p>静态负载均衡算法: 随机(Random), 轮询(Round Robin), 加权轮询(Weighted Round Robin)</p>
+<p>动态负载均衡算法: 源IP哈希算法, 最少连接数算法, 服务调用时延算法</p>
+<h4 id="BestAvailableRule策略"><a href="#BestAvailableRule策略" class="headerlink" title="BestAvailableRule策略"></a>BestAvailableRule策略</h4><p>选择一个并发量最小的服务器, 逐个考察服务器然后选择其中活跃请求数最小的服务器</p>
+<h4 id="WeightedResponseTimeRule策略"><a href="#WeightedResponseTimeRule策略" class="headerlink" title="WeightedResponseTimeRule策略"></a>WeightedResponseTimeRule策略</h4><p>与请求响应时间有关, 如果响应时间越长, 就代表这个服务的响应能力越有限, 分配给该服务的权重就应该越小</p>
+<h4 id="AvailabilityFilteringRule策略"><a href="#AvailabilityFilteringRule策略" class="headerlink" title="AvailabilityFilteringRule策略"></a>AvailabilityFilteringRule策略</h4><p>通过检查LoadBalanceStats中, 记录的各个服务器的运行状态, 过滤掉一直连接失败或处于高并发状态的后端服务器</p>
+<h4 id="LoadBalanced"><a href="#LoadBalanced" class="headerlink" title="@LoadBalanced"></a>@LoadBalanced</h4><p>通过@LoadBalanced注解修饰的resttemplate可以实现负载均衡的调用, 原理是 LoadBalanceAutoConfiguration类里面对restTemplate进行了特殊处理, 最终其实是使用loadBalanceClient进行调用的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@LoadBalanced</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> RestTemplate <span class="title">getRestTemplate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> RestTemplate();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="RibbonClient"><a href="#RibbonClient" class="headerlink" title="@RibbonClient"></a>@RibbonClient</h4><p>可自定义负载均衡策略</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableEurekaClient</span></span><br><span class="line"><span class="meta">@RibbonClient</span>(name=<span class="string">"userService"</span>, configuration=SpringHealthLoadBalanceConfig.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@LoadBalanced</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> RestTemplate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="OpenFegin-FeignClient"><a href="#OpenFegin-FeignClient" class="headerlink" title="OpenFegin(FeignClient)"></a>OpenFegin(FeignClient)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 客户端</span></span><br><span class="line"><span class="meta">@Component</span> <span class="comment">//注册为spring组件，交予IOC容器管理</span></span><br><span class="line"><span class="meta">@FeignClient</span>(value = <span class="string">"cloud-payment"</span>) <span class="comment">//添加FeignClient注解，绑定服务提供者。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">TestService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/payment/list"</span>)</span><br><span class="line">    <span class="function">ResultDto <span class="title">list</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 服务端</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/consumer"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> TestService testService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/list"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ResultDto <span class="title">list</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> testService.list();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ribbon的默认超时时间是1s, 如果服务端处理时间大于1s, 可修改以下配置<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ribbon:</span> <span class="comment">#设置feign客户端连接所用的超时时间，适用于网络状况正常情况下，两端连接所用时间</span></span><br><span class="line"><span class="attr">  ReadTimeout:</span> <span class="number">1000</span> <span class="comment">#指建立连接后从服务读取到可用资源所用时间</span></span><br><span class="line"><span class="attr">  ConnectTimeout:</span> <span class="number">1000</span> <span class="comment">#指的是建立连接所用时间</span></span><br></pre></td></tr></table></figure></p>
+<p>请求日志</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">NONE：默认，不显示任何日志；</span></span><br><span class="line"><span class="comment">BASIC: 仅记录请求方法、URL、响应状态码及执行时间；</span></span><br><span class="line"><span class="comment">HEADERS：除了BASIC中定义的信息之外，还有请求头和响应头信息；</span></span><br><span class="line"><span class="comment">FULL：除了HEADERS中定义的信息之外，还有请求的正文和响应数据。</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">import</span> feign.Logger;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OpenFeignConfig</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    Logger.<span class="function">Level <span class="title">feignLogLevel</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> Logger.Level.FULL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Feign的重试机制"><a href="#Feign的重试机制" class="headerlink" title="Feign的重试机制"></a>Feign的重试机制</h4><p>可以通过实现Retryer接口进行重试机制的自定义, 包括attempt重试次数、maxPeriod最大等待时长、period时长</p>
+<p>有两种方法可以进行配置:</p>
+<ol>
+<li>通过配置文件feign.client.config.[feignName].retryer=Retryer实现类([feignName]为Client Id名称) 方式配置</li>
+<li>通过指定 configuration进行配置。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FeignClient</span>(name = <span class="string">"test-service"</span>, contextId = <span class="string">"testClient"</span>,</span><br><span class="line">fallbackFactory = FmsBaseClientFallbackFactory.class, configuration = CommonFeignRetryConfig.class)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="设置超时时间"><a href="#设置超时时间" class="headerlink" title="设置超时时间"></a>设置超时时间</h4><h5 id="配置默认超时时间"><a href="#配置默认超时时间" class="headerlink" title="配置默认超时时间"></a>配置默认超时时间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">feign.client.config.default.connectTimeout=2000</span><br><span class="line">feign.client.config.default.readTimeout=5000</span><br></pre></td></tr></table></figure>
+<h5 id="为单个服务设置超时时间"><a href="#为单个服务设置超时时间" class="headerlink" title="为单个服务设置超时时间"></a>为单个服务设置超时时间</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#对单个服务设置超时，会覆盖默认的超时</span><br><span class="line">feign.client.config.springboot-mybatis.connectTimeout=2000</span><br><span class="line">feign.client.config.springboot-mybatis.readTimeout=11000</span><br></pre></td></tr></table></figure>
+<p>重置小节:</p>
+<ol>
+<li>Feign默认配置是不走重试策略的，当发生<code>RetryableException</code>异常时直接抛出异常。</li>
+<li>并非所有的异常都会触发重试策略，只有 <code>RetryableException</code> 异常才会触发异常策略。</li>
+<li>在默认Feign配置情况下，只有在网络调用时发生 <code>IOException</code> 异常时，才会抛出 <code>RetryableException</code>，也是就是说链接超时、读超时等不不会触发此异常。</li>
+</ol>
+<h3 id="Gateway"><a href="#Gateway" class="headerlink" title="Gateway"></a>Gateway</h3><p>gateway和zuul相比, gateway使用的是非阻塞的Netty</p>
+<h4 id="路由断言"><a href="#路由断言" class="headerlink" title="路由断言:"></a>路由断言:</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># path断言</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    gateway:</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - id:</span> <span class="string">host_route</span></span><br><span class="line"><span class="attr">        uri:</span> <span class="attr">http://c.biancheng.net</span></span><br><span class="line"><span class="attr">        predicates:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">Path=/blog/detail/&#123;segment&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># query断言, 参数名为foo的值是ba.能匹配到的正则表达式, 例如bar, baz, http://localhost：2001/?foo=baz。</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    gateway:</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - id:</span> <span class="string">query_route</span></span><br><span class="line"><span class="attr">        uri:</span> <span class="attr">http://c.biancheng.net</span></span><br><span class="line"><span class="attr">        predicates:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">Query=foo,</span> <span class="string">ba.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># method断言, 匹配http方法</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    gateway:</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - id:</span> <span class="string">method_route</span></span><br><span class="line"><span class="attr">        uri:</span> <span class="attr">http://baidu.com</span></span><br><span class="line"><span class="attr">        predicates:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">Method=GET</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># header断言</span></span><br><span class="line"><span class="comment"># 请求中带有请求头名为 x-request-id，其值与 \d+ 正则表达式匹配（值为一个或多个数字），则此路由匹配</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    gateway:</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - id:</span> <span class="string">header_route</span></span><br><span class="line"><span class="attr">        uri:</span> <span class="attr">http://example.org</span></span><br><span class="line"><span class="attr">        predicates:</span></span><br><span class="line"><span class="bullet">          -</span> <span class="string">Header=X-Request-Id,</span> <span class="string">\d+\</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义断言</span></span><br><span class="line"><span class="comment"># 自定义路由断言工厂需要继承 AbstractRoutePredicateFactory 类，重写 apply 方法的逻辑, 命名需要以 RoutePredicateFactory 结尾，比如 CheckAuthRoutePredicateFactory</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    gateway:</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - id:</span> <span class="string">customer_route</span></span><br><span class="line"><span class="attr">        uri:</span> <span class="attr">http://c.biancheng.net</span></span><br><span class="line"><span class="attr">        predicates:</span></span><br><span class="line"><span class="attr">            - name:</span> <span class="string">CheckAuth</span></span><br><span class="line"><span class="attr">        args:</span></span><br><span class="line"><span class="attr">            name:</span> <span class="string">zhangsan</span></span><br></pre></td></tr></table></figure>
+<h4 id="gateway过滤器"><a href="#gateway过滤器" class="headerlink" title="gateway过滤器"></a>gateway过滤器</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 常见过滤器</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  cloud:</span></span><br><span class="line"><span class="attr">    gateway:</span></span><br><span class="line"><span class="attr">      routes:</span></span><br><span class="line"><span class="attr">        - id:</span> <span class="string">add_request_header_route</span></span><br><span class="line"><span class="attr">        uri:</span> <span class="attr">http://c.biancheng.net</span></span><br><span class="line"><span class="attr">        filters:</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">AddRequestHeader=X-Request-Foo,</span> <span class="string">Bar</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">RemoveRequestHeader=X-Request-Foo</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">SetStatus=401</span></span><br><span class="line"><span class="bullet">            -</span> <span class="string">RedirectTo=302,</span> <span class="attr">http://baidu.com</span></span><br></pre></td></tr></table></figure>
+<p>自定义过滤器</p>
+<p>继承 AbstractGatewayFilterFactory 类，重写 apply 方法的逻辑。命名需要以 GatewayFilterFactory 结尾，比如 CheckAuthGatewayFilterFactory</p>
+<p>如果你的配置是 Key、Value 这种形式的，那么可以不用自己定义配置类，直接继承 AbstractNameValueGatewayFilterFactory 类即可。直接使用getName和getValue获取值即可</p>
+<p>全局过滤器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// order来指定执行的顺序, 数字越小优先级越高</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleConfiguration</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Logger log = LoggerFactory.getLogger(ExampleConfiguration.class);</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Order</span>(-<span class="number">1</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> GlobalFilter <span class="title">a</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (exchange, chain) -&gt; &#123;</span><br><span class="line">            log.info(<span class="string">"first pre filter"</span>);</span><br><span class="line">            <span class="keyword">return</span> chain.filter(exchange).then(Mono.fromRunnable(() -&gt; &#123;</span><br><span class="line">                log.info(<span class="string">"third post filter"</span>);</span><br><span class="line">            &#125;));</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </article>
+    <!-- license  -->
+    
+        <div class="license-wrapper">
+            <p>原文作者：<a href="https://st19950627.github.io">itibanst</a>
+            </p><p>原文链接：<a href="https://st19950627.github.io/2021/10/04/JAVA备忘/">https://st19950627.github.io/2021/10/04/JAVA备忘/</a>
+            </p><p>发表日期：<a href="https://st19950627.github.io/2021/10/04/JAVA备忘/">October 4th 2021, 2:50:14 pm</a>
+            </p><p>更新日期：<a href="https://st19950627.github.io/2021/10/04/JAVA备忘/">December 11th 2022, 8:54:31 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2022/07/13/系统测试/" title="系统测试">
+                    <div class="nextTitle">系统测试</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2021/05/18/资产托管/" title="资产托管">
+                    <div class="prevTitle">资产托管</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80NDA2Ni8yMDYwMQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') { return; }
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+    
+        
+            
+                <a href="//github.com/st19950627" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">BONG: <span id="busuanzi_value_site_pv"></span> >//<</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JAVA备忘"><span class="toc-number">1.</span> <span class="toc-text">JAVA备忘</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA1-7-amp-JAVA1-8新增特性"><span class="toc-number">1.1.</span> <span class="toc-text">JAVA1.7&amp;JAVA1.8新增特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK1-7部分新特性"><span class="toc-number">1.1.1.</span> <span class="toc-text">JDK1.7部分新特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JDK1-8部分新特性"><span class="toc-number">1.1.2.</span> <span class="toc-text">JDK1.8部分新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lambda表达式-核心"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">lambda表达式(核心)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#lambda语法"><span class="toc-number">1.1.2.1.1.</span> <span class="toc-text">lambda语法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#函数式接口"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">函数式接口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#四大核心函数式接口"><span class="toc-number">1.1.2.2.1.</span> <span class="toc-text">四大核心函数式接口</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#接口中默认方法和静态方法"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">接口中默认方法和静态方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法引用与构造器引用"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">方法引用与构造器引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#stream类-核心"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">stream类(核心)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Stream操作的三个步骤"><span class="toc-number">1.1.2.5.1.</span> <span class="toc-text">Stream操作的三个步骤</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#并行流与串行流"><span class="toc-number">1.1.2.5.2.</span> <span class="toc-text">并行流与串行流</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日期新特性"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">日期新特性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#中间件"><span class="toc-number">1.2.</span> <span class="toc-text">中间件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis"><span class="toc-number">1.2.1.</span> <span class="toc-text">redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消息队列"><span class="toc-number">1.2.2.</span> <span class="toc-text">消息队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#交换机类型"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">交换机类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常见消息队列对比"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">常见消息队列对比</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绑定键规则"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">绑定键规则</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Elasticsearch"><span class="toc-number">1.2.3.</span> <span class="toc-text">Elasticsearch</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#field"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">field</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#type"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#index"><span class="toc-number">1.2.3.3.</span> <span class="toc-text">index</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Shard-分片"><span class="toc-number">1.2.3.4.</span> <span class="toc-text">Shard 分片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cluster"><span class="toc-number">1.2.3.5.</span> <span class="toc-text">Cluster</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring"><span class="toc-number">1.3.</span> <span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载"><span class="toc-number">1.3.1.</span> <span class="toc-text">类加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加载"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#链接"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">链接</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#初始化"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">初始化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类加载时机"><span class="toc-number">1.3.2.</span> <span class="toc-text">类加载时机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">1.3.3.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DI"><span class="toc-number">1.3.4.</span> <span class="toc-text">DI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AOP"><span class="toc-number">1.3.5.</span> <span class="toc-text">AOP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#After和After-returning的区别："><span class="toc-number">1.3.5.1.</span> <span class="toc-text">After和After-returning的区别：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring事务管理"><span class="toc-number">1.3.6.</span> <span class="toc-text">Spring事务管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Transaction属性"><span class="toc-number">1.3.6.1.</span> <span class="toc-text">Transaction属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Timeout属性"><span class="toc-number">1.3.6.2.</span> <span class="toc-text">Timeout属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Isolation事务隔离级别属性"><span class="toc-number">1.3.6.3.</span> <span class="toc-text">Isolation事务隔离级别属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ORM框架"><span class="toc-number">1.3.7.</span> <span class="toc-text">ORM框架</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SpringMVC"><span class="toc-number">1.4.</span> <span class="toc-text">SpringMVC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RequestBody-amp-amp-ResponseBody"><span class="toc-number">1.4.1.</span> <span class="toc-text">@RequestBody &amp;&amp; @ResponseBody</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HttpEntity-amp-amp-ResponseEntity"><span class="toc-number">1.4.2.</span> <span class="toc-text">HttpEntity &amp;&amp; ResponseEntity</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据校验处理"><span class="toc-number">1.4.3.</span> <span class="toc-text">数据校验处理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库"><span class="toc-number">1.5.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#InnoDB"><span class="toc-number">1.5.1.</span> <span class="toc-text">InnoDB</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MyISAM"><span class="toc-number">1.5.2.</span> <span class="toc-text">MyISAM</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象设计方法"><span class="toc-number">1.6.</span> <span class="toc-text">面向对象设计方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络IO"><span class="toc-number">1.7.</span> <span class="toc-text">网络IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异常"><span class="toc-number">1.8.</span> <span class="toc-text">异常</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ExceptionHandler"><span class="toc-number">1.8.1.</span> <span class="toc-text">@ExceptionHandler</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JAVA开发规范"><span class="toc-number">1.9.</span> <span class="toc-text">JAVA开发规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#规范目的"><span class="toc-number">1.9.1.</span> <span class="toc-text">规范目的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开发编码规范总的原则"><span class="toc-number">1.9.2.</span> <span class="toc-text">开发编码规范总的原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JAVA源文件"><span class="toc-number">1.9.3.</span> <span class="toc-text">JAVA源文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#开头注释"><span class="toc-number">1.9.3.1.</span> <span class="toc-text">开头注释</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#包和引用语句"><span class="toc-number">1.9.3.2.</span> <span class="toc-text">包和引用语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#类和接口生命"><span class="toc-number">1.9.3.3.</span> <span class="toc-text">类和接口生命</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#缩进排版"><span class="toc-number">1.9.3.4.</span> <span class="toc-text">缩进排版</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注释"><span class="toc-number">1.9.4.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档注释"><span class="toc-number">1.9.5.</span> <span class="toc-text">文档注释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空行"><span class="toc-number">1.9.6.</span> <span class="toc-text">空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#空格"><span class="toc-number">1.9.7.</span> <span class="toc-text">空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命名规范"><span class="toc-number">1.9.8.</span> <span class="toc-text">命名规范</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#类-接口"><span class="toc-number">1.9.8.1.</span> <span class="toc-text">类/接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法"><span class="toc-number">1.9.8.2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量"><span class="toc-number">1.9.8.3.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实例变量-gt-独立于方法之外的变量，不过没有-static-修饰"><span class="toc-number">1.9.8.4.</span> <span class="toc-text">实例变量 -&gt; 独立于方法之外的变量，不过没有 static 修饰</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常量"><span class="toc-number">1.9.8.5.</span> <span class="toc-text">常量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#编码规范"><span class="toc-number">1.9.8.6.</span> <span class="toc-text">编码规范</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sonar检查规则"><span class="toc-number">1.10.</span> <span class="toc-text">Sonar检查规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多线程"><span class="toc-number">1.11.</span> <span class="toc-text">多线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3种实现方式"><span class="toc-number">1.11.1.</span> <span class="toc-text">3种实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-实现Runnable接口"><span class="toc-number">1.11.1.1.</span> <span class="toc-text">1. 实现Runnable接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-实现Callable接口"><span class="toc-number">1.11.1.2.</span> <span class="toc-text">2. 实现Callable接口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-集成Thread类"><span class="toc-number">1.11.1.3.</span> <span class="toc-text">3. 集成Thread类</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方式"><span class="toc-number">1.11.2.</span> <span class="toc-text">使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#方式1"><span class="toc-number">1.11.2.1.</span> <span class="toc-text">方式1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#方法2"><span class="toc-number">1.11.2.2.</span> <span class="toc-text">方法2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁"><span class="toc-number">1.12.</span> <span class="toc-text">锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Synchornize"><span class="toc-number">1.12.1.</span> <span class="toc-text">Synchornize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lock"><span class="toc-number">1.12.2.</span> <span class="toc-text">Lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分布式锁"><span class="toc-number">1.12.3.</span> <span class="toc-text">分布式锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#死锁"><span class="toc-number">1.12.4.</span> <span class="toc-text">死锁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#解决方案"><span class="toc-number">1.12.4.1.</span> <span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行效率差异"><span class="toc-number">1.12.5.</span> <span class="toc-text">执行效率差异</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库-1"><span class="toc-number">1.13.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#隔离级别"><span class="toc-number">1.13.1.</span> <span class="toc-text">隔离级别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据源"><span class="toc-number">1.13.2.</span> <span class="toc-text">数据源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设计模式"><span class="toc-number">1.14.</span> <span class="toc-text">设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工厂模式"><span class="toc-number">1.14.1.</span> <span class="toc-text">工厂模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#简单工厂"><span class="toc-number">1.14.1.1.</span> <span class="toc-text">简单工厂</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#工厂方法"><span class="toc-number">1.14.1.2.</span> <span class="toc-text">工厂方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#抽象工厂"><span class="toc-number">1.14.1.3.</span> <span class="toc-text">抽象工厂</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理模式"><span class="toc-number">1.14.2.</span> <span class="toc-text">代理模式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JDK动态代理"><span class="toc-number">1.14.2.1.</span> <span class="toc-text">JDK动态代理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者模式"><span class="toc-number">1.14.3.</span> <span class="toc-text">建造者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板方法"><span class="toc-number">1.14.4.</span> <span class="toc-text">模板方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外观模式-也叫门面模式"><span class="toc-number">1.14.5.</span> <span class="toc-text">外观模式, 也叫门面模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型模式"><span class="toc-number">1.14.6.</span> <span class="toc-text">原型模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#策略模式"><span class="toc-number">1.14.7.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#观察者模式"><span class="toc-number">1.14.8.</span> <span class="toc-text">观察者模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装饰器模式"><span class="toc-number">1.14.9.</span> <span class="toc-text">装饰器模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注解"><span class="toc-number">1.15.</span> <span class="toc-text">注解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired"><span class="toc-number">1.15.1.</span> <span class="toc-text">@Autowired</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Autowired和-Resource的区别"><span class="toc-number">1.15.1.1.</span> <span class="toc-text">@Autowired和@Resource的区别</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuration"><span class="toc-number">1.15.2.</span> <span class="toc-text">@Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ComponentScan"><span class="toc-number">1.15.3.</span> <span class="toc-text">@ComponentScan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBootApplication"><span class="toc-number">1.15.4.</span> <span class="toc-text">@SpringBootApplication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBootConfiguration"><span class="toc-number">1.15.5.</span> <span class="toc-text">@SpringBootConfiguration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EnableAutoConfiguration"><span class="toc-number">1.15.6.</span> <span class="toc-text">@EnableAutoConfiguration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自动装载"><span class="toc-number">1.15.7.</span> <span class="toc-text">自动装载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件装配-Conditional注解"><span class="toc-number">1.15.8.</span> <span class="toc-text">条件装配@Conditional注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean的作用域"><span class="toc-number">1.15.9.</span> <span class="toc-text">Bean的作用域</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hystrix"><span class="toc-number">1.15.10.</span> <span class="toc-text">Hystrix</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#服务端降级"><span class="toc-number">1.15.10.0.1.</span> <span class="toc-text">服务端降级</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#客户端降级-常用"><span class="toc-number">1.15.10.1.</span> <span class="toc-text">客户端降级(常用)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#全局通用降级"><span class="toc-number">1.15.10.2.</span> <span class="toc-text">全局通用降级</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ribbon"><span class="toc-number">1.15.11.</span> <span class="toc-text">Ribbon</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BestAvailableRule策略"><span class="toc-number">1.15.11.1.</span> <span class="toc-text">BestAvailableRule策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#WeightedResponseTimeRule策略"><span class="toc-number">1.15.11.2.</span> <span class="toc-text">WeightedResponseTimeRule策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AvailabilityFilteringRule策略"><span class="toc-number">1.15.11.3.</span> <span class="toc-text">AvailabilityFilteringRule策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LoadBalanced"><span class="toc-number">1.15.11.4.</span> <span class="toc-text">@LoadBalanced</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RibbonClient"><span class="toc-number">1.15.11.5.</span> <span class="toc-text">@RibbonClient</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenFegin-FeignClient"><span class="toc-number">1.15.12.</span> <span class="toc-text">OpenFegin(FeignClient)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Feign的重试机制"><span class="toc-number">1.15.12.1.</span> <span class="toc-text">Feign的重试机制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#设置超时时间"><span class="toc-number">1.15.12.2.</span> <span class="toc-text">设置超时时间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#配置默认超时时间"><span class="toc-number">1.15.12.2.1.</span> <span class="toc-text">配置默认超时时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#为单个服务设置超时时间"><span class="toc-number">1.15.12.2.2.</span> <span class="toc-text">为单个服务设置超时时间</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gateway"><span class="toc-number">1.15.13.</span> <span class="toc-text">Gateway</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#路由断言"><span class="toc-number">1.15.13.1.</span> <span class="toc-text">路由断言:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#gateway过滤器"><span class="toc-number">1.15.13.2.</span> <span class="toc-text">gateway过滤器</span></a></li></ol></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 39
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2023 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/16</span><a class="archive-post-title" href="/2023/09/16/React学习/">React学习</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2022 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/16</span><a class="archive-post-title" href="/2022/10/16/python学习/">python学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href="/2022/07/13/系统测试/">系统测试</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2021 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/04</span><a class="archive-post-title" href="/2021/10/04/JAVA备忘/">JAVA备忘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/18</span><a class="archive-post-title" href="/2021/05/18/资产托管/">资产托管</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/15</span><a class="archive-post-title" href="/2021/05/15/virtual-liver/">VIRTUAL-LIVER</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/29</span><a class="archive-post-title" href="/2021/04/29/Electron/">Electron</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/27</span><a class="archive-post-title" href="/2020/08/27/策划策划策划/">策划策划策划</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/22</span><a class="archive-post-title" href="/2020/07/22/JAVA工具类备忘/">JAVA工具类备忘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span><a class="archive-post-title" href="/2020/04/04/Hexo插件/">Hexo插件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/04</span><a class="archive-post-title" href="/2020/04/04/前端备忘/">前端备忘</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/29</span><a class="archive-post-title" href="/2020/03/29/adobe-au/">adobe au入门儿</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2020/03/16/递归学习/">递归学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/16</span><a class="archive-post-title" href="/2020/03/16/chrome插件/">chrome插件</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href="/2020/03/15/推荐系统学习/">推荐系统学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/07</span><a class="archive-post-title" href="/2020/03/07/springboot可视化监控/">SpringBoot可视化监控</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/29</span><a class="archive-post-title" href="/2019/12/29/算法-回溯法/">算法之回溯法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/28</span><a class="archive-post-title" href="/2019/12/28/定时任务/">定时任务</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/26</span><a class="archive-post-title" href="/2019/12/26/Dynamic-Datasource/">Dynamic Datasource</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/23</span><a class="archive-post-title" href="/2019/12/23/JDK8之Stream/">JDK8之Stream</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/21</span><a class="archive-post-title" href="/2019/12/21/查找常用字符串/">LEETCODE-查找常用字符串</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2019/12/15/Hexo搬家/">HEXO的搬家</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/15</span><a class="archive-post-title" href="/2019/12/15/split-line/">split-line</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/13</span><a class="archive-post-title" href="/2019/07/13/K8S/">K8S学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/26</span><a class="archive-post-title" href="/2019/04/26/Apollo使用/">Apollo使用</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/24</span><a class="archive-post-title" href="/2019/04/24/Apollo介绍及部署/">Apollo介绍及部署</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/SLF4J学习(二)/">SLF4J学习(二)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/token_session_cookie/">Token-Session-Cookie</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/创建型设计模式/">设计模式-创建型设计模式</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/Restful/">Restful接口</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/java编程规范/">JAVA编程规范整理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/LINUX学习/">Linux学习(一)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/SpringBoot基础学习/">SpringBoot学习(一)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/13</span><a class="archive-post-title" href="/2019/04/13/Docker/">初入Docker</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/Gradle/">Gradle简介</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/SLF4J-LESSON1/">初入SLF4J</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/List-Array-Map/">List-Set-Map</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/ELK日志系统/">ELK日志系统</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/12</span><a class="archive-post-title" href="/2019/04/12/Redis_API的理解与使用/">Redis-API的理解与使用</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Apollo"><span class="iconfont-archer">&#xe606;</span>Apollo</span>
+    
+        <span class="sidebar-tag-name" data-tags="Docker"><span class="iconfont-archer">&#xe606;</span>Docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dynamic Datasource"><span class="iconfont-archer">&#xe606;</span>Dynamic Datasource</span>
+    
+        <span class="sidebar-tag-name" data-tags="ELK"><span class="iconfont-archer">&#xe606;</span>ELK</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志系统"><span class="iconfont-archer">&#xe606;</span>日志系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="Gradle"><span class="iconfont-archer">&#xe606;</span>Gradle</span>
+    
+        <span class="sidebar-tag-name" data-tags="hexo"><span class="iconfont-archer">&#xe606;</span>hexo</span>
+    
+        <span class="sidebar-tag-name" data-tags="JDK8"><span class="iconfont-archer">&#xe606;</span>JDK8</span>
+    
+        <span class="sidebar-tag-name" data-tags="K8S"><span class="iconfont-archer">&#xe606;</span>K8S</span>
+    
+        <span class="sidebar-tag-name" data-tags="List"><span class="iconfont-archer">&#xe606;</span>List</span>
+    
+        <span class="sidebar-tag-name" data-tags="Set"><span class="iconfont-archer">&#xe606;</span>Set</span>
+    
+        <span class="sidebar-tag-name" data-tags="Map"><span class="iconfont-archer">&#xe606;</span>Map</span>
+    
+        <span class="sidebar-tag-name" data-tags="日志"><span class="iconfont-archer">&#xe606;</span>日志</span>
+    
+        <span class="sidebar-tag-name" data-tags="SLF4J"><span class="iconfont-archer">&#xe606;</span>SLF4J</span>
+    
+        <span class="sidebar-tag-name" data-tags="插件"><span class="iconfont-archer">&#xe606;</span>插件</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="adobe"><span class="iconfont-archer">&#xe606;</span>adobe</span>
+    
+        <span class="sidebar-tag-name" data-tags="JAVA"><span class="iconfont-archer">&#xe606;</span>JAVA</span>
+    
+        <span class="sidebar-tag-name" data-tags="Token"><span class="iconfont-archer">&#xe606;</span>Token</span>
+    
+        <span class="sidebar-tag-name" data-tags="Session"><span class="iconfont-archer">&#xe606;</span>Session</span>
+    
+        <span class="sidebar-tag-name" data-tags="Cookie"><span class="iconfont-archer">&#xe606;</span>Cookie</span>
+    
+        <span class="sidebar-tag-name" data-tags="SpringBoot"><span class="iconfont-archer">&#xe606;</span>SpringBoot</span>
+    
+        <span class="sidebar-tag-name" data-tags="Electron"><span class="iconfont-archer">&#xe606;</span>Electron</span>
+    
+        <span class="sidebar-tag-name" data-tags="LIVER"><span class="iconfont-archer">&#xe606;</span>LIVER</span>
+    
+        <span class="sidebar-tag-name" data-tags="leetcode"><span class="iconfont-archer">&#xe606;</span>leetcode</span>
+    
+        <span class="sidebar-tag-name" data-tags="定时任务"><span class="iconfont-archer">&#xe606;</span>定时任务</span>
+    
+        <span class="sidebar-tag-name" data-tags="算法"><span class="iconfont-archer">&#xe606;</span>算法</span>
+    
+        <span class="sidebar-tag-name" data-tags="回溯法"><span class="iconfont-archer">&#xe606;</span>回溯法</span>
+    
+        <span class="sidebar-tag-name" data-tags="测试"><span class="iconfont-archer">&#xe606;</span>测试</span>
+    
+        <span class="sidebar-tag-name" data-tags="资产托管"><span class="iconfont-archer">&#xe606;</span>资产托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="托管"><span class="iconfont-archer">&#xe606;</span>托管</span>
+    
+        <span class="sidebar-tag-name" data-tags="前端"><span class="iconfont-archer">&#xe606;</span>前端</span>
+    
+        <span class="sidebar-tag-name" data-tags="React"><span class="iconfont-archer">&#xe606;</span>React</span>
+    
+        <span class="sidebar-tag-name" data-tags="Restful"><span class="iconfont-archer">&#xe606;</span>Restful</span>
+    
+        <span class="sidebar-tag-name" data-tags="Redis"><span class="iconfont-archer">&#xe606;</span>Redis</span>
+    
+        <span class="sidebar-tag-name" data-tags="Api"><span class="iconfont-archer">&#xe606;</span>Api</span>
+    
+        <span class="sidebar-tag-name" data-tags="编程规范"><span class="iconfont-archer">&#xe606;</span>编程规范</span>
+    
+        <span class="sidebar-tag-name" data-tags="设计模式"><span class="iconfont-archer">&#xe606;</span>设计模式</span>
+    
+        <span class="sidebar-tag-name" data-tags="推荐系统"><span class="iconfont-archer">&#xe606;</span>推荐系统</span>
+    
+        <span class="sidebar-tag-name" data-tags="递归"><span class="iconfont-archer">&#xe606;</span>递归</span>
+    
+        <span class="sidebar-tag-name" data-tags="vue"><span class="iconfont-archer">&#xe606;</span>vue</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "itibanst"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
